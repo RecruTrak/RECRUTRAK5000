@@ -4,5 +4,9 @@
     <string name="app_name">RECRUTRAK5000</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="login_prompt">Input user name</string>
+    <string name="student_id_prompt">Input student ID</string>
+    <string name="student_lname_prompt">Input your last name</string>
+    <string name="login_button">Login</string>
 
 </resources>
