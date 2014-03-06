@@ -15,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
-        android:text="Button" />
+        android:text="Student Login (CHANGE)" 
+        android:onClick="StudentLogin" />
 
     <Button
         android:id="@+id/button2"
