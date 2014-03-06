@@ -25,7 +25,7 @@
         android:layout_alignRight="@+id/button2"
         android:layout_marginTop="67dp"
         android:ems="10"
-        android:hint="@string/student_id_prompt"
+        android:hint="@string/administrator_username_prompt"
         android:inputType="text" >
 
         <requestFocus />
@@ -40,7 +40,7 @@
         android:layout_below="@+id/editText1"
         android:layout_marginTop="18dp"
         android:ems="10"
-        android:hint="@string/student_lname_prompt"
+        android:hint="@string/administrator_password_prompt"
         android:inputType="textPassword" />
 
 </RelativeLayout>
