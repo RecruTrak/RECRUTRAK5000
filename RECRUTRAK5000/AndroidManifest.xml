@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.recrutrak5000.StudentLogin"
+            android:name="com.example.recrutrak5000.StudentLoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.ONCLICK" />

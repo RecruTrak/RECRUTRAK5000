@@ -13,14 +13,22 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		final Button button = (Button) findViewById(R.id.button1);
-		button.setOnClickListener(new View.OnClickListener() {
+		final Button studentLogin = (Button) findViewById(R.id.button1);
+		studentLogin.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, StudentLogin.class);
+				Intent intent = new Intent(MainActivity.this, StudentLoginActivity.class);
 				startActivity(intent);
-				
+			}
+		});
+		final Button adminLogin = (Button) findViewById(R.id.button2);
+		adminLogin.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, AdministratorLoginActivity.class);
+				startActivity(intent);
 			}
 		});
 	}

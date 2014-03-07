@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
-public class StudentLogin extends Activity {
+public class StudentLoginActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
