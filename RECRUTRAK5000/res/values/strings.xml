@@ -10,5 +10,6 @@
     <string name="login_button">Login</string>
     <string name="administrator_username_prompt">Username</string>
     <string name="administrator_password_prompt">Password</string>
+    <string name="home">Home</string>
 
 </resources>
