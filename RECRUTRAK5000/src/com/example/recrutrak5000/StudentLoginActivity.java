@@ -1,5 +1,8 @@
 package com.example.recrutrak5000;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,9 +16,7 @@ public class StudentLoginActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.student_login);
-		
-		final RecruTrakAPI api = new RecruTrakAPI();
-		
+				
 		final Button button = (Button) findViewById(R.id.button2);
 	    button.setOnClickListener(new View.OnClickListener() {
 	        public void onClick(View v) {
@@ -27,7 +28,18 @@ public class StudentLoginActivity extends Activity {
 	        	String ID = idBox.getText().toString();
 	        	String lastName = lastNameBox.getText().toString();
 	        	
-	        	api.login(ID, lastName);
+	    		Callback<Boolean> cb = new Callback<Boolean>() {
+	    		    @Override
+	    		    public void success(Boolean result, Response response) {
+	    		    	System.out.println("" + result + " - " + response);
+	    		    }
+
+	    		    @Override
+	    		    public void failure(RetrofitError error) {
+	    		    	error.printStackTrace();
+	    		    }
+	    		};
+	        	RestAPI.login(ID, lastName, cb);
 	        }
 	    });
 	}

@@ -8,9 +8,9 @@
 			$_SESSION = array();
 			$user = $this->db->get_where('users', $this->get())->row();
 			if (!empty($user)) {
-				$this->response(array('success' => true));
+				$this->response(true);
 			} else {
-				$this->response(array('success' => false), 403);
+				$this->response(false, 403);
 			}
 		}
 
