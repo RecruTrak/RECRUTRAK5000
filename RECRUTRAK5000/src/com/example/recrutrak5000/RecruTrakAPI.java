@@ -1,7 +1,8 @@
 package com.example.recrutrak5000;
 
 import retrofit.RestAdapter;
-import retrofit.http.*;
+import retrofit.http.POST;
+import retrofit.http.Path;
 
 public class RecruTrakAPI {
 	private static final String url = "http://recrutrak5000-macamatic.rhcloud.com/api";
