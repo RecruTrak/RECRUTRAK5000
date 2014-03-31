@@ -31,6 +31,16 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
+		final Button meetingView = (Button) findViewById(R.id.button4);
+		adminLogin.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, MeetingViewActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
