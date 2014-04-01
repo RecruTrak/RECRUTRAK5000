@@ -18,7 +18,7 @@
         android:background="#999999" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/fName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button2"
@@ -35,12 +35,19 @@
     </EditText>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/emailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_alignLeft="@+id/editText1"
         android:layout_alignRight="@+id/editText1"
         android:layout_marginTop="62dp"
+=======
+        android:layout_alignLeft="@+id/fName"
+        android:layout_alignRight="@+id/fName"
+        android:layout_below="@+id/fName"
+        android:layout_marginTop="18dp"
+>>>>>>> FETCH_HEAD
         android:ems="10"
         android:hint="@string/student_lname_prompt"
         android:inputType="textPassword"

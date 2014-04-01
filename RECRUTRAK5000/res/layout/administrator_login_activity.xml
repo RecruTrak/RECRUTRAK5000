@@ -18,10 +18,10 @@
         android:background="#999999" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/fName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignLeft="@+id/emailAddress"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/button2"
         android:layout_marginTop="18dp"
@@ -35,11 +35,12 @@
     </EditText>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/emailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button2"
         android:layout_alignRight="@+id/button2"
+<<<<<<< HEAD
         android:layout_marginTop="68dp"
         android:ems="10"
         android:hint="@string/administrator_password_prompt"
@@ -76,6 +77,38 @@
 	        android:layout_marginTop="10dp"
 	        android:text="Faculty"
 	        android:textColor="#999999" />
+=======
+        android:layout_below="@+id/fName"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="@string/administrator_password_prompt"
+        android:inputType="textPassword"
+        android:typeface="monospace" />
+
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailAddress"
+        android:layout_centerVertical="true"
+        android:text="Recruiter" />
+
+    <RadioButton
+        android:id="@+id/RadioButton02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailAddress"
+        android:layout_below="@+id/radioButton1"
+        android:text="Staff" />
+
+    <RadioButton
+        android:id="@+id/RadioButton01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailAddress"
+        android:layout_below="@+id/RadioButton02"
+        android:text="Faculty" />
+>>>>>>> FETCH_HEAD
 
     </RadioGroup>
     

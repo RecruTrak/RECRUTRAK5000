@@ -23,8 +23,8 @@ public class StudentLoginActivity extends Activity {
 	            // Perform action on click
 	        	System.out.println("login in");
 	        	
-	        	EditText idBox = (EditText)findViewById(R.id.editText1);
-	        	EditText lastNameBox = (EditText)findViewById(R.id.editText2);
+	        	EditText idBox = (EditText)findViewById(R.id.fName);
+	        	EditText lastNameBox = (EditText)findViewById(R.id.emailAddress);
 	        	String ID = idBox.getText().toString();
 	        	String lastName = lastNameBox.getText().toString();
 	        	
