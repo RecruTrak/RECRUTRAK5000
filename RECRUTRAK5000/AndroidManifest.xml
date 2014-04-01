@@ -92,11 +92,11 @@
             </intent-filter>
         </activity>
         <meta-data
-            android:name="com.google.android.maps.vs.API_KEY"
-            android:value="AIzaSyBgb03BTXuH0-DRnfMoiAZKGiSQgmvusVw"/>
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDcfnVcOD4HqW2xoJuExdolyQHSNHShrJ0"/>
         <meta-data 
             android:name="com.google.android.gms.version"
-            android:value=""/>
+            android:value="@integer/google_play_services_version"/>
         
     </application>
 
