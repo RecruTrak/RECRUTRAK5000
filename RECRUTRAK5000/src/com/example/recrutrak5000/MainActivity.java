@@ -2,6 +2,9 @@ package com.example.recrutrak5000;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.*;
+import android.content.*;
+import android.view.*;
 
 public class MainActivity extends Activity {
 
@@ -34,6 +37,9 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, RequestVisitActivity.class);
+				startActivity(intent);
+			}
+		});
 
 		final Button meetingView = (Button) findViewById(R.id.button4);
 		meetingView.setOnClickListener(new View.OnClickListener() {
