@@ -32,74 +32,189 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	    
+	    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText2" />
+	    
 	    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:text="Date of Birth"
+        android:layout_below="@+id/editText1"
+        android:text="Date of Birth (MM/DD/YYY)"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText3" />
 	    
 	    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/editText2"
         android:text="Gender"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <RadioGroup
+        android:id="@+id/radioGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:orientation="horizontal" >
+        
+		    <RadioButton
+		        android:id="@+id/radioButton1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Male" 
+		        android:textColor="#999999" />
+		
+		    <RadioButton
+		        android:id="@+id/radioButton2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+		        android:text="Female"
+		        android:textColor="#999999" />
+	
+	    </RadioGroup>
 	    
 	    <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
+        android:layout_below="@+id/radioGender"
         android:text="Year in School *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <Spinner
+      	android:id="@+id/spYearInSchool"
+      	android:layout_width="600dp"
+      	android:layout_height="match_parent"
+      	android:background="@android:drawable/btn_dropdown"
+      	android:layout_below="@+id/textView5" />
 	    
 	    <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView5"
+        android:layout_below="@+id/spYearInSchool"
         android:text="GPA *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText4" />
 	    
 	    <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/editText3"
         android:text="Did you take SAT/ACT? *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <RadioGroup
+        android:id="@+id/radioSATACT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView7"
+        android:orientation="horizontal" >
+        
+		    <RadioButton
+		        android:id="@+id/radioButton3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Yes" 
+		        android:textColor="#999999" />
+		
+		    <RadioButton
+		        android:id="@+id/radioButton4"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+		        android:text="No"
+		        android:textColor="#999999" />
+	
+	    </RadioGroup>
 	    
 	    <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView7"
+        android:layout_below="@+id/radioSATACT"
         android:text="High School Name"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText5" />
 	    
 	    <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView8"
+        android:layout_below="@+id/editText4"
         android:text="High School City"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView9"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText6" />
 	    
 	    <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView9"
+        android:layout_below="@+id/editText5"
         android:text="High School State"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
@@ -122,47 +237,107 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	    
+	    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView12"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText7" />
+	    
 	    <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView12"
+        android:layout_below="@+id/editText6"
         android:text="Relationship to Student"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView13"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText8" />
 	    
 	    <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView13"
+        android:layout_below="@+id/editText7"
         android:text="E-mail Address *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView14"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText9" />
 	    
 	    <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView14"
+        android:layout_below="@+id/editText8"
         android:text="Home Phone"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText9"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView15"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText10" />
 	    
 	    <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView15"
+        android:layout_below="@+id/editText9"
         android:text="Cell Phone"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText10"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView16"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText11" />
 	    
 	    <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView16"
+        android:layout_below="@+id/editText10"
         android:text="Address *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
@@ -176,56 +351,123 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	    
+	    <EditText
+        android:id="@+id/editText11"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView18"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText12" />
+	    
 	    <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView18"
+        android:layout_below="@+id/editText11"
         android:text="Address Line 2"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText12"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView19"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText13" />
 	    
 	    <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView19"
+        android:layout_below="@+id/editText12"
         android:text="City *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText13"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView20"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText14" />
 	    
 	    <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView20"
+        android:layout_below="@+id/editText13"
         android:text="State / Province / Region *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText14"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView21"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText15" />
 	    
 	    <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView21"
+        android:layout_below="@+id/editText14"
         android:text="Postal / Zip Code * "
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText15"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView22"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText16" />
 	    
 	    <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView22"
+        android:layout_below="@+id/editText15"
         android:text="Country *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <Spinner
+      	android:id="@+id/spCountry"
+      	android:layout_width="600dp"
+      	android:layout_height="match_parent"
+      	android:background="@android:drawable/btn_dropdown"
+      	android:layout_below="@+id/textView23" />
 	    
 	    <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView23"
+        android:layout_below="@+id/spCountry"
         android:text="About the Visit"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#999999" />
@@ -239,31 +481,233 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	    
+	    <EditText
+        android:id="@+id/editText16"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView25"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText17" />
+	    
 	    <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView25"
+        android:layout_below="@+id/editText16"
         android:text="How many in your party? *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText17"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView26"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText18" />
 	    
 	    <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView26"
+        android:layout_below="@+id/editText17"
         android:text="Time you need to start (HH:MM am/pm)"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText18"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView27"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText19" />
 	    
 	    <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView27"
+        android:layout_below="@+id/editText18"
         android:text="Time you need to be finished (HH:MM am/pm)"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText19"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView28"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/editText20" />
+	    
+	    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText19"
+        android:text="What disciplines of engineering are you interested in? *"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <CheckBox
+		android:id="@+id/cbAerospace"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Aerospace Engineering"
+		android:textColor="#999999"
+		android:layout_below="@+id/textView29" />
+	    
+	    <CheckBox
+		android:id="@+id/cbCivil"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Civil Engineering"
+		android:textColor="#999999"
+		android:layout_below="@+id/cbAerospace" />
+	    
+	    <CheckBox
+		android:id="@+id/cbConstruction"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Construction Engineering"
+		android:textColor="#999999"
+		android:layout_below="@+id/cbCivil" />
+	    
+	    <CheckBox
+		android:id="@+id/cbComputerEng"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Computer Engineering"
+		android:textColor="#999999"
+		android:layout_below="@+id/cbConstruction" />
+	    
+	    <CheckBox
+		android:id="@+id/cbMetallurgical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Metallurgical Engineering"
+		android:textColor="#999999"
+		android:layout_below="@+id/cbComputerEng" />
+	    
+	    <CheckBox
+		android:id="@+id/cbChemical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Chemical Engineering"
+		android:textColor="#999999"
+		android:layout_below="@+id/cbMetallurgical" />
+	    
+	    <CheckBox
+		android:id="@+id/cbCompSci"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Computer Science"
+		android:textColor="#999999"
+		android:layout_below="@+id/cbChemical" />
+	    
+	    <CheckBox
+		android:id="@+id/cbElectrical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Electrical Engineering"
+		android:textColor="#999999"
+		android:layout_below="@+id/cbCompSci" />
+	    
+	    <CheckBox
+		android:id="@+id/cbMechanical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Mechanical Engineering"
+		android:textColor="#999999"
+		android:layout_below="@+id/cbElectrical" />
+	    
+	    <CheckBox
+		android:id="@+id/cbNotSure"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="I am not sure"
+		android:textColor="#999999"
+		android:layout_below="@+id/cbMechanical" />
+	    
+	    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbNotSure"
+        android:text="Other Appointments"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView30"
+        android:text="Tell us about any other appointments you have planned, be sure to include departments and times."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText20"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView31"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000" />
+	    
+	    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText20"
+        android:text="Touring Another Department"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView32"
+        android:text="If you're interested in a general campus tour, honors college visit (if the student has at least a 28 ACT or 1250 SAT), or a tour of any other department, we can arrange it! Just include the information below."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText21"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView33"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000" />
+	    
+	    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText21"
+        android:layout_marginTop="10dp"
+        android:text="Submit Request"
         android:textColor="#999999" />
 	
 	</RelativeLayout>
