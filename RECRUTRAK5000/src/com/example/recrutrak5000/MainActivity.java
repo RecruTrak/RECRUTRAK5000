@@ -1,11 +1,7 @@
 package com.example.recrutrak5000;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends Activity {
 
@@ -31,30 +27,19 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-<<<<<<< HEAD
+		
 		final Button requestVisit = (Button) findViewById(R.id.button2);
 		requestVisit.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, RequestVisitActivity.class);
-=======
-		final Button newRequest = (Button) findViewById(R.id.button2);
-		newRequest.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, StudentMainActivity.class);
-				startActivity(intent);
-			}
-		});
+
 		final Button meetingView = (Button) findViewById(R.id.button4);
 		meetingView.setOnClickListener(new View.OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, MeetingViewActivity.class);
->>>>>>> FETCH_HEAD
 				startActivity(intent);
 			}
 		});

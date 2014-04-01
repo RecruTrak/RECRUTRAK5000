@@ -30,28 +30,20 @@
         android:inputType="text"
         android:typeface="monospace"
         android:textColor="#999999" >
-
-        <requestFocus />
     </EditText>
 
     <EditText
         android:id="@+id/emailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_marginTop="62dp"
-=======
         android:layout_alignLeft="@+id/fName"
         android:layout_alignRight="@+id/fName"
         android:layout_below="@+id/fName"
         android:layout_marginTop="18dp"
->>>>>>> FETCH_HEAD
         android:ems="10"
         android:hint="@string/student_lname_prompt"
         android:inputType="textPassword"
-        android:typeface="monospace"
-        android:textColor="#999999" />
+        android:textColor="#999999"
+        android:typeface="monospace" />
 
 </RelativeLayout>

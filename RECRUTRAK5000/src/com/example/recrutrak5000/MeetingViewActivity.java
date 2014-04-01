@@ -5,13 +5,6 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class MeetingViewActivity extends Activity {
 	
