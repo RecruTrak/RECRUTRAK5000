@@ -18,11 +18,11 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, StudentMainActivity.class);
+				Intent intent = new Intent(MainActivity.this, StudentLoginActivity.class);
 				startActivity(intent);
 			}
 		});
-		final Button adminLogin = (Button) findViewById(R.id.button2);
+		final Button adminLogin = (Button) findViewById(R.id.button3);
 		adminLogin.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -31,9 +31,17 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-		
+		final Button newRequest = (Button) findViewById(R.id.button2);
+		newRequest.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, StudentMainActivity.class);
+				startActivity(intent);
+			}
+		});
 		final Button meetingView = (Button) findViewById(R.id.button4);
-		adminLogin.setOnClickListener(new View.OnClickListener() {
+		meetingView.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
