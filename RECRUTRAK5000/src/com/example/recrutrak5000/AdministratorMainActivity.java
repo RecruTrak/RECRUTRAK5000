@@ -1,6 +1,5 @@
 package com.example.recrutrak5000;
 
-import android.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
