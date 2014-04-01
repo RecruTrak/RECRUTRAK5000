@@ -4,6 +4,9 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -31,14 +34,17 @@ public class StudentLoginActivity extends Activity {
 	    		Callback<Boolean> cb = new Callback<Boolean>() {
 	    		    @Override
 	    		    public void success(Boolean result, Response response) {
-	    		    	System.out.println("" + result + " - " + response);
-	    		    	System.out.println("SUCCESS");
+	    		    	Intent intent = new Intent(StudentLoginActivity.this, StudentMainActivity.class);
+	    				startActivity(intent);
 	    		    }
 
 	    		    @Override
 	    		    public void failure(RetrofitError error) {
-	    		    	System.out.println("FAIL");
-	    		    	error.printStackTrace();
+	    		    	new AlertDialog.Builder(StudentLoginActivity.this).setMessage("Invalid Username or Password").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	    					public void onClick(DialogInterface dialog,int id) {
+	    						dialog.cancel();
+	    					}
+	    				}).create().show();
 	    		    }
 	    		};
 	        	RestAPI.login(ID, lastName, cb);
