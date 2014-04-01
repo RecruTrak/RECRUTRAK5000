@@ -32,10 +32,12 @@ public class StudentLoginActivity extends Activity {
 	    		    @Override
 	    		    public void success(Boolean result, Response response) {
 	    		    	System.out.println("" + result + " - " + response);
+	    		    	System.out.println("SUCCESS");
 	    		    }
 
 	    		    @Override
 	    		    public void failure(RetrofitError error) {
+	    		    	System.out.println("FAIL");
 	    		    	error.printStackTrace();
 	    		    }
 	    		};

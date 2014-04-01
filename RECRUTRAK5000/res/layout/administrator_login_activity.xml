@@ -6,16 +6,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".StudentLoginActivity" >
+    tools:context=".StudentLoginActivity"
+    android:background="#8c2121" >
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp"
-        android:text="@string/login_button" />
+        android:layout_marginTop="320dp"
+        android:text="@string/login_button"
+        android:background="#999999" />
 
     <EditText
         android:id="@+id/editText1"
@@ -24,11 +24,12 @@
         android:layout_alignLeft="@+id/editText2"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/button2"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
         android:hint="@string/administrator_username_prompt"
         android:inputType="text"
-        android:typeface="monospace" >
+        android:typeface="monospace"
+        android:textColor="#999999" >
 
         <requestFocus />
     </EditText>
@@ -39,45 +40,52 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button2"
         android:layout_alignRight="@+id/button2"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="68dp"
         android:ems="10"
         android:hint="@string/administrator_password_prompt"
         android:inputType="textPassword"
-        android:typeface="monospace" />
-
-    <RadioButton
-        android:id="@+id/radioButton1"
+        android:typeface="monospace"
+        android:textColor="#999999" />
+	
+    <RadioGroup
+        android:id="@+id/radioStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_centerVertical="true"
-        android:text="Recruiter" />
+        android:layout_marginTop="150dp" >
+        
+	    <RadioButton
+	        android:id="@+id/radioButton1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:text="Recruiter" 
+	        android:textColor="#999999" />
+	
+	    <RadioButton
+	        android:id="@+id/RadioButton02"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:text="Staff"
+	        android:textColor="#999999" />
+	
+	    <RadioButton
+	        android:id="@+id/RadioButton01"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:text="Faculty"
+	        android:textColor="#999999" />
 
-    <RadioButton
-        android:id="@+id/RadioButton02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/radioButton1"
-        android:text="Staff" />
-
-    <RadioButton
-        android:id="@+id/RadioButton01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/RadioButton02"
-        android:text="Faculty" />
-
+    </RadioGroup>
+    
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/radioButton1"
-        android:layout_alignLeft="@+id/radioButton1"
-        android:layout_marginBottom="14dp"
+        android:layout_marginTop="130dp"
         android:text="Login as:"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
 
 </RelativeLayout>

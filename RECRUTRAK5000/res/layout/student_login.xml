@@ -6,15 +6,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".StudentLoginActivity" >
+    tools:context=".StudentLoginActivity"
+    android:background="#8c2121" >
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/login_button" />
+        android:layout_marginTop="320dp"
+        android:text="@string/login_button"
+        android:background="#999999" />
 
     <EditText
         android:id="@+id/editText1"
@@ -23,10 +24,12 @@
         android:layout_alignLeft="@+id/button2"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/button2"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
         android:hint="@string/student_id_prompt"
-        android:inputType="text" >
+        android:inputType="text"
+        android:typeface="monospace"
+        android:textColor="#999999" >
 
         <requestFocus />
     </EditText>
@@ -37,10 +40,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editText1"
         android:layout_alignRight="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="62dp"
         android:ems="10"
         android:hint="@string/student_lname_prompt"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:typeface="monospace"
+        android:textColor="#999999" />
 
 </RelativeLayout>

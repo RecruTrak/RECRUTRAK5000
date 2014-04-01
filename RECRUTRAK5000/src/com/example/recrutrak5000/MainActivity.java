@@ -22,12 +22,21 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-		final Button adminLogin = (Button) findViewById(R.id.button2);
+		final Button adminLogin = (Button) findViewById(R.id.button3);
 		adminLogin.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, AdministratorLoginActivity.class);
+				startActivity(intent);
+			}
+		});
+		final Button requestVisit = (Button) findViewById(R.id.button2);
+		requestVisit.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, RequestVisitActivity.class);
 				startActivity(intent);
 			}
 		});

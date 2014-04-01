@@ -11,5 +11,8 @@
     <string name="administrator_username_prompt">Username</string>
     <string name="administrator_password_prompt">Password</string>
     <string name="home">Home</string>
+    <string name="student_login">Student Login</string>
+    <string name="administrator_login">Administrator Login</string>
+    <string name="request_visit">Request Visit</string>
 
 </resources>

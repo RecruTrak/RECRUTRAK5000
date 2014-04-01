@@ -6,7 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".StudentLoginActivity" >
+    tools:context=".StudentLoginActivity"
+    android:background="#8c2121" >
 
     <TextView
         android:id="@+id/textView1"
@@ -16,6 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:text="Request Main stuff will be here soon..."
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#999999" />
 
 </RelativeLayout>
