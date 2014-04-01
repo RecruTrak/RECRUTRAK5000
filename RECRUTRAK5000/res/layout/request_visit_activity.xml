@@ -32,14 +32,34 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	    
+	    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000" />
+	    
 	    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:text="Date of Birth"
+        android:layout_below="@+id/editText1"
+        android:text="Date of Birth (MM/DD/YYY)"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+	    
+	    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:hint=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#999999"
+        android:textColor="#000000" />
 	    
 	    <TextView
         android:id="@+id/textView4"
@@ -263,6 +283,51 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView27"
         android:text="Time you need to be finished (HH:MM am/pm)"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView28"
+        android:text="What disciplines of engineering are you interested in? *"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView29"
+        android:text="Other Appointments"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView30"
+        android:text="Tell us about any other appointments you have planned, be sure to include departments and times."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView31"
+        android:text="Touring Another Department"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+	    
+	    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView32"
+        android:text="If you're interested in a general campus tour, honors college visit (if the student has at least a 28 ACT or 1250 SAT), or a tour of any other department, we can arrange it! Just include the information below."
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	
