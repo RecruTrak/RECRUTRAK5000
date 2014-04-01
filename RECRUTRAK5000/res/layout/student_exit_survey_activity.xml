@@ -177,7 +177,7 @@
             android:layout_below="@+id/RadioGroup02"
             android:layout_centerHorizontal="true"
             android:ems="10"
-            android:hint="If no, please say why."
+            android:hint="If no, how many students were in the meeting?"
             android:inputType="textMultiLine" />
         
         <TextView
