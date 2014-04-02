@@ -29,3 +29,5 @@ proguard/
 .idea/
 
 *.log
+
+RECRUTRAK5000/project.properties
