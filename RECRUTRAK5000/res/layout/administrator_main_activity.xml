@@ -19,5 +19,13 @@
         android:text="Admin site stuff will be here soon..."
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#999999" />
+    <Button
+        android:id="@+id/button01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="10dp"
+        android:text="Submit Request"
+        android:textColor="#999999" />
 
 </RelativeLayout>
