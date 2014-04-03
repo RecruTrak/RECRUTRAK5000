@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
-public class AdministratorMainActivity extends Activity {
+public class SetExceptionsActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,27 +18,7 @@ public class AdministratorMainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(AdministratorMainActivity.this, SetAvailabilityActivity.class);
-				startActivity(intent);
-			}
-		});
-		
-		final Button viewMeetings = (Button) findViewById(R.id.button2);
-		setAvailability.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(AdministratorMainActivity.this, ViewMeetingsActivity.class);
-				startActivity(intent);
-			}
-		});
-		
-		final Button setExceptions = (Button) findViewById(R.id.button3);
-		setExceptions.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(AdministratorMainActivity.this, SetExceptionsActivity.class);
+				Intent intent = new Intent(SetExceptionsActivity.this, SetExceptionsActivity.class);
 				startActivity(intent);
 			}
 		});
