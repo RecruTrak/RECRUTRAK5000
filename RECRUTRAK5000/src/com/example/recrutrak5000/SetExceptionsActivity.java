@@ -12,7 +12,7 @@ public class SetExceptionsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.administrator_main_activity);
+		setContentView(R.layout.faculty_main_activity);
 		final Button setAvailability = (Button) findViewById(R.id.button1);
 		setAvailability.setOnClickListener(new View.OnClickListener() {
 			

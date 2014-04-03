@@ -7,28 +7,28 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
-public class AdministratorMainActivity extends Activity {
+public class FacultyMainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.administrator_main_activity);
+		setContentView(R.layout.faculty_main_activity);
 		final Button setAvailability = (Button) findViewById(R.id.button1);
 		setAvailability.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(AdministratorMainActivity.this, SetAvailabilityActivity.class);
+				Intent intent = new Intent(FacultyMainActivity.this, SetAvailabilityActivity.class);
 				startActivity(intent);
 			}
 		});
 		
 		final Button viewMeetings = (Button) findViewById(R.id.button2);
-		setAvailability.setOnClickListener(new View.OnClickListener() {
+		viewMeetings.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(AdministratorMainActivity.this, ViewMeetingsActivity.class);
+				Intent intent = new Intent(FacultyMainActivity.this, ViewMeetingsActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -38,7 +38,7 @@ public class AdministratorMainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(AdministratorMainActivity.this, SetExceptionsActivity.class);
+				Intent intent = new Intent(FacultyMainActivity.this, SetExceptionsActivity.class);
 				startActivity(intent);
 			}
 		});

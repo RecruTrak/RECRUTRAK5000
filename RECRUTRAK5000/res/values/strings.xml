@@ -14,5 +14,6 @@
     <string name="student_login">Student Login</string>
     <string name="administrator_login">Administrator Login</string>
     <string name="request_visit">Request Visit</string>
+    <string name="faculty_main">Faculty Main</string>
 
 </resources>

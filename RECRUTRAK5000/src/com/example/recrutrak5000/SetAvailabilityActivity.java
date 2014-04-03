@@ -13,7 +13,7 @@ public class SetAvailabilityActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.set_availability_activity);
-		final Button setAvailability = (Button) findViewById(R.id.button1);
+		/*final Button setAvailability = (Button) findViewById(R.id.button1);
 		setAvailability.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -21,7 +21,7 @@ public class SetAvailabilityActivity extends Activity {
 				Intent intent = new Intent(SetAvailabilityActivity.this, SetAvailabilityActivity.class);
 				startActivity(intent);
 			}
-		});
+		});*/
 	}
 
 	@Override

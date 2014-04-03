@@ -8,33 +8,163 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".StudentLoginActivity"
     android:background="#8c2121" >
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:text="Set Availability"
+        android:text="Select your available times for meetings with students:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="12dp"
+        android:text="Monday:   "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toRightOf="@+id/textView4"
+        android:text="Morning"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toRightOf="@+id/checkBox1"
+        android:text="Afternoon"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
     
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="View Meetings"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="12dp"
+        android:text="Tuesday:  "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toRightOf="@+id/textView4"
+        android:text="Morning"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toRightOf="@+id/checkBox3"
+        android:text="Afternoon"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
     
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="Set Availability Exceptions"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="12dp"
+        android:text="Wednesday:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_toRightOf="@+id/textView4"
+        android:text="Morning"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_toRightOf="@+id/checkBox5"
+        android:text="Afternoon"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="12dp"
+        android:text="Thursday:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_toRightOf="@+id/textView4"
+        android:text="Morning"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+    <CheckBox
+        android:id="@+id/checkBox8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_toRightOf="@+id/checkBox7"
+        android:text="Afternoon"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="12dp"
+        android:text="Friday:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <CheckBox
+        android:id="@+id/checkBox9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_toRightOf="@+id/textView4"
+        android:text="Morning"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+    <CheckBox
+        android:id="@+id/checkBox10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_toRightOf="@+id/checkBox9"
+        android:text="Afternoon"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
 </RelativeLayout>
