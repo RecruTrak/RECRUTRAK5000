@@ -18,8 +18,8 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="Prospective Student Information"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#999999" />
 	    
@@ -228,13 +228,21 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	    
+	    <Spinner
+      	android:id="@+id/spState"
+      	android:layout_width="600dp"
+      	android:layout_height="match_parent"
+      	android:background="@android:drawable/btn_dropdown"
+      	android:layout_below="@+id/textView10" />
+	    
 	    <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/textView10"
+        android:layout_below="@+id/spState"
         android:text="Contact Information"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#999999" />
 	    
@@ -355,6 +363,7 @@
         android:layout_below="@+id/editText10"
         android:layout_marginTop="10dp"
         android:text="Address *"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	    
@@ -434,24 +443,19 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	    
-	    <EditText
-        android:id="@+id/editText14"
-        android:layout_width="600dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView21"
-        android:hint=""
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:background="#999999"
-        android:textColor="#000000"
-        android:singleLine="true"
-        android:nextFocusDown="@+id/editText15" />
+	    <Spinner
+      	android:id="@+id/spStateAddress"
+      	android:layout_width="600dp"
+      	android:layout_height="match_parent"
+      	android:background="@android:drawable/btn_dropdown"
+      	android:layout_below="@+id/textView21" />
 	    
 	    <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/editText14"
+        android:layout_below="@+id/spStateAddress"
         android:text="Postal / Zip Code * "
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
@@ -491,6 +495,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/spCountry"
         android:layout_marginTop="10dp"
+        android:textStyle="bold"
         android:text="About the Visit"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#999999" />
@@ -679,6 +684,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/cbNotSure"
+        android:textStyle="bold"
         android:text="Other Appointments"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
@@ -709,6 +715,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/editText20"
+        android:textStyle="bold"
         android:text="Touring Another Department"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />

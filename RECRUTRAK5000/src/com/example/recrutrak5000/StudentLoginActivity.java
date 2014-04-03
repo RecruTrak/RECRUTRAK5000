@@ -28,26 +28,29 @@ public class StudentLoginActivity extends Activity {
 	        	
 	        	EditText idBox = (EditText)findViewById(R.id.fName);
 	        	EditText lastNameBox = (EditText)findViewById(R.id.emailAddress);
-	        	String ID = idBox.getText().toString();
+	        	int ID = Integer.parseInt(idBox.getText().toString());
 	        	String lastName = lastNameBox.getText().toString();
 	        	
-	    		Callback<Boolean> cb = new Callback<Boolean>() {
+	        	System.out.println(ID);
+	        	System.out.println(lastName);
+	        	RestAPI.login(ID, lastName, new Callback<Student>() {
 	    		    @Override
-	    		    public void success(Boolean result, Response response) {
+	    		    public void success(Student student, Response response) {
 	    		    	Intent intent = new Intent(StudentLoginActivity.this, StudentMainActivity.class);
+	    		    	intent.putExtra("student", student);
 	    				startActivity(intent);
 	    		    }
 
 	    		    @Override
 	    		    public void failure(RetrofitError error) {
-	    		    	new AlertDialog.Builder(StudentLoginActivity.this).setMessage("Invalid Username or Password").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	    		    	error.printStackTrace();
+	    		    	new AlertDialog.Builder(StudentLoginActivity.this).setMessage(error.getMessage()).setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	    					public void onClick(DialogInterface dialog,int id) {
 	    						dialog.cancel();
 	    					}
 	    				}).create().show();
 	    		    }
-	    		};
-	        	RestAPI.login(ID, lastName, cb);
+	    		});
 	        }
 	    });
 	}

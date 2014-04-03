@@ -10,15 +10,24 @@ public class RestAPI {
 	private static final API api = new RestAdapter.Builder().setEndpoint(url).build().create(API.class);
 	
 	interface API {
-		@GET("/login/username/{username}/password/{password}")
+		@GET("/student_login/{id}/{lastName}")
 		void login(
-			@Path("username") String username,
-			@Path("password") String password,
-			Callback<Boolean> cb
+			@Path("id") int id,
+			@Path("lastName") String lastName,
+			Callback<Student> cb
+		);
+		
+		@GET("/students/{id}")
+		Student getStudent(
+			@Path("id") int id
 		);
 	}
 
-	public static void login(String username, String password, Callback<Boolean> cb) {
-		api.login(username, password, cb);
+	public static void login(int id, String lastName, Callback<Student> cb) {
+		api.login(id, lastName, cb);
+	}
+	
+	public static void getStudent(int id) {
+		api.getStudent(id);
 	}
 }
