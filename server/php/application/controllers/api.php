@@ -5,11 +5,11 @@
 
 	class Api extends REST_Controller {
 
-		public function login_get() {
+		public function student_login_get($id, $lastName) {
 			$_SESSION = array();
-			$user = $this->db->get_where('users', $this->get())->row();
-			if (!empty($user)) {
-				$this->response(true, 200);
+			$student = $this->db->get_where('students', array('id' => $id, 'lastName' => $lastName))->row();
+			if (!empty($student)) {
+				$this->response($student, 200);
 			} else {
 				$this->response(false, 403);
 			}
@@ -36,9 +36,8 @@
 
 		public function students_post() {
 			$student = $this->post();
-			unset($student['id']);
 			if ($this->db->insert('students', $student)) {
-				$this->response($this->db->insert_id(), 201);
+				$this->response(true, 201);
 			} else {
 				$this->response(false, 403);
 			}
