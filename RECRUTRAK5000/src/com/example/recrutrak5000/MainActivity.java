@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
 		meetingView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, MeetingViewActivity.class);
+				Intent intent = new Intent(MainActivity.this, MapViewActivity.class);
 				startActivity(intent);
 			}
 		});
