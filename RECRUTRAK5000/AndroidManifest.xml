@@ -62,7 +62,9 @@
         <activity
             android:logo="@android:color/transparent"
             android:name="com.example.recrutrak5000.RequestVisitActivity"
-            android:label="@string/request_visit" >
+            android:label="@string/request_visit"
+            android:windowSoftInputMode="stateHidden"
+            android:focusable="false" >
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.ONCLICK" />
 
