@@ -1,17 +1,27 @@
 package com.example.recrutrak5000;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 
-public class ExitSurveyActivity extends Activity {
+public class FacultyExitSurveyActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.exit_survey_activity);
+		setContentView(R.layout.student_exit_survey_activity);
 		
-		
+		final Button meetingView = (Button) findViewById(R.id.button1);
+		meetingView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+				finish();
+			}
+		});
 	}
 
 	@Override

@@ -62,7 +62,9 @@
         <activity
             android:logo="@android:color/transparent"
             android:name="com.example.recrutrak5000.RequestVisitActivity"
-            android:label="@string/request_visit" >
+            android:label="@string/request_visit"
+            android:windowSoftInputMode="stateHidden"
+            android:focusable="false" >
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.ONCLICK" />
 
@@ -72,7 +74,7 @@
         
         <activity
             android:logo="@android:color/transparent"
-            android:name="com.example.recrutrak5000.ExitSurveyActivity"
+            android:name="com.example.recrutrak5000.StudentExitSurveyActivity"
             android:label="@string/home" >
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.ONCLICK" />
@@ -92,11 +94,11 @@
             </intent-filter>
         </activity>
         <meta-data
-            android:name="com.google.android.maps.vs.API_KEY"
-            android:value="AIzaSyBgb03BTXuH0-DRnfMoiAZKGiSQgmvusVw"/>
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDcfnVcOD4HqW2xoJuExdolyQHSNHShrJ0"/>
         <meta-data 
             android:name="com.google.android.gms.version"
-            android:value=""/>
+            android:value="@integer/google_play_services_version"/>
         
     </application>
 
