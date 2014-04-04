@@ -22,28 +22,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/password"
-        android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/button2"
         android:layout_marginTop="18dp"
         android:ems="10"
         android:hint="@string/administrator_username_prompt"
         android:inputType="text"
-        android:typeface="monospace"
-        android:textColor="#999999" >
+        android:textColor="#999999"
+        android:typeface="monospace" >
 
         <requestFocus />
     </EditText>
 
     <EditText
         android:id="@+id/password"
-        android:layout_marginTop="68dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/button2"
+        android:layout_marginTop="68dp"
         android:ems="10"
         android:hint="@string/administrator_password_prompt"
         android:inputType="textPassword"
-        android:typeface="monospace"
-        android:textColor="#999999" />
+        android:textColor="#999999"
+        android:typeface="monospace" />
 	
     <RadioGroup
         android:id="@+id/radioStatus"
