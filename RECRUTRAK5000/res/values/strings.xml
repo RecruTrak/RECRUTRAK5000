@@ -15,5 +15,9 @@
     <string name="administrator_login">Administrator Login</string>
     <string name="request_visit">Request Visit</string>
     <string name="faculty_main">Faculty Main</string>
+    <string name="student_welcome">Welcome Student!</string>
+    <string name="view_meetings">View Meetings</string>
+    <string name="set_exceptions">Set Exceptions</string>
+    <string name="view_requests">View Requests</string>
 
 </resources>

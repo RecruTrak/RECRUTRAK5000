@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:text="View Meetings"
+        android:text="View Requests"
         android:textColor="#999999" />
     
     <Button

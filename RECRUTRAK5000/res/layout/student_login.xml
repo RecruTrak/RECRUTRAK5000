@@ -27,7 +27,7 @@
         android:layout_marginTop="18dp"
         android:ems="10"
         android:hint="@string/student_id_prompt"
-        android:inputType="text"
+        android:inputType="number"
         android:typeface="monospace"
         android:textColor="#999999" >
     </EditText>
@@ -42,7 +42,6 @@
         android:layout_marginTop="18dp"
         android:ems="10"
         android:hint="@string/student_lname_prompt"
-        android:inputType="textPassword"
         android:textColor="#999999"
         android:typeface="monospace" />
 

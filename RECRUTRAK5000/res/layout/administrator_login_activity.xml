@@ -51,14 +51,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp" >
-        
-	    <RadioButton
-	        android:id="@+id/radioButton1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginTop="10dp"
-	        android:text="Recruiter" 
-	        android:textColor="#999999" />
 	
 	    <RadioButton
 	        android:id="@+id/RadioButton02"

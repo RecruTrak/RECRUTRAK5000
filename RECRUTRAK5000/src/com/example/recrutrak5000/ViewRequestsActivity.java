@@ -12,7 +12,7 @@ public class ViewRequestsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.view_meetings_activity);
+		setContentView(R.layout.view_requests_activity);
 		/*final Button setAvailability = (Button) findViewById(R.id.button1);
 		setAvailability.setOnClickListener(new View.OnClickListener() {
 			
