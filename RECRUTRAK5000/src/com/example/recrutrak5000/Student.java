@@ -1,12 +1,12 @@
 package com.example.recrutrak5000;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Student implements Serializable {
-	public int id, zip, graduationYear;
-	public String firstName, lastName, address, address2, city, state, email, highSchoolName, highSchoolCity;
+	public int id, zip;
+	public String firstName, lastName, address, address2, city, homePhone, cellPhone, dob, state, country, email, highSchoolName, highSchoolCity, highSchoolState, yearInSchool;
 	public boolean gender, tookTest;
-	public long phone;
 	public float GPA;
-	public Department[] departments;
+	public List<Integer> departments;
 }

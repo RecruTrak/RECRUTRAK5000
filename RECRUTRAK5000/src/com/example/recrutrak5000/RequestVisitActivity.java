@@ -1,6 +1,7 @@
 package com.example.recrutrak5000;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -14,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
@@ -96,6 +96,7 @@ public class RequestVisitActivity extends Activity {
 		submitRequest.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				sendRequest();
 				new AlertDialog.Builder(RequestVisitActivity.this).setTitle("Request submitted successfully!").setMessage("Your request was submitted successfully and will be reviewed. Check your e-mail for login instructions in order to view your scheduled meeting and/or status of your request.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog,int id) {
 						Intent intent = new Intent(RequestVisitActivity.this, MainActivity.class);
@@ -110,63 +111,59 @@ public class RequestVisitActivity extends Activity {
 		EditText name = (EditText) findViewById(R.id.name);
 		String rqName = name.getText().toString();
 		EditText dob = (EditText) findViewById(R.id.birthDate);
-		String rqDob = name.getText().toString();
+		String rqDob = dob.getText().toString();
 		EditText gpa = (EditText) findViewById(R.id.gpa);
-		String rqGpa = name.getText().toString();
+		String rqGpa = gpa.getText().toString();
 		EditText hsName = (EditText) findViewById(R.id.hsName);
-		String rqHsName = name.getText().toString();
+		String rqHsName = hsName.getText().toString();
 		EditText hsCity = (EditText) findViewById(R.id.hsCity);
-		String rqHsCity = name.getText().toString();
+		String rqHsCity = hsCity.getText().toString();
 		EditText email = (EditText) findViewById(R.id.email);
-		String rqEmail = name.getText().toString();
+		String rqEmail = email.getText().toString();
 		EditText hPhone = (EditText) findViewById(R.id.hPhone);
-		String rqHPhone = name.getText().toString();
+		String rqHPhone = hPhone.getText().toString();
 		EditText cPhone = (EditText) findViewById(R.id.cPhone);
-		String rqCPhone = name.getText().toString();
+		String rqCPhone = cPhone.getText().toString();
 		EditText aLine1 = (EditText) findViewById(R.id.aLine1);
-		String rqALine1 = name.getText().toString();
+		String rqALine1 = aLine1.getText().toString();
 		EditText aLine2 = (EditText) findViewById(R.id.aLine2);
-		String rqALine2 = name.getText().toString();
+		String rqALine2 = aLine2.getText().toString();
 		EditText city = (EditText) findViewById(R.id.city);
-		String rqCity = name.getText().toString();
+		String rqCity = city.getText().toString();
 		EditText zip = (EditText) findViewById(R.id.zip);
-		String rqZip = name.getText().toString();
+		String rqZip = zip.getText().toString();
 		EditText visitDate = (EditText) findViewById(R.id.visitDate);
-		String rqVisitDate = name.getText().toString();
+		String rqVisitDate = visitDate.getText().toString();
 		EditText numInParty = (EditText) findViewById(R.id.numInParty);
-		String rqNumInParty = name.getText().toString();
+		String rqNumInParty = numInParty.getText().toString();
 		EditText startTime = (EditText) findViewById(R.id.startTime);
-		String rqStartTime = name.getText().toString();
+		String rqStartTime = startTime.getText().toString();
 		EditText endTime = (EditText) findViewById(R.id.endTime);
-		String rqEndTime = name.getText().toString();
+		String rqEndTime = endTime.getText().toString();
 		EditText otherAppointments = (EditText) findViewById(R.id.otherAppointments);
-		String rqOtherAppointments = name.getText().toString();
+		String rqOtherAppointments = otherAppointments.getText().toString();
 		EditText genTourInfo = (EditText) findViewById(R.id.genTourInfo);
-		String rqGenTourInfo = name.getText().toString();
+		String rqGenTourInfo = genTourInfo.getText().toString();
 		
 		RadioGroup rgSatAct = (RadioGroup) findViewById(R.id.radioSATACT);
 		RadioGroup rgGender = (RadioGroup) findViewById(R.id.radioGender);
 		
-		String rqGender;
-		String rqTakenSatAct;
+		boolean rqGender = false;
+		boolean rqTakenSatAct = false;
 		
 		if(rgSatAct.getCheckedRadioButtonId()!=-1){
 		    int id= rgSatAct.getCheckedRadioButtonId();
-		    View radioButton = rgSatAct.findViewById(id);
-		    int radioId = rgSatAct.indexOfChild(radioButton);
-		    RadioButton btn = (RadioButton) rgSatAct.getChildAt(radioId);
-		    rqTakenSatAct = (String) btn.getText();
+		    if (id == 0) rqTakenSatAct = true;
+		    else rqTakenSatAct = false;
 		}
 		
 		if(rgGender.getCheckedRadioButtonId()!=-1){
 		    int id= rgGender.getCheckedRadioButtonId();
-		    View radioButton = rgGender.findViewById(id);
-		    int radioId = rgGender.indexOfChild(radioButton);
-		    RadioButton btn = (RadioButton) rgGender.getChildAt(radioId);
-		    rqGender = (String) btn.getText();
+		    if (id == 0) rqGender = true;
+		    else rqGender = false;
 		}
 		
-		ArrayList<Integer> interestedDisciplines = new ArrayList<Integer>();
+		List<Integer> interestedDisciplines = new ArrayList<Integer>();
 		
 		CheckBox cbAerospace = (CheckBox) findViewById(R.id.cbAerospace);
 		if (cbAerospace.isChecked()) interestedDisciplines.add(1);
@@ -186,6 +183,55 @@ public class RequestVisitActivity extends Activity {
 		if (cbElectrical.isChecked()) interestedDisciplines.add(8);
 		CheckBox cbMechanical = (CheckBox) findViewById(R.id.cbMechanical);
 		if (cbMechanical.isChecked()) interestedDisciplines.add(9);
+		
+		Request newRequest = new Request();
+		Student newStudent = new Student();
+		
+		Spinner spYearInSchool = (Spinner)findViewById(R.id.spYearInSchool);
+		String rqYearInSchool = spYearInSchool.getSelectedItem().toString();
+		
+		Spinner spHsState = (Spinner)findViewById(R.id.spState);
+		String rqHsState = spHsState.getSelectedItem().toString();
+		
+		Spinner spAdState = (Spinner)findViewById(R.id.spStateAddress);
+		String rqAdState = spAdState.getSelectedItem().toString();
+		
+		Spinner spAdCountry = (Spinner)findViewById(R.id.spCountry);
+		String rqAdCountry = spAdCountry.getSelectedItem().toString();
+		
+		newStudent.address = rqALine1;
+		newStudent.address2 = rqALine2;
+		newStudent.city = rqCity;
+		newStudent.email = rqEmail;
+		newStudent.departments = interestedDisciplines;
+		String[] names = rqName.split("\\s+");
+		newStudent.firstName = names[0];
+		newStudent.lastName = names[names.length - 1];
+		newStudent.gender = rqGender;
+		if (rqGpa != "") newStudent.GPA = Float.parseFloat(rqGpa);
+		newStudent.yearInSchool = rqYearInSchool;
+		newStudent.highSchoolCity = rqHsCity;
+		newStudent.highSchoolName = rqHsName;
+		newStudent.highSchoolState = rqHsState;
+		newStudent.country = rqAdCountry;
+		newStudent.state = rqAdState;
+		if (rqZip != "") newStudent.zip = Integer.parseInt(rqZip);
+		newStudent.homePhone = rqHPhone;
+		newStudent.cellPhone = rqCPhone;
+		newStudent.tookTest = rqTakenSatAct;
+		newStudent.dob = rqDob;
+		
+		newRequest.student = newStudent;
+		if (rqNumInParty != "") newRequest.guests = Integer.parseInt(rqNumInParty);
+		newRequest.startTime = rqStartTime;
+		newRequest.endTime = rqEndTime;
+		newRequest.visitDate = rqVisitDate;
+		newRequest.otherAppointments = rqOtherAppointments;
+		newRequest.genTourInfo = rqGenTourInfo;
+		
+		System.out.println(newRequest);
+		
+		// TODO: Send request to DB
 		
 	}
 	

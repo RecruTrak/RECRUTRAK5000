@@ -12,7 +12,7 @@ public class StudentMainActivity extends Activity {
 		Student student = (Student)getIntent().getSerializableExtra("student");
 		System.out.println(student.id);
 		System.out.println(student.gender);
-		System.out.println(student.phone);
+		System.out.println(student.cellPhone);
 		System.out.println(student.zip);
 		System.out.println(student.firstName);
 		System.out.println(student.lastName);
