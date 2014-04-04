@@ -12,6 +12,10 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 public class RequestVisitActivity extends Activity {
@@ -41,9 +45,6 @@ public class RequestVisitActivity extends Activity {
 
 		for (String countryCode : locales) {
 		    Locale obj = new Locale("", countryCode);
-
-		    System.out.println("Country Code = " + obj.getCountry() 
-		        + ", Country Name = " + obj.getDisplayCountry());
 		    
 		    countries.add(obj.getDisplayCountry());
 		}
@@ -105,6 +106,89 @@ public class RequestVisitActivity extends Activity {
 		});
 	}
 
+	public void sendRequest() {
+		EditText name = (EditText) findViewById(R.id.name);
+		String rqName = name.getText().toString();
+		EditText dob = (EditText) findViewById(R.id.birthDate);
+		String rqDob = name.getText().toString();
+		EditText gpa = (EditText) findViewById(R.id.gpa);
+		String rqGpa = name.getText().toString();
+		EditText hsName = (EditText) findViewById(R.id.hsName);
+		String rqHsName = name.getText().toString();
+		EditText hsCity = (EditText) findViewById(R.id.hsCity);
+		String rqHsCity = name.getText().toString();
+		EditText email = (EditText) findViewById(R.id.email);
+		String rqEmail = name.getText().toString();
+		EditText hPhone = (EditText) findViewById(R.id.hPhone);
+		String rqHPhone = name.getText().toString();
+		EditText cPhone = (EditText) findViewById(R.id.cPhone);
+		String rqCPhone = name.getText().toString();
+		EditText aLine1 = (EditText) findViewById(R.id.aLine1);
+		String rqALine1 = name.getText().toString();
+		EditText aLine2 = (EditText) findViewById(R.id.aLine2);
+		String rqALine2 = name.getText().toString();
+		EditText city = (EditText) findViewById(R.id.city);
+		String rqCity = name.getText().toString();
+		EditText zip = (EditText) findViewById(R.id.zip);
+		String rqZip = name.getText().toString();
+		EditText visitDate = (EditText) findViewById(R.id.visitDate);
+		String rqVisitDate = name.getText().toString();
+		EditText numInParty = (EditText) findViewById(R.id.numInParty);
+		String rqNumInParty = name.getText().toString();
+		EditText startTime = (EditText) findViewById(R.id.startTime);
+		String rqStartTime = name.getText().toString();
+		EditText endTime = (EditText) findViewById(R.id.endTime);
+		String rqEndTime = name.getText().toString();
+		EditText otherAppointments = (EditText) findViewById(R.id.otherAppointments);
+		String rqOtherAppointments = name.getText().toString();
+		EditText genTourInfo = (EditText) findViewById(R.id.genTourInfo);
+		String rqGenTourInfo = name.getText().toString();
+		
+		RadioGroup rgSatAct = (RadioGroup) findViewById(R.id.radioSATACT);
+		RadioGroup rgGender = (RadioGroup) findViewById(R.id.radioGender);
+		
+		String rqGender;
+		String rqTakenSatAct;
+		
+		if(rgSatAct.getCheckedRadioButtonId()!=-1){
+		    int id= rgSatAct.getCheckedRadioButtonId();
+		    View radioButton = rgSatAct.findViewById(id);
+		    int radioId = rgSatAct.indexOfChild(radioButton);
+		    RadioButton btn = (RadioButton) rgSatAct.getChildAt(radioId);
+		    rqTakenSatAct = (String) btn.getText();
+		}
+		
+		if(rgGender.getCheckedRadioButtonId()!=-1){
+		    int id= rgGender.getCheckedRadioButtonId();
+		    View radioButton = rgGender.findViewById(id);
+		    int radioId = rgGender.indexOfChild(radioButton);
+		    RadioButton btn = (RadioButton) rgGender.getChildAt(radioId);
+		    rqGender = (String) btn.getText();
+		}
+		
+		ArrayList<Integer> interestedDisciplines = new ArrayList<Integer>();
+		
+		CheckBox cbAerospace = (CheckBox) findViewById(R.id.cbAerospace);
+		if (cbAerospace.isChecked()) interestedDisciplines.add(1);
+		CheckBox cbCivil = (CheckBox) findViewById(R.id.cbCivil);
+		if (cbCivil.isChecked()) interestedDisciplines.add(2);
+		CheckBox cbConstruction = (CheckBox) findViewById(R.id.cbConstruction);
+		if (cbConstruction.isChecked()) interestedDisciplines.add(3);
+		CheckBox cbComputerEng = (CheckBox) findViewById(R.id.cbComputerEng);
+		if (cbComputerEng.isChecked()) interestedDisciplines.add(4);
+		CheckBox cbMetallurgical = (CheckBox) findViewById(R.id.cbMetallurgical);
+		if (cbMetallurgical.isChecked()) interestedDisciplines.add(5);
+		CheckBox cbChemical = (CheckBox) findViewById(R.id.cbChemical);
+		if (cbChemical.isChecked()) interestedDisciplines.add(6);
+		CheckBox cbCompSci = (CheckBox) findViewById(R.id.cbCompSci);
+		if (cbCompSci.isChecked()) interestedDisciplines.add(7);
+		CheckBox cbElectrical = (CheckBox) findViewById(R.id.cbElectrical);
+		if (cbElectrical.isChecked()) interestedDisciplines.add(8);
+		CheckBox cbMechanical = (CheckBox) findViewById(R.id.cbMechanical);
+		if (cbMechanical.isChecked()) interestedDisciplines.add(9);
+		
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
