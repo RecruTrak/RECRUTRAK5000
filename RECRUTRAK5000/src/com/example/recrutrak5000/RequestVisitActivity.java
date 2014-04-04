@@ -197,7 +197,7 @@ public class RequestVisitActivity extends Activity {
 		Spinner spAdCountry = (Spinner)findViewById(R.id.spCountry);
 		String rqAdCountry = spAdCountry.getSelectedItem().toString();
 		
-		newStudent.id = 123;
+		newStudent.id = 9;
 		newStudent.address = rqALine1;
 		newStudent.address2 = rqALine2;
 		newStudent.city = rqCity;
