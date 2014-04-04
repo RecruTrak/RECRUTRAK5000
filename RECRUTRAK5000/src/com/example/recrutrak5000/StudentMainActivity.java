@@ -1,25 +1,56 @@
 package com.example.recrutrak5000;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+
 public class StudentMainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.student_main_activity);
-		Student student = (Student)getIntent().getSerializableExtra("student");
-		System.out.println(student.id);
-		System.out.println(student.gender);
-		System.out.println(student.cellPhone);
-		System.out.println(student.zip);
-		System.out.println(student.firstName);
-		System.out.println(student.lastName);
-		System.out.println(student.address);
-		System.out.println(student.city);
-		System.out.println(student.state);
-		System.out.println(student.email);
+		final Button viewRequests = (Button) findViewById(R.id.button1);
+		viewRequests.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(StudentMainActivity.this, ViewRequestsActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		final Button viewMeetings = (Button) findViewById(R.id.button2);
+		viewMeetings.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(StudentMainActivity.this, ViewMeetingsActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		final Button newRequest = (Button) findViewById(R.id.button3);
+		newRequest.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(StudentMainActivity.this, RequestVisitActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		final Button logout = (Button) findViewById(R.id.button4);
+		logout.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
 	}
 
 	@Override

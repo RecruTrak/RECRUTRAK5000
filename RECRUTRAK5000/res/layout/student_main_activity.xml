@@ -8,92 +8,42 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".StudentLoginActivity"
     android:background="#8c2121" >
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="View Meetings"
+        android:textColor="#999999" />
+    
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="View Meetings"
+        android:textColor="#999999" />
+    
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="New Request"
+        android:textColor="#999999" />
 
-        <EditText
-            android:id="@+id/fName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:hint="First Name" />
-
-        <EditText
-            android:id="@+id/lName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/fName"
-            android:layout_below="@+id/fName"
-            android:ems="10"
-            android:hint="Last Name" >
-
-        </EditText>
-
-        <EditText
-            android:id="@+id/emailAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/lName"
-            android:layout_below="@+id/lName"
-            android:ems="10"
-            android:hint="Email Address"
-            android:inputType="textEmailAddress" />
-
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/emailAddress"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:hint="Phone Number"
-            android:inputType="phone" />
-
-        <EditText
-            android:id="@+id/EditText01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText1"
-            android:layout_below="@+id/editText1"
-            android:ems="10"
-            android:hint="Address Line 1" />
-
-        <EditText
-            android:id="@+id/EditText02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/EditText01"
-            android:layout_below="@+id/EditText01"
-            android:ems="10"
-            android:hint="Address Line 2" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/EditText02"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:hint="City" />
-
-        <EditText
-            android:id="@+id/EditText03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText2"
-            android:layout_below="@+id/editText2"
-            android:ems="10"
-            android:hint="State" />
-
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/EditText03"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="phone"
-            android:hint="Zip Code" />
-
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="10dp"
+        android:text="Logout"
+        android:textColor="#999999" />
 
 </RelativeLayout>
