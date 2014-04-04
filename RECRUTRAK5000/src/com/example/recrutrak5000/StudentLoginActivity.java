@@ -33,7 +33,7 @@ public class StudentLoginActivity extends Activity {
 	        	
 	        	System.out.println(ID);
 	        	System.out.println(lastName);
-	        	RestAPI.login(ID, lastName, new Callback<Student>() {
+	        	RestAPI.studentLogin(ID, lastName, new Callback<Student>() {
 	    		    @Override
 	    		    public void success(Student student, Response response) {
 	    		    	Intent intent = new Intent(StudentLoginActivity.this, StudentMainActivity.class);
@@ -43,8 +43,7 @@ public class StudentLoginActivity extends Activity {
 
 	    		    @Override
 	    		    public void failure(RetrofitError error) {
-	    		    	error.printStackTrace();
-	    		    	new AlertDialog.Builder(StudentLoginActivity.this).setMessage(error.getMessage()).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	    		    	new AlertDialog.Builder(StudentLoginActivity.this).setMessage("Invalid ID/Last Name Combination").setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	    					public void onClick(DialogInterface dialog,int id) {
 	    						dialog.cancel();
 	    					}

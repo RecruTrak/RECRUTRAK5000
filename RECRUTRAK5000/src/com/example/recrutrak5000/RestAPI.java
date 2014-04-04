@@ -2,7 +2,9 @@ package com.example.recrutrak5000;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
+import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import retrofit.http.Path;
 
 public class RestAPI {
@@ -10,24 +12,28 @@ public class RestAPI {
 	private static final API api = new RestAdapter.Builder().setEndpoint(url).build().create(API.class);
 	
 	interface API {
-		@GET("/student_login/{id}/{lastName}")
-		void login(
+		@GET("/studentLogin/{id}/{lastName}")
+		void studentLogin(
 			@Path("id") int id,
 			@Path("lastName") String lastName,
 			Callback<Student> cb
 		);
 		
-		@GET("/students/{id}")
-		Student getStudent(
-			@Path("id") int id
+		@POST("/requests/{studentId}")
+		void postRequest(
+			@Body Request request,
+			@Path("studentId") int studentId,
+			Callback<Boolean> cb
 		);
 	}
 
-	public static void login(int id, String lastName, Callback<Student> cb) {
-		api.login(id, lastName, cb);
+	public static void studentLogin(int id, String lastName, Callback<Student> cb) {
+		api.studentLogin(id, lastName, cb);
 	}
 	
-	public static void getStudent(int id) {
-		api.getStudent(id);
+	public static void postRequest(Request request, Callback<Boolean> cb) {
+		int studentId = request.student.id;
+		request.student = null;
+		api.postRequest(request, studentId, cb);
 	}
 }
