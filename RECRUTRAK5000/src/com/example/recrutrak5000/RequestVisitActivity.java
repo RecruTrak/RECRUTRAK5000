@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -97,12 +101,6 @@ public class RequestVisitActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				sendRequest();
-				new AlertDialog.Builder(RequestVisitActivity.this).setTitle("Request submitted successfully!").setMessage("Your request was submitted successfully and will be reviewed. Check your e-mail for login instructions in order to view your scheduled meeting and/or status of your request.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						Intent intent = new Intent(RequestVisitActivity.this, MainActivity.class);
-						startActivity(intent);
-					}
-				}).create().show();
 			}
 		});
 	}
@@ -231,7 +229,36 @@ public class RequestVisitActivity extends Activity {
 		
 		System.out.println(newRequest);
 		
-		// TODO: Send request to DB
+		// Send request to DB
+		
+		RestAPI.postRequest(newRequest, new Callback<Boolean>() {
+		    @Override
+		    public void success(Boolean success, Response response) {
+		    	if (success) {
+			    	new AlertDialog.Builder(RequestVisitActivity.this).setTitle("Request submitted successfully!").setMessage("Your request was submitted successfully and will be reviewed. Check your e-mail for login instructions in order to view your scheduled meeting and/or status of your request.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							Intent intent = new Intent(RequestVisitActivity.this, MainActivity.class);
+							startActivity(intent);
+						}
+					}).create().show();
+		    	} else {
+		    		new AlertDialog.Builder(RequestVisitActivity.this).setTitle("Submission failed!").setMessage("Please try again.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							dialog.cancel();
+						}
+					}).create().show();
+		    	}
+		    }
+
+		    @Override
+		    public void failure(RetrofitError error) {
+		    	new AlertDialog.Builder(RequestVisitActivity.this).setTitle("Submission failed!").setMessage("Please try again.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int id) {
+						dialog.cancel();
+					}
+				}).create().show();
+		    }
+		});
 		
 	}
 	
