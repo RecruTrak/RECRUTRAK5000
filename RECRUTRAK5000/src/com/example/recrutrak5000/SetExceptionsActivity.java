@@ -12,14 +12,15 @@ public class SetExceptionsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.faculty_main_activity);
-		final Button setAvailability = (Button) findViewById(R.id.button1);
-		setAvailability.setOnClickListener(new View.OnClickListener() {
+		setContentView(R.layout.set_exceptions_activity);
+		final Button submit = (Button) findViewById(R.id.button1);
+		submit.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(SetExceptionsActivity.this, SetExceptionsActivity.class);
-				startActivity(intent);
+				finish();
+				/*Intent intent = new Intent(SetExceptionsActivity.this, SetExceptionsActivity.class);
+				startActivity(intent);*/
 			}
 		});
 	}

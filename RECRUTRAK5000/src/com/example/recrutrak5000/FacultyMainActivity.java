@@ -42,6 +42,15 @@ public class FacultyMainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
+		final Button logout = (Button) findViewById(R.id.button4);
+		logout.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
 	}
 
 	@Override
