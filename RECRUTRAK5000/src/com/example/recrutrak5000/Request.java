@@ -5,6 +5,6 @@ import java.sql.Date;
 public class Request {
 	public int id, guests;
 	public Student student;
-	public Date date;
-	public String otherInfo;
+//	public Date date;
+	public String otherAppointments, genTourInfo, startTime, endTime, visitDate;
 }

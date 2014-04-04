@@ -12,8 +12,8 @@ public class ViewMeetingsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.faculty_main_activity);
-		final Button setAvailability = (Button) findViewById(R.id.button1);
+		setContentView(R.layout.view_meetings_activity);
+		/*final Button setAvailability = (Button) findViewById(R.id.button1);
 		setAvailability.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -21,7 +21,7 @@ public class ViewMeetingsActivity extends Activity {
 				Intent intent = new Intent(ViewMeetingsActivity.this, ViewMeetingsActivity.class);
 				startActivity(intent);
 			}
-		});
+		});*/
 	}
 
 	@Override
