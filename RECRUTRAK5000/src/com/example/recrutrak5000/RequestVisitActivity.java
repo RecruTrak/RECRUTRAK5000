@@ -197,6 +197,7 @@ public class RequestVisitActivity extends Activity {
 		Spinner spAdCountry = (Spinner)findViewById(R.id.spCountry);
 		String rqAdCountry = spAdCountry.getSelectedItem().toString();
 		
+		newStudent.id = 123;
 		newStudent.address = rqALine1;
 		newStudent.address2 = rqALine2;
 		newStudent.city = rqCity;
@@ -206,21 +207,21 @@ public class RequestVisitActivity extends Activity {
 		newStudent.firstName = names[0];
 		newStudent.lastName = names[names.length - 1];
 		newStudent.gender = rqGender;
-		if (rqGpa != "") newStudent.GPA = Float.parseFloat(rqGpa);
+		if (!rqGpa.equals("")) newStudent.GPA = Float.parseFloat(rqGpa);
 		newStudent.yearInSchool = rqYearInSchool;
 		newStudent.highSchoolCity = rqHsCity;
 		newStudent.highSchoolName = rqHsName;
 		newStudent.highSchoolState = rqHsState;
 		newStudent.country = rqAdCountry;
 		newStudent.state = rqAdState;
-		if (rqZip != "") newStudent.zip = Integer.parseInt(rqZip);
+		if (!rqZip.equals("")) newStudent.zip = Integer.parseInt(rqZip);
 		newStudent.homePhone = rqHPhone;
 		newStudent.cellPhone = rqCPhone;
 		newStudent.tookTest = rqTakenSatAct;
 		newStudent.dob = rqDob;
 		
 		newRequest.student = newStudent;
-		if (rqNumInParty != "") newRequest.guests = Integer.parseInt(rqNumInParty);
+		if (!rqNumInParty.equals("")) newRequest.guests = Integer.parseInt(rqNumInParty);
 		newRequest.startTime = rqStartTime;
 		newRequest.endTime = rqEndTime;
 		newRequest.visitDate = rqVisitDate;
