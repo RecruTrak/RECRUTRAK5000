@@ -1,5 +1,7 @@
 package com.example.recrutrak5000;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -7,7 +9,7 @@ import java.util.Locale;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-
+import retrofit.mime.TypedInput;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -23,6 +25,11 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 public class RequestVisitActivity extends Activity {
+	
+	String[] countryCodes = Locale.getISOCountries();
+	String[] stateCodes = {"", "AL", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN",
+		"IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY",
+		"NC", "ND", "OH", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +50,16 @@ public class RequestVisitActivity extends Activity {
 		spinnerYear.setAdapter(spinnerArrayAdapter);
 		
 		// Set Country selection options..
-		String[] locales = Locale.getISOCountries();
 		ArrayList<String> countries = new ArrayList<String>();
 		countries.add("Choose...");
 
-		for (String countryCode : locales) {
+		for (String countryCode : countryCodes) {
 		    Locale obj = new Locale("", countryCode);
-		    
 		    countries.add(obj.getDisplayCountry());
 		}
 		
 		// Selection of the spinner
 		Spinner spinnerCountry = (Spinner) findViewById(R.id.spCountry);
-				
 
 		// Application of the Array to the Spinner
 		ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, countries);
@@ -63,7 +67,7 @@ public class RequestVisitActivity extends Activity {
 		spinnerCountry.setAdapter(spinnerArrayAdapter2);
 		
 		// Set State selection properties.. 
-		String[] us_states = {"Choose...", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+		String[] states = {"Choose...", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
 				"District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
 				"Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
 				"Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
@@ -75,25 +79,13 @@ public class RequestVisitActivity extends Activity {
 		Spinner spinnerState = (Spinner) findViewById(R.id.spState);
 						
 		// Application of the Array to the Spinner
-		ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, us_states);
+		ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, states);
 		spinnerArrayAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
 		spinnerState.setAdapter(spinnerArrayAdapter3);
 		
-		String[] us_states_address = {"Choose...", "Non-US", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
-				"District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
-				"Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
-				"Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
-				"New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island",
-				"South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
-				"West Virginia", "Wisconsin", "Wyoming" };
-		
 		// Selection of the spinner
 		Spinner spinnerStateAddress = (Spinner) findViewById(R.id.spStateAddress);
-						
-		// Application of the Array to the Spinner
-		ArrayAdapter<String> spinnerArrayAdapter4 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, us_states_address);
-		spinnerArrayAdapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-		spinnerStateAddress.setAdapter(spinnerArrayAdapter4);
+		spinnerStateAddress.setAdapter(spinnerArrayAdapter3);
 		
 		// Set up submit button
 		final Button submitRequest = (Button) findViewById(R.id.submitButton);
@@ -146,20 +138,8 @@ public class RequestVisitActivity extends Activity {
 		RadioGroup rgSatAct = (RadioGroup) findViewById(R.id.radioSATACT);
 		RadioGroup rgGender = (RadioGroup) findViewById(R.id.radioGender);
 		
-		boolean rqGender = false;
-		boolean rqTakenSatAct = false;
-		
-		if(rgSatAct.getCheckedRadioButtonId()!=-1){
-		    int id= rgSatAct.getCheckedRadioButtonId();
-		    if (id == 0) rqTakenSatAct = true;
-		    else rqTakenSatAct = false;
-		}
-		
-		if(rgGender.getCheckedRadioButtonId()!=-1){
-		    int id= rgGender.getCheckedRadioButtonId();
-		    if (id == 0) rqGender = true;
-		    else rqGender = false;
-		}
+		boolean rqGender = rgGender.indexOfChild(rgGender.findViewById(rgGender.getCheckedRadioButtonId())) == 0;
+		boolean rqTakenSatAct = rgSatAct.indexOfChild(rgSatAct.findViewById(rgSatAct.getCheckedRadioButtonId())) == 0;
 		
 		List<Integer> interestedDisciplines = new ArrayList<Integer>();
 		
@@ -186,16 +166,19 @@ public class RequestVisitActivity extends Activity {
 		Student newStudent = new Student();
 		
 		Spinner spYearInSchool = (Spinner)findViewById(R.id.spYearInSchool);
-		String rqYearInSchool = spYearInSchool.getSelectedItem().toString();
+		int rqYearInSchool = spYearInSchool.getSelectedItemPosition();
 		
 		Spinner spHsState = (Spinner)findViewById(R.id.spState);
-		String rqHsState = spHsState.getSelectedItem().toString();
+		int hsStateIdx = spHsState.getSelectedItemPosition();
+		String rqHsState = hsStateIdx > 0 ? stateCodes[hsStateIdx - 1] : "";
 		
 		Spinner spAdState = (Spinner)findViewById(R.id.spStateAddress);
-		String rqAdState = spAdState.getSelectedItem().toString();
+		int adStateIdx = spAdState.getSelectedItemPosition();
+		String rqAdState = adStateIdx > 0 ? stateCodes[adStateIdx - 1] : "";
 		
 		Spinner spAdCountry = (Spinner)findViewById(R.id.spCountry);
-		String rqAdCountry = spAdCountry.getSelectedItem().toString();
+		int adCountryIdx = spAdCountry.getSelectedItemPosition();
+		String rqAdCountry = adCountryIdx > 0 ? countryCodes[adCountryIdx - 1] : "";
 		
 		newStudent.id = 9;
 		newStudent.address = rqALine1;
@@ -209,14 +192,14 @@ public class RequestVisitActivity extends Activity {
 		newStudent.gender = rqGender;
 		if (!rqGpa.equals("")) newStudent.GPA = Float.parseFloat(rqGpa);
 		newStudent.yearInSchool = rqYearInSchool;
-		newStudent.highSchoolCity = rqHsCity;
 		newStudent.highSchoolName = rqHsName;
+		newStudent.highSchoolCity = rqHsCity;
 		newStudent.highSchoolState = rqHsState;
 		newStudent.country = rqAdCountry;
 		newStudent.state = rqAdState;
 		if (!rqZip.equals("")) newStudent.zip = Integer.parseInt(rqZip);
-		newStudent.homePhone = rqHPhone;
-		newStudent.cellPhone = rqCPhone;
+		if (!rqHPhone.equals("")) newStudent.homePhone = Long.parseLong(rqHPhone);
+		if (!rqCPhone.equals("")) newStudent.cellPhone = Long.parseLong(rqCPhone);
 		newStudent.tookTest = rqTakenSatAct;
 		newStudent.dob = rqDob;
 		
@@ -232,7 +215,7 @@ public class RequestVisitActivity extends Activity {
 		
 		// Send request to DB
 		
-		RestAPI.postRequest(newRequest, new Callback<Boolean>() {
+		RestAPI.postRequest(newRequest, true, new Callback<Boolean>() {
 		    @Override
 		    public void success(Boolean success, Response response) {
 		    	if (success) {
@@ -253,8 +236,20 @@ public class RequestVisitActivity extends Activity {
 
 		    @Override
 		    public void failure(RetrofitError error) {
+		    	TypedInput err = error.getResponse().getBody();
+		    	char errText[] = new char[(int)err.length()];
+		    	try {
+		    		InputStream errStream = err.in();
+			    	int i = 0, d;
+			    	while ((d = errStream.read()) != -1) {
+			    		errText[i++] = (char)d;
+			    	}
+		    	} catch (IOException e) {
+		    		System.out.println("This is really bad.");
+		    	}
+		    	System.out.println(errText);
 		    	new AlertDialog.Builder(RequestVisitActivity.this).setTitle("Submission failed!").setMessage("Please try again.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
+		    		public void onClick(DialogInterface dialog,int id) {
 						dialog.cancel();
 					}
 				}).create().show();
