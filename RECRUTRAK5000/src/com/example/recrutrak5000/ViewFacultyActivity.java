@@ -7,22 +7,21 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
-public class SetExceptionsActivity extends Activity {
+public class ViewFacultyActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.set_exceptions_activity);
-		final Button submit = (Button) findViewById(R.id.button1);
-		submit.setOnClickListener(new View.OnClickListener() {
+		setContentView(R.layout.view_faculty_activity);
+		/*final Button setAvailability = (Button) findViewById(R.id.button1);
+		setAvailability.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				finish();
-				/*Intent intent = new Intent(SetExceptionsActivity.this, SetExceptionsActivity.class);
-				startActivity(intent);*/
+				Intent intent = new Intent(ViewMeetingsActivity.this, ViewMeetingsActivity.class);
+				startActivity(intent);
 			}
-		});
+		});*/
 	}
 
 	@Override
