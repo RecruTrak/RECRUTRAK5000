@@ -45,14 +45,14 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		/*final Button meetingView = (Button) findViewById(R.id.button4);
-		meetingView.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, MapViewActivity.class);
-				startActivity(intent);
-			}
-		});*/
+//		final Button meetingView = (Button) findViewById(R.id.button4);
+//		meetingView.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				Intent intent = new Intent(MainActivity.this, MeetingActivity.class);
+//				startActivity(intent);
+//			}
+//		});
 	}
 
 	@Override
