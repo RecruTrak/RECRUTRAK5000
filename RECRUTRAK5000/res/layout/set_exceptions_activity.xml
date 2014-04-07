@@ -19,15 +19,17 @@
         android:textColor="#999999" />
     
     <EditText
-            android:id="@+id/editText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:hint=""
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:inputType="textMultiLine" />
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:hint=""
+        android:inputType="textMultiLine"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
