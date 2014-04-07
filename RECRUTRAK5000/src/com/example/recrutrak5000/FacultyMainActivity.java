@@ -12,7 +12,7 @@ public class FacultyMainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.staff_main_activity);
+		setContentView(R.layout.faculty_main_activity);
 		final Button setAvailability = (Button) findViewById(R.id.button1);
 		setAvailability.setOnClickListener(new View.OnClickListener() {
 			
@@ -33,17 +33,7 @@ public class FacultyMainActivity extends Activity {
 			}
 		});
 		
-		final Button setExceptions = (Button) findViewById(R.id.button3);
-		setExceptions.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(FacultyMainActivity.this, SetExceptionsActivity.class);
-				startActivity(intent);
-			}
-		});
-		
-		final Button logout = (Button) findViewById(R.id.button4);
+		final Button logout = (Button) findViewById(R.id.button3);
 		logout.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

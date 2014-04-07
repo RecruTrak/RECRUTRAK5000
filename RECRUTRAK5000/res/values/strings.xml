@@ -19,5 +19,7 @@
     <string name="view_meetings">View Meetings</string>
     <string name="set_exceptions">Set Exceptions</string>
     <string name="view_requests">View Requests</string>
+    <string name="set_availability">Set Availability</string>
+    <string name="view_faculty">View Faculty</string>
 
 </resources>

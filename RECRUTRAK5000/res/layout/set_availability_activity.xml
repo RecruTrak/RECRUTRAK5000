@@ -167,4 +167,38 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/checkBox10"
+            android:text="Exceptions to normal availability:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#999999" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView7"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:textAppearance="?android:attr/textAppearanceMedium" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Submit"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#999999" />
+
 </RelativeLayout>
