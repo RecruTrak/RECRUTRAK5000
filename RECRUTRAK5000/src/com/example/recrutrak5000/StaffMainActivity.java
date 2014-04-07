@@ -18,7 +18,7 @@ public class StaffMainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(StaffMainActivity.this, SetAvailabilityActivity.class);
+				Intent intent = new Intent(StaffMainActivity.this, ViewFacultyActivity.class);
 				startActivity(intent);
 			}
 		});

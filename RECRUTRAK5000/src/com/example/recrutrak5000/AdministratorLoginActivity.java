@@ -18,7 +18,7 @@ public class AdministratorLoginActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(AdministratorLoginActivity.this, FacultyMainActivity.class);
+				Intent intent = new Intent(AdministratorLoginActivity.this, StaffMainActivity.class);
 				startActivity(intent);
 			}
 		});
