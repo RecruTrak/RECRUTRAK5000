@@ -13,15 +13,15 @@ public class MeetingActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.meeting_activity);
-		/*final Button setAvailability = (Button) findViewById(R.id.button1);
+		final Button setAvailability = (Button) findViewById(R.id.viewLocationButton);
 		setAvailability.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(ViewMeetingsActivity.this, ViewMeetingsActivity.class);
+				Intent intent = new Intent(MeetingActivity.this, MapViewActivity.class);
 				startActivity(intent);
 			}
-		});*/
+		});
 	}
 
 	@Override
