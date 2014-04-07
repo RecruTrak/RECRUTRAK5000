@@ -30,3 +30,4 @@ proguard/
 .idea/
 
 *.log
+*.properties

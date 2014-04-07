@@ -26,22 +26,12 @@
         android:layout_centerHorizontal="true"
         android:text="View Meetings"
         android:textColor="#999999" />
-    
+   
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="Set Availability Exceptions"
-        android:textColor="#999999" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button3"
         android:layout_marginTop="10dp"
         android:text="Logout"
         android:textColor="#999999" />

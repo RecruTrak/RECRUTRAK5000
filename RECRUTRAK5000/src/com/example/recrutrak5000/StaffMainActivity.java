@@ -23,12 +23,12 @@ public class StaffMainActivity extends Activity {
 			}
 		});
 		
-		final Button viewMeetings = (Button) findViewById(R.id.button2);
-		viewMeetings.setOnClickListener(new View.OnClickListener() {
+		final Button viewRequests = (Button) findViewById(R.id.button2);
+		viewRequests.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(StaffMainActivity.this, ViewMeetingsActivity.class);
+				Intent intent = new Intent(StaffMainActivity.this, ViewRequestsActivity.class);
 				startActivity(intent);
 			}
 		});
