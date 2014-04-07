@@ -23,6 +23,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class RequestVisitActivity extends Activity {
 	
@@ -180,7 +181,6 @@ public class RequestVisitActivity extends Activity {
 		int adCountryIdx = spAdCountry.getSelectedItemPosition();
 		String rqAdCountry = adCountryIdx > 0 ? countryCodes[adCountryIdx - 1] : "";
 		
-		newStudent.id = 9;
 		newStudent.address = rqALine1;
 		newStudent.address2 = rqALine2;
 		newStudent.city = rqCity;
@@ -215,10 +215,11 @@ public class RequestVisitActivity extends Activity {
 		
 		// Send request to DB
 		
-		RestAPI.postRequest(newRequest, true, new Callback<Boolean>() {
+		RestAPI.postRequest(newRequest, true, new Callback<Integer>() {
 		    @Override
-		    public void success(Boolean success, Response response) {
-		    	if (success) {
+		    public void success(Integer studentId, Response response) {
+		    	if (studentId > 0) {
+		    		Toast.makeText(RequestVisitActivity.this, "Student ID: " + studentId, Toast.LENGTH_LONG).show();
 			    	new AlertDialog.Builder(RequestVisitActivity.this).setTitle("Request submitted successfully!").setMessage("Your request was submitted successfully and will be reviewed. Check your e-mail for login instructions in order to view your scheduled meeting and/or status of your request.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,int id) {
 							Intent intent = new Intent(RequestVisitActivity.this, MainActivity.class);
