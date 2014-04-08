@@ -18,26 +18,48 @@ public class RestAPI {
 			@Path("lastName") String lastName,
 			Callback<Student> cb
 		);
+
+		@GET("/staffLogin/{username}/{password}")
+		void staffLogin(
+			@Path("username") String username,
+			@Path("password") String password,
+			Callback<Staff> cb
+		);
+
+		@GET("/facultyLogin/{username}/{password}")
+		void facultyLogin(
+			@Path("username") String username,
+			@Path("password") String password,
+			Callback<Faculty> cb
+		);
 		
 		@POST("/requests")
 		void postRequest(
 			@Body Request request,
-			Callback<Boolean> cb
+			Callback<Integer> cb
 		);
 		
 		@POST("/requests/{studentId}")
 		void postRequest(
 			@Body Request request,
 			@Path("studentId") int studentId,
-			Callback<Boolean> cb
+			Callback<Integer> cb
 		);
 	}
 
 	public static void studentLogin(int id, String lastName, Callback<Student> cb) {
 		api.studentLogin(id, lastName, cb);
 	}
+
+	public static void staffLogin(String username, String password, Callback<Staff> cb) {
+		api.staffLogin(username, password, cb);
+	}
+
+	public static void facultyLogin(String username, String password, Callback<Faculty> cb) {
+		api.facultyLogin(username, password, cb);
+	}
 	
-	public static void postRequest(Request request, boolean newStudent, Callback<Boolean> cb) {
+	public static void postRequest(Request request, boolean newStudent, Callback<Integer> cb) {
 		if (newStudent) {
 			api.postRequest(request, cb);
 		} else {

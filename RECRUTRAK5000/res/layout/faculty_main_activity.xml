@@ -8,7 +8,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".StudentLoginActivity"
     android:background="#8c2121" >
-    <Button
+
+    <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +34,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
         android:layout_marginTop="10dp"
-        android:text="Logout"
+        android:layout_centerHorizontal="true"
+        android:text="Set Availability Exceptions"
         android:textColor="#999999" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Logout"
+        android:textColor="#999999"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
