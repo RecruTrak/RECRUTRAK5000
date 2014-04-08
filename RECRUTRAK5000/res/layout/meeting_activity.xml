@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/meetingDateTextView"
-        android:text="-- MEETING INPUT --"
+        android:text="03:20 pm"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -36,7 +36,7 @@
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
         android:layout_alignLeft="@+id/meetingTimeTextView"
-        android:text="-- MEETING INPUT --"
+        android:text="Dr. Jeff Gray"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -47,7 +47,7 @@
         android:layout_alignBaseline="@+id/TextView01"
         android:layout_alignBottom="@+id/TextView01"
         android:layout_alignLeft="@+id/facultyTextView"
-        android:text="-- MEETING INPUT --"
+        android:text="3447 SEC"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -58,7 +58,7 @@
         android:layout_above="@+id/textView3"
         android:layout_alignParentRight="true"
         android:layout_marginRight="197dp"
-        android:text="-- MEETING INPUT --"
+        android:text="08/04/2014"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
