@@ -13,12 +13,22 @@ public class MeetingActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.meeting_activity);
-		final Button setAvailability = (Button) findViewById(R.id.viewLocationButton);
-		setAvailability.setOnClickListener(new View.OnClickListener() {
+		final Button viewLocationBtn = (Button) findViewById(R.id.viewLocationButton);
+		viewLocationBtn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MeetingActivity.this, MapViewActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		final Button exitSurveyBtn = (Button) findViewById(R.id.exitSurveyButton);
+		exitSurveyBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MeetingActivity.this, FacultyExitSurveyActivity.class);
 				startActivity(intent);
 			}
 		});
