@@ -23,7 +23,7 @@ public class ViewFacultyActivity extends Activity {
 		setContentView(R.layout.view_faculty_activity);
 		
 		lview = (ListView) findViewById(R.id.listView1);
-		String[] meetings = new String[] {"Example 1", "Example 2"};
+		String[] meetings = new String[] {"Jeff Gray"};
 		ArrayList<String> meetList = new ArrayList<String>();
 		meetList.addAll(Arrays.asList(meetings));
 		
@@ -31,6 +31,8 @@ public class ViewFacultyActivity extends Activity {
 		
 		lview.setAdapter(ladapter);
 	}
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

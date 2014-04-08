@@ -15,7 +15,8 @@ import android.os.Bundle;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class MapViewActivity extends Activity {
 	
-	static final LatLng hmComer = new LatLng(33.2155727, -87.5442692);
+	//static final LatLng hmComer = new LatLng(33.2155727, -87.5442692);
+	static final LatLng SEC = new LatLng(33.2142844, -87.541722);
 	private GoogleMap map;
 
 	  @Override
@@ -26,11 +27,13 @@ public class MapViewActivity extends Activity {
 	        .getMap();
 	    
 	    if (map!=null){
-	      Marker comer = map.addMarker(new MarkerOptions().position(hmComer)
-	          .title("HM Comer")
-	          .snippet("Meeting room in nnn room at tt:tt"));
+	      //Marker comer = map.addMarker(new MarkerOptions().position(hmComer)
+	    	Marker sec = map.addMarker(new MarkerOptions().position(SEC)
+	          .title("Science and Engineering Complex")
+	          .snippet("Meeting room in SEC 3447 at 3:20"));
 	      
-	      map.moveCamera(CameraUpdateFactory.newLatLngZoom(hmComer, 17));
+	      //map.moveCamera(CameraUpdateFactory.newLatLngZoom(hmComer, 17));
+	      map.moveCamera(CameraUpdateFactory.newLatLngZoom(SEC, 17));
 	    }
 	  }   
 }
