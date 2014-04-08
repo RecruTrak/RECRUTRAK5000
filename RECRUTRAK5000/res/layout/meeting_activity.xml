@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/meetingDateTextView"
-        android:text="-- MEETING INPUT --"
+        android:text="03:20 pm"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -36,7 +36,7 @@
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
         android:layout_alignLeft="@+id/meetingTimeTextView"
-        android:text="-- MEETING INPUT --"
+        android:text="Dr. Jeff Gray"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -47,7 +47,7 @@
         android:layout_alignBaseline="@+id/TextView01"
         android:layout_alignBottom="@+id/TextView01"
         android:layout_alignLeft="@+id/facultyTextView"
-        android:text="-- MEETING INPUT --"
+        android:text="3447 SEC"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -58,7 +58,7 @@
         android:layout_above="@+id/textView3"
         android:layout_alignParentRight="true"
         android:layout_marginRight="197dp"
-        android:text="-- MEETING INPUT --"
+        android:text="08/04/2014"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -69,6 +69,7 @@
         android:layout_below="@+id/textView1"
         android:layout_marginRight="48dp"
         android:layout_marginTop="41dp"
+        android:layout_alignLeft="@+id/editText1"
         android:layout_toLeftOf="@+id/meetingDateTextView"
         android:text="Meeting Date:"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -87,14 +88,14 @@
     <EditText
         android:id="@+id/editText1"
         android:layout_width="475dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView01"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal = "true"
         android:layout_below="@+id/viewLocationButton"
         android:layout_marginTop="48dp"
         android:background="#999999"
-        android:ems="0"
-        android:inputType="textMultiLine"
-        android:lines="10" >
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine" >
 
     </EditText>
 
@@ -150,6 +151,16 @@
         android:layout_marginTop="15dp"
         android:text="Notes:"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <Button
+        android:id="@+id/exitSurveyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/saveNotesButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:text="Exit Survey"
         android:textColor="#999999" />
 
 </RelativeLayout>

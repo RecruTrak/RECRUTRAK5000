@@ -4,6 +4,8 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +25,7 @@ public class AdministratorLoginActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+
 				EditText usernameBox = (EditText)findViewById(R.id.fName);
 	        	EditText passwordBox = (EditText)findViewById(R.id.password);
 	        	String username = usernameBox.getText().toString();
@@ -42,7 +45,11 @@ public class AdministratorLoginActivity extends Activity {
 	        				
 	        				@Override
 	        				public void failure(RetrofitError error) {
-	        					
+	        					new AlertDialog.Builder(AdministratorLoginActivity.this).setMessage("Invalid Username/Password Combination").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	    	    					public void onClick(DialogInterface dialog,int id) {
+	    	    						dialog.cancel();
+	    	    					}
+	    	    				}).create().show();
 	        				}
 	        			});
 	        			break;
@@ -57,7 +64,11 @@ public class AdministratorLoginActivity extends Activity {
 	        				
 	        				@Override
 	        				public void failure(RetrofitError error) {
-	        					
+	        					new AlertDialog.Builder(AdministratorLoginActivity.this).setMessage("Invalid Username/Password Combination").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	    	    					public void onClick(DialogInterface dialog,int id) {
+	    	    						dialog.cancel();
+	    	    					}
+	    	    				}).create().show();
 	        				}
 	        			});
 	        	}
