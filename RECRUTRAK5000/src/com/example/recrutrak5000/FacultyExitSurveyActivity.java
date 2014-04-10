@@ -12,7 +12,7 @@ public class FacultyExitSurveyActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.student_exit_survey_activity);
+		setContentView(R.layout.faculty_exit_survey_activity);
 		
 		final Button meetingView = (Button) findViewById(R.id.button1);
 		meetingView.setOnClickListener(new View.OnClickListener() {

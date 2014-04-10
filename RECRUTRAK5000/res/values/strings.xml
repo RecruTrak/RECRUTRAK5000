@@ -23,5 +23,6 @@
     <string name="view_faculty">View Faculty</string>
     <string name="meeting_details">Meeting Details</string>
     <string name="meeting_location_map">Meeting Location Map</string>
+    <string name="survey">Survey</string>
 
 </resources>

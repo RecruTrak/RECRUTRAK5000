@@ -20,7 +20,7 @@ public class ViewRequestsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_requests_activity);
 		lview = (ListView) findViewById(R.id.listView1);
-		String[] meetings = new String[] {"3:20 SEC 3447"};
+		String[] meetings = new String[] {"Fahl, CS", "Norwood, CS", "Rodriguez, CS"};
 		ArrayList<String> meetList = new ArrayList<String>();
 		meetList.addAll(Arrays.asList(meetings));
 		

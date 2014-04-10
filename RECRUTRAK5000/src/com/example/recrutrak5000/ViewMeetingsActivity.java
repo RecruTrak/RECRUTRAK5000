@@ -24,7 +24,7 @@ public class ViewMeetingsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_meetings_activity);
 		lview = (ListView) findViewById(R.id.listView1);
-		String[] meetings = new String[] {"3:20 SEC 3447"};
+		String[] meetings = new String[] {"3:20 - SEC 3447 - Faculty: Dr. Jeff Gray, Student: Fahl, Norwood, Rodriguez"};
 		ArrayList<String> meetList = new ArrayList<String>();
 		meetList.addAll(Arrays.asList(meetings));
 		
