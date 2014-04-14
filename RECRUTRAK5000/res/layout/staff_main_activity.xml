@@ -31,10 +31,10 @@
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:text="Logout"
-        android:textColor="#999999" />
+        android:textColor="#999999"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

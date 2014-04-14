@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="fill_parent"
+    android:background="#8c2121" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
+    	android:layout_height="wrap_content"
+    	android:background="#8c2121">
+    
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
@@ -14,6 +16,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
+            android:textColor="#999999"
             android:text="How would you rate your overall experience? (1 being poor and 5 being excellent)" />
 
         <RadioGroup
@@ -29,30 +32,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:textColor="#999999"
                 android:text="1" />
 
             <RadioButton
                 android:id="@+id/radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:text="2" />
 
             <RadioButton
                 android:id="@+id/RadioButton01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:text="3" />
 
             <RadioButton
                 android:id="@+id/radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:text="4" />
 
             <RadioButton
                 android:id="@+id/RadioButton02"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:text="5" />
         </RadioGroup>
 
@@ -60,9 +68,10 @@
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
             android:layout_below="@+id/radioGroup1"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="25dp"
+            android:textColor="#999999"
             android:text="Was the student properly matched based on academic interests?" />
 
         <RadioGroup
@@ -77,6 +86,7 @@
                 android:id="@+id/radio0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:checked="true"
                 android:text="Yes" />
 
@@ -84,18 +94,22 @@
                 android:id="@+id/radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:text="No" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/editText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
             android:layout_below="@+id/radioGroup2"
             android:layout_centerHorizontal="true"
             android:ems="10"
             android:hint="If no, please say why."
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:background="#999999"
+            android:layout_marginTop="10dp"
+            android:gravity="top" />
         
         <TextView
             android:id="@+id/TextView02"
@@ -103,6 +117,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editText2"
             android:layout_centerHorizontal="true"
+            android:textColor="#999999"
+            android:layout_marginTop="25dp"
             android:text="Were the directions to the meeting clear?" />
 
         <RadioGroup
@@ -117,6 +133,7 @@
                 android:id="@+id/RadioButton04"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:checked="true"
                 android:text="Yes" />
 
@@ -124,19 +141,22 @@
                 android:id="@+id/RadioButton03"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:text="No" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/EditText01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText2"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
             android:layout_below="@+id/RadioGroup01"
             android:layout_centerHorizontal="true"
             android:ems="10"
             android:hint="If no, please say why."
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:background="#999999"
+            android:layout_marginTop="10dp"
+            android:gravity="top" />
         
 
         <TextView
@@ -145,6 +165,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/EditText01"
             android:layout_centerHorizontal="true"
+            android:textColor="#999999"
+            android:layout_marginTop="25dp"
             android:text="Was there more than one student in the meeting?" />
 
         <RadioGroup
@@ -159,6 +181,7 @@
                 android:id="@+id/RadioButton06"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:checked="true"
                 android:text="Yes" />
 
@@ -166,19 +189,23 @@
                 android:id="@+id/RadioButton05"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:text="No" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/EditText02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
             android:layout_alignLeft="@+id/editText2"
             android:layout_below="@+id/RadioGroup02"
             android:layout_centerHorizontal="true"
             android:ems="10"
             android:hint="If no, please say why."
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:background="#999999"
+            android:layout_marginTop="10dp"
+            android:gravity="top" />
         
         <TextView
             android:id="@+id/TextView04"
@@ -186,6 +213,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/EditText02"
             android:layout_centerHorizontal="true"
+            android:textColor="#999999"
+            android:layout_marginTop="25dp"
             android:text="Did the student meet the academic standards expected?" />
 
         <RadioGroup
@@ -200,6 +229,7 @@
                 android:id="@+id/RadioButton08"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:checked="true"
                 android:text="Yes" />
 
@@ -207,19 +237,23 @@
                 android:id="@+id/RadioButton07"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:text="No" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/EditText03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
             android:layout_alignLeft="@+id/editText2"
             android:layout_below="@+id/RadioGroup03"
             android:layout_centerHorizontal="true"
             android:ems="10"
             android:hint="If no, please say why."
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:background="#999999"
+            android:layout_marginTop="10dp"
+            android:gravity="top" />
         
         <TextView
             android:id="@+id/TextView05"
@@ -227,6 +261,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/EditText03"
             android:layout_centerHorizontal="true"
+            android:textColor="#999999"
+            android:layout_marginTop="25dp"
             android:text="Would you recommend this student for further recruitment?" />
 
         <RadioGroup
@@ -242,25 +278,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:textColor="#999999"
                 android:text="Yes" />
 
             <RadioButton
                 android:id="@+id/RadioButton09"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#999999"
                 android:text="No" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/EditText04"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
             android:layout_alignLeft="@+id/editText2"
             android:layout_below="@+id/RadioGroup04"
             android:layout_centerHorizontal="true"
             android:ems="10"
             android:hint="If no, please say why."
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:background="#999999"
+            android:layout_marginTop="10dp"
+            android:gravity="top" />
 
         <Button
             android:id="@+id/button1"
@@ -268,8 +309,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/EditText04"
             android:layout_centerHorizontal="true"
+            android:textColor="#999999"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:text="Submit" />
         
-    </RelativeLayout>
-
+	</RelativeLayout>
 </ScrollView>

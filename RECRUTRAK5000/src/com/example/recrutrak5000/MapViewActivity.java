@@ -18,6 +18,7 @@ import android.os.Bundle;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class MapViewActivity extends Activity {
 	
+
 	static final LatLng hmComer = new LatLng(33.2155727, -87.5442692);
 	static final LatLng SEC = new LatLng(33.2142844, -87.541722);
 	static final LatLng SERC = new LatLng(33.214321, -87.543813);
@@ -25,7 +26,7 @@ public class MapViewActivity extends Activity {
 	static final LatLng hardaway = new LatLng(33.213234, -87.544741);
 	
 	
-	
+
 	private GoogleMap map;
 
 	  @Override
@@ -44,9 +45,9 @@ public class MapViewActivity extends Activity {
 	    
 	    if (map!=null){
 	      //Marker comer = map.addMarker(new MarkerOptions().position(hmComer)
-	    	Marker marker = map.addMarker(new MarkerOptions().position(locs.get(key))
+	    	Marker marker = map.addMarker(new MarkerOptions().position(locs.get(SEC))
 	          .title("Science and Engineering Complex")
-	          .snippet("Meeting room in SEC 3447 at 3:20"));
+	          .snippet("Meeting in SEC 3447 at 3:20"));
 	      
 	      //map.moveCamera(CameraUpdateFactory.newLatLngZoom(hmComer, 17));
 	      map.moveCamera(CameraUpdateFactory.newLatLngZoom(SEC, 17));

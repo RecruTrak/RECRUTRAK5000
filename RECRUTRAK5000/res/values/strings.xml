@@ -21,5 +21,8 @@
     <string name="view_requests">View Requests</string>
     <string name="set_availability">Set Availability</string>
     <string name="view_faculty">View Faculty</string>
+    <string name="meeting_details">Meeting Details</string>
+    <string name="meeting_location_map">Meeting Location Map</string>
+    <string name="survey">Survey</string>
 
 </resources>

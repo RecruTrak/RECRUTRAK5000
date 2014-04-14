@@ -12,4 +12,5 @@ public class Student implements Serializable {
 	public float GPA;
 	public String firstName, lastName, address, address2, city, state, country, email, highSchoolName, highSchoolCity, highSchoolState, dob;
 	public List<Integer> departments;
+	public Request[] requests;
 }

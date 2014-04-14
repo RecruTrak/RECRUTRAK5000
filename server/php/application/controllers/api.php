@@ -5,7 +5,10 @@ ini_set('session.use_cookies', '0');
 class Api extends REST_Controller {
 
 	public function studentLogin_get($id, $lastName) {
-		$student = $this->db->get_where('students',  array('id' => $id, 'lastName' => $lastName))->row();
+		$student = $this->db->get_where('students',  array('id' => $id, 'lastName' => $lastName))->row_array();
+		if (!empty($student)) {
+			$student['requests'] = $this->db->select('id, visitDate, guests, otherAppointments, genTourInfo, startTime, endTime')->get_where('requests', array('studentId' => $id))->result_array();
+		}
 		$this->response($student);
 	}
 
