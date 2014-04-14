@@ -178,11 +178,35 @@
         </activity>
         <activity
             android:logo="@android:color/transparent"
-            android:name="com.example.recrutrak5000.MeetingActivity"
+            android:name="com.example.recrutrak5000.FacultyMeetingActivity"
             android:label="@string/view_requests"
             android:windowSoftInputMode="stateHidden"
             android:focusable="false" >
-            <intent-filter android:label="@string/app_name">
+            <intent-filter android:label="@string/meeting_details">
+                <action android:name="android.intent.action.ONCLICK" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:logo="@android:color/transparent"
+            android:name="com.example.recrutrak5000.StaffMeetingActivity"
+            android:label="@string/view_requests"
+            android:windowSoftInputMode="stateHidden"
+            android:focusable="false" >
+            <intent-filter android:label="@string/meeting_details">
+                <action android:name="android.intent.action.ONCLICK" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:logo="@android:color/transparent"
+            android:name="com.example.recrutrak5000.StudentMeetingActivity"
+            android:label="@string/view_requests"
+            android:windowSoftInputMode="stateHidden"
+            android:focusable="false" >
+            <intent-filter android:label="@string/meeting_details">
                 <action android:name="android.intent.action.ONCLICK" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

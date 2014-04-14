@@ -9,7 +9,7 @@ public class StudentExitSurveyActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.faculty_exit_survey_activity);
+		setContentView(R.layout.student_exit_survey_activity);
 		
 		
 	}

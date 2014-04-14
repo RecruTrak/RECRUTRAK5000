@@ -13,12 +13,16 @@ public class StaffMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.staff_main_activity);
+		
+		final Staff staff = (Staff) getIntent().getExtras().get("staff");
+		
 		final Button setAvailability = (Button) findViewById(R.id.button1);
 		setAvailability.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StaffMainActivity.this, ViewFacultyActivity.class);
+				intent.putExtra("staff", staff);
 				startActivity(intent);
 			}
 		});
@@ -29,6 +33,7 @@ public class StaffMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StaffMainActivity.this, ViewRequestsActivity.class);
+				intent.putExtra("staff", staff);
 				startActivity(intent);
 			}
 		});
