@@ -151,34 +151,13 @@
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/locationTextView"
+        android:id="@+id/studentLocationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/TextView01"
         android:layout_alignBottom="@+id/TextView01"
         android:layout_alignLeft="@+id/facultyTextView"
         android:text="3447 SEC"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#999999" />
-
-    <Button
-        android:id="@+id/viewLocationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/locationTextView"
-        android:layout_below="@+id/locationTextView"
-        android:layout_marginTop="26dp"
-        android:text="View Location On Map"
-        android:textColor="#999999" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/viewLocationButton"
-        android:layout_marginTop="27dp"
-        android:text="Notes:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -200,6 +179,16 @@
         android:layout_alignBottom="@+id/TextView03"
         android:layout_alignLeft="@+id/emailField"
         android:text="(123) 456-7890"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_centerVertical="true"
+        android:text="Notes:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 

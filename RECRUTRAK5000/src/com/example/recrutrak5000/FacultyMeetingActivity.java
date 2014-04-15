@@ -15,7 +15,7 @@ public class FacultyMeetingActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.faculty_meeting_activity);
-		final Button viewLocationBtn = (Button) findViewById(R.id.viewLocationButton);
+		final TextView viewLocationBtn = (TextView) findViewById(R.id.facultyLocationTextView);
 		viewLocationBtn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

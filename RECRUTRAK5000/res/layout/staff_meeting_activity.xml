@@ -74,7 +74,7 @@
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/locationTextView"
+        android:id="@+id/staffLocationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/TextView01"
@@ -82,16 +82,6 @@
         android:layout_alignLeft="@+id/facultyTextView"
         android:text="3447 SEC"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#999999" />
-
-    <Button
-        android:id="@+id/viewLocationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/locationTextView"
-        android:layout_below="@+id/locationTextView"
-        android:layout_marginTop="26dp"
-        android:text="View Location On Map"
         android:textColor="#999999" />
 
     <TextView
