@@ -21,6 +21,7 @@ public class StudentMeetingActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StudentMeetingActivity.this, MapViewActivity.class);
+				intent.putExtra("locName", "1234 SERC");
 				startActivity(intent);
 			}
 		});
