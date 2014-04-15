@@ -13,13 +13,16 @@ public class StudentMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.student_main_activity);
+		
+		final Student student = (Student) getIntent().getExtras().get("student");
+		
 		final Button viewRequests = (Button) findViewById(R.id.button1);
 		viewRequests.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StudentMainActivity.this, ViewRequestsActivity.class);
-				intent.putExtra("student", getIntent().getSerializableExtra("student"));
+				intent.putExtra("student", student);
 				startActivity(intent);
 			}
 		});
@@ -30,6 +33,7 @@ public class StudentMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StudentMainActivity.this, ViewMeetingsActivity.class);
+				intent.putExtra("student", student);
 				startActivity(intent);
 			}
 		});

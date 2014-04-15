@@ -13,6 +13,9 @@ public class FacultyMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.faculty_main_activity);
+		
+		final Faculty faculty = (Faculty) getIntent().getExtras().get("faculty");
+		
 		final Button setAvailability = (Button) findViewById(R.id.button1);
 		setAvailability.setOnClickListener(new View.OnClickListener() {
 			
@@ -29,6 +32,7 @@ public class FacultyMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(FacultyMainActivity.this, ViewMeetingsActivity.class);
+				intent.putExtra("faculty", faculty);
 				startActivity(intent);
 			}
 		});

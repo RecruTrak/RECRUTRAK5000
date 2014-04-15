@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8c2121"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".StudentLoginActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Meeting"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/meetingTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/meetingDateTextView"
+        android:text="03:20 pm"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/facultyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignLeft="@+id/meetingTimeTextView"
+        android:text="Dr. Jeff Gray"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView01"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignLeft="@+id/facultyTextView"
+        android:text="3447 SEC"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/meetingDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="197dp"
+        android:text="08/04/2014"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="41dp"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_toLeftOf="@+id/meetingDateTextView"
+        android:text="Meeting Date:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <Button
+        android:id="@+id/viewLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/locationTextView"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@+id/textView2"
+        android:text="View Location On Map"
+        android:textColor="#999999" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="475dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal = "true"
+        android:layout_below="@+id/viewLocationButton"
+        android:layout_marginTop="48dp"
+        android:background="#999999"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine" >
+
+    </EditText>
+
+    <Button
+        android:id="@+id/saveNotesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="17dp"
+        android:text="Save Notes"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="27dp"
+        android:text="Location:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="26dp"
+        android:text="Faculty Member:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="27dp"
+        android:text="Meeting Time:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/viewLocationButton"
+        android:layout_marginTop="15dp"
+        android:text="Notes:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <Button
+        android:id="@+id/exitSurveyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/saveNotesButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:text="Exit Survey"
+        android:textColor="#999999" />
+
+</RelativeLayout>

@@ -20,6 +20,12 @@ public class ViewRequestsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_requests_activity);
+		
+		final Staff staff = (Staff) getIntent().getExtras().get("staff");
+		final Student student = (Student) getIntent().getExtras().get("student");
+		
+		//TODO: depending on which above is not null populate list
+		
 		lview = (ListView) findViewById(R.id.listView1);
 		requests = ((Student)getIntent().getSerializableExtra("student")).requests;
 		ArrayList<String> requestList = new ArrayList<String>();

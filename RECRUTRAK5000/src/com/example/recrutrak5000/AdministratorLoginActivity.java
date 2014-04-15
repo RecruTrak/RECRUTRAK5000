@@ -33,6 +33,8 @@ public class AdministratorLoginActivity extends Activity {
 	        	RadioGroup typeGroup = (RadioGroup)findViewById(R.id.radioStatus);
 	        	int type = typeGroup.indexOfChild(typeGroup.findViewById(typeGroup.getCheckedRadioButtonId()));
 	        	
+	        	System.out.println(type);
+	        	
 	        	switch(type) {
 	        		case 0:
 	        			RestAPI.staffLogin(username, password, new Callback<Staff>() {

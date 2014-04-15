@@ -7,19 +7,19 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
-public class FacultyExitSurveyActivity extends Activity {
+public class StaffMeetingActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.faculty_exit_survey_activity);
-		
-		final Button meetingView = (Button) findViewById(R.id.button1);
-		meetingView.setOnClickListener(new View.OnClickListener() {
+		setContentView(R.layout.staff_meeting_activity);
+		final Button viewLocationBtn = (Button) findViewById(R.id.viewLocationButton);
+		viewLocationBtn.setOnClickListener(new View.OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
-				
-				finish();
+				Intent intent = new Intent(StaffMeetingActivity.this, MapViewActivity.class);
+				startActivity(intent);
 			}
 		});
 	}
