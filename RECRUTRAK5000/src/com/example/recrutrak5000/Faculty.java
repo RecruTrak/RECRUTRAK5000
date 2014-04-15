@@ -7,4 +7,5 @@ public class Faculty implements Serializable {
 	public int id, availability;
 	public Department department;
 	public String exemptions;
+	public Meeting[] meetings;
 }

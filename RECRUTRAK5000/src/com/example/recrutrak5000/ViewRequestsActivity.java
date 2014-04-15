@@ -1,7 +1,8 @@
 package com.example.recrutrak5000;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,22 +10,36 @@ import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
 public class ViewRequestsActivity extends Activity {
 	
 	private ListView lview;
 	private ArrayAdapter<String> ladapter;
+	private Request[] requests;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_requests_activity);
 		lview = (ListView) findViewById(R.id.listView1);
-		String[] meetings = new String[] {"3:20 SEC 3447"};
-		ArrayList<String> meetList = new ArrayList<String>();
-		meetList.addAll(Arrays.asList(meetings));
+		requests = ((Student)getIntent().getSerializableExtra("student")).requests;
+		ArrayList<String> requestList = new ArrayList<String>();
+		SimpleDateFormat intDateFormat = new SimpleDateFormat("yyyy-MM-dd"),
+		                 extDateFormat = new SimpleDateFormat("MM/dd/yyyy"),
+		                 intTimeFormat = new SimpleDateFormat("HH:mm:ss"),
+		                 extTimeFormat = new SimpleDateFormat("h:mm a");
+		String disp;
+		for (Request request : requests) {
+			try {
+				disp = extDateFormat.format(intDateFormat.parse(request.visitDate)) + ", " +
+				       extTimeFormat.format(intTimeFormat.parse(request.startTime)) + "-" +
+				       extTimeFormat.format(intTimeFormat.parse(request.endTime));
+				requestList.add(disp);
+			} catch(ParseException e) {
+				e.printStackTrace();
+			}
+		}
 		
-		ladapter = new ArrayAdapter<String> (this, R.layout.row, meetList);
+		ladapter = new ArrayAdapter<String> (this, R.layout.row, requestList);
 		lview.setAdapter(ladapter);
 	}
 

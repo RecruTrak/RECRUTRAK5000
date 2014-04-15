@@ -19,6 +19,7 @@ public class StudentMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StudentMainActivity.this, ViewRequestsActivity.class);
+				intent.putExtra("student", getIntent().getSerializableExtra("student"));
 				startActivity(intent);
 			}
 		});

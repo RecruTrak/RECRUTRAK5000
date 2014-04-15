@@ -6,4 +6,6 @@ public class Staff implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public int id;
 	public Department department;
+	public Request[] requests;
+	public Meeting[] meetings;
 }
