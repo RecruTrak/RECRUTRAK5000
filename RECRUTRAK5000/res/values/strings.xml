@@ -24,5 +24,6 @@
     <string name="meeting_details">Meeting Details</string>
     <string name="meeting_location_map">Meeting Location Map</string>
     <string name="survey">Survey</string>
+    <string name="view_meetings">View Meetings</string>
 
 </resources>

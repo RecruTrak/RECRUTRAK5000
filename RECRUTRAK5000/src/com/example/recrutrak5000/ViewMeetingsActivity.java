@@ -32,25 +32,53 @@ public class ViewMeetingsActivity extends Activity {
 		//TODO: depending on which above is not null populate list
 		if (faculty != null) {
 			Toast.makeText(ViewMeetingsActivity.this, "Faculty is logged in", Toast.LENGTH_LONG).show();
+			
+			lview = (ListView) findViewById(R.id.listView1);
+			String[] meetings = new String[] {"3:20 - SEC 3447 - Faculty: Dr. Jeff Gray, Student: Fahl, Norwood, Rodriguez"};
+			ArrayList<String> meetList = new ArrayList<String>();
+			meetList.addAll(Arrays.asList(meetings));
+			
+			ladapter = new ArrayAdapter<String> (this, R.layout.row, meetList);
+			
+			lview.setAdapter(ladapter);
+			lview.setOnItemClickListener(new OnItemClickListener() {
+					public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+						startActivity(new Intent(ViewMeetingsActivity.this, FacultyMeetingActivity.class));
+				}
+			});
 		} else if (staff != null) {
 			Toast.makeText(ViewMeetingsActivity.this, "Staff is logged in", Toast.LENGTH_LONG).show();
+			
+			lview = (ListView) findViewById(R.id.listView1);
+			String[] meetings = new String[] {"3:20 - SEC 3447 - Faculty: Dr. Jeff Gray, Student: Fahl, Norwood, Rodriguez"};
+			ArrayList<String> meetList = new ArrayList<String>();
+			meetList.addAll(Arrays.asList(meetings));
+			
+			ladapter = new ArrayAdapter<String> (this, R.layout.row, meetList);
+			
+			lview.setAdapter(ladapter);
+			lview.setOnItemClickListener(new OnItemClickListener() {
+					public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+						startActivity(new Intent(ViewMeetingsActivity.this, StaffMeetingActivity.class));
+				}
+			});
 		} else if (student != null) {
 			Toast.makeText(ViewMeetingsActivity.this, "Student is logged in", Toast.LENGTH_LONG).show();
+			
+			lview = (ListView) findViewById(R.id.listView1);
+			String[] meetings = new String[] {"3:20 - SEC 3447 - Faculty: Dr. Jeff Gray, Student: Fahl, Norwood, Rodriguez"};
+			ArrayList<String> meetList = new ArrayList<String>();
+			meetList.addAll(Arrays.asList(meetings));
+			
+			ladapter = new ArrayAdapter<String> (this, R.layout.row, meetList);
+			
+			lview.setAdapter(ladapter);
+			lview.setOnItemClickListener(new OnItemClickListener() {
+					public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+						startActivity(new Intent(ViewMeetingsActivity.this, StudentMeetingActivity.class));
+				}
+			});
 		}
-		
-		lview = (ListView) findViewById(R.id.listView1);
-		String[] meetings = new String[] {"3:20 - SEC 3447 - Faculty: Dr. Jeff Gray, Student: Fahl, Norwood, Rodriguez"};
-		ArrayList<String> meetList = new ArrayList<String>();
-		meetList.addAll(Arrays.asList(meetings));
-		
-		ladapter = new ArrayAdapter<String> (this, R.layout.row, meetList);
-		
-		lview.setAdapter(ladapter);
-		lview.setOnItemClickListener(new OnItemClickListener() {
-				public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-					startActivity(new Intent(ViewMeetingsActivity.this, StudentMeetingActivity.class));
-			}
-		});
 	}
 
 	@Override

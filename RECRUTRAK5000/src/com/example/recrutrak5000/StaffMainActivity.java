@@ -46,6 +46,17 @@ public class StaffMainActivity extends Activity {
 				finish();
 			}
 		});
+		
+		final Button viewMeetings = (Button) findViewById(R.id.Button01);
+		viewMeetings.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(StaffMainActivity.this, ViewMeetingsActivity.class);
+				intent.putExtra("staff", staff);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override

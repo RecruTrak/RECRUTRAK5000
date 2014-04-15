@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class ViewRequestsActivity extends Activity {
 	
@@ -25,6 +26,11 @@ public class ViewRequestsActivity extends Activity {
 		final Student student = (Student) getIntent().getExtras().get("student");
 		
 		//TODO: depending on which above is not null populate list
+		if (staff != null) {
+			Toast.makeText(ViewRequestsActivity.this, "Staff is logged in", Toast.LENGTH_LONG).show();
+		} else if (student != null) {
+			Toast.makeText(ViewRequestsActivity.this, "Student is logged in", Toast.LENGTH_LONG).show();
+		}
 		
 		lview = (ListView) findViewById(R.id.listView1);
 		requests = ((Student)getIntent().getSerializableExtra("student")).requests;
