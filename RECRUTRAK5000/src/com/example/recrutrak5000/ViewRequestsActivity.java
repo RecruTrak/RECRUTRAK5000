@@ -5,11 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class ViewRequestsActivity extends Activity {
 	
@@ -24,13 +28,6 @@ public class ViewRequestsActivity extends Activity {
 		
 		final Staff staff = (Staff) getIntent().getExtras().get("staff");
 		final Student student = (Student) getIntent().getExtras().get("student");
-		
-		//TODO: depending on which above is not null populate list
-		if (staff != null) {
-			Toast.makeText(ViewRequestsActivity.this, "Staff is logged in", Toast.LENGTH_LONG).show();
-		} else if (student != null) {
-			Toast.makeText(ViewRequestsActivity.this, "Student is logged in", Toast.LENGTH_LONG).show();
-		}
 		
 		lview = (ListView) findViewById(R.id.listView1);
 		requests = ((Student)getIntent().getSerializableExtra("student")).requests;
@@ -53,6 +50,25 @@ public class ViewRequestsActivity extends Activity {
 		
 		ladapter = new ArrayAdapter<String> (this, R.layout.row, requestList);
 		lview.setAdapter(ladapter);
+		
+		//TODO: depending on which above is not null populate list
+		if (staff != null) {
+			Toast.makeText(ViewRequestsActivity.this, "Staff is logged in", Toast.LENGTH_LONG).show();
+			
+			lview.setOnItemClickListener(new OnItemClickListener() {
+				public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+					startActivity(new Intent(ViewRequestsActivity.this, StaffViewRequestActivity.class));
+				}
+			});
+		} else if (student != null) {
+			Toast.makeText(ViewRequestsActivity.this, "Student is logged in", Toast.LENGTH_LONG).show();
+			
+			lview.setOnItemClickListener(new OnItemClickListener() {
+				public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+					startActivity(new Intent(ViewRequestsActivity.this, StudentViewRequestActivity.class));
+				}
+			});
+		}		
 	}
 
 	@Override
