@@ -1,8 +1,12 @@
 package com.example.recrutrak5000;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import retrofit.mime.TypedInput;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -47,6 +51,7 @@ public class AdministratorLoginActivity extends Activity {
 	        				
 	        				@Override
 	        				public void failure(RetrofitError error) {
+	    	    		    	error.printStackTrace();
 	        					new AlertDialog.Builder(AdministratorLoginActivity.this).setMessage("Invalid Username/Password Combination").setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	    	    					public void onClick(DialogInterface dialog,int id) {
 	    	    						dialog.cancel();

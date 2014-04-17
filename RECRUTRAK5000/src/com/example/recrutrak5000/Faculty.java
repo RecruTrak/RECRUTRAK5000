@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Faculty implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public int id, availability;
+	public String firstName, lastName;
 	public Department department;
 	public String exemptions;
 	public Meeting[] meetings;

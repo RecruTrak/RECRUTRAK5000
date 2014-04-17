@@ -1,7 +1,6 @@
 package com.example.recrutrak5000;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,19 +12,24 @@ public class ViewFacultyActivity extends Activity {
 	
 	private ListView lview;
 	private ArrayAdapter<String> ladapter;
+	private Faculty[] faculty;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_faculty_activity);
 		
+		final Staff staff = (Staff) getIntent().getExtras().get("staff");
+		
 		lview = (ListView) findViewById(R.id.listView1);
-		String[] meetings = new String[] {"Jeff Gray"};
-		ArrayList<String> meetList = new ArrayList<String>();
-		meetList.addAll(Arrays.asList(meetings));
+
+		ArrayList<String> facultyList = new ArrayList<String>();
+		faculty = staff.department.faculty;
+		for (Faculty f : faculty) {
+			facultyList.add(f.lastName + ", " + f.firstName);
+		}
 		
-		ladapter = new ArrayAdapter<String> (this, R.layout.row, meetList);
-		
+		ladapter = new ArrayAdapter<String> (this, R.layout.row, facultyList);
 		lview.setAdapter(ladapter);
 	}
 	
