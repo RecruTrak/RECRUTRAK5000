@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class FacultyMeetingActivity extends Activity {
@@ -15,8 +16,25 @@ public class FacultyMeetingActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.faculty_meeting_activity);
-		final TextView viewLocationBtn = (TextView) findViewById(R.id.facultyLocationTextView);
-		viewLocationBtn.setOnClickListener(new View.OnClickListener() {
+		
+		final Meeting meeting = (Meeting) getIntent().getExtras().get("meeting");
+		
+		TextView date = (TextView) findViewById(R.id.meetingDateTextView);
+		date.setText(meeting.date.toString());
+		TextView time = (TextView) findViewById(R.id.meetingTimeTextView);
+		time.setText(meeting.startTime.toString());
+		TextView student = (TextView) findViewById(R.id.student);
+		student.setText(meeting.student.firstName + " " + meeting.student.lastName);
+		final TextView studentEmail = (TextView) findViewById(R.id.emailField);
+		studentEmail.setText(meeting.student.email);
+		final TextView studentPhone = (TextView) findViewById(R.id.phoneField);
+		studentPhone.setText("" + meeting.student.cellPhone);
+		final TextView location = (TextView) findViewById(R.id.facultyLocationTextView);
+		location.setText(meeting.location);
+		EditText notes = (EditText) findViewById(R.id.notes);
+		notes.setText(meeting.notes);
+		
+		location.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -25,18 +43,7 @@ public class FacultyMeetingActivity extends Activity {
 			}
 		});
 		
-		final Button exitSurveyBtn = (Button) findViewById(R.id.exitSurveyButton);
-		exitSurveyBtn.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(FacultyMeetingActivity.this, FacultyExitSurveyActivity.class);
-				startActivity(intent);
-			}
-		});
-		
-		final TextView emailField = (TextView) findViewById(R.id.emailField);
-		emailField.setOnClickListener(new View.OnClickListener() {
+		studentEmail.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -49,8 +56,7 @@ public class FacultyMeetingActivity extends Activity {
 			}
 		});
 		
-		final TextView phoneField = (TextView) findViewById(R.id.phoneField);
-		phoneField.setOnClickListener(new View.OnClickListener() {
+		studentPhone.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

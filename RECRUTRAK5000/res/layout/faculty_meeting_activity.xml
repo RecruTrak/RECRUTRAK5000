@@ -33,8 +33,8 @@
         android:id="@+id/facultyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignBaseline="@+id/student"
+        android:layout_alignBottom="@+id/student"
         android:layout_alignLeft="@+id/meetingTimeTextView"
         android:text="Dr. Jeff Gray"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -65,13 +65,13 @@
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="26dp"
-        android:text="Faculty Member:"
+        android:text="Student Name:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -94,15 +94,6 @@
         android:layout_below="@+id/editText1"
         android:layout_marginTop="23dp"
         android:text="Save Notes"
-        android:textColor="#999999" />
-
-    <Button
-        android:id="@+id/exitSurveyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/saveNotesButton"
-        android:layout_centerHorizontal="true"
-        android:text="Exit Survey"
         android:textColor="#999999" />
 
     <EditText
@@ -132,8 +123,8 @@
         android:id="@+id/TextView02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/student"
+        android:layout_below="@+id/student"
         android:layout_marginTop="21dp"
         android:text="Student E-mail"
         android:textAppearance="?android:attr/textAppearanceMedium"

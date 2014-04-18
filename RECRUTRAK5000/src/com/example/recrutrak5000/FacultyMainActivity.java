@@ -22,6 +22,7 @@ public class FacultyMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(FacultyMainActivity.this, SetAvailabilityActivity.class);
+				intent.putExtra("faculty", faculty);
 				startActivity(intent);
 			}
 		});

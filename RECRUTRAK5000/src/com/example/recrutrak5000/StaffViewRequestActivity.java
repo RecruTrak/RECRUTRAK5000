@@ -21,74 +21,168 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class StaffViewRequestActivity extends Activity {
-	
-//	String[] countryCodes = Locale.getISOCountries();
-//	String[] stateCodes = {"", "AL", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN",
-//		"IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY",
-//		"NC", "ND", "OH", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.staff_view_request_activity);
+		final Request request = (Request) getIntent().getExtras().get("request");
+		final Student student = (Student) getIntent().getExtras().get("student");
 		
+		TextView name = (TextView) findViewById(R.id.name);
+		name.setText(student.firstName + " " + student.lastName);
 		
-//		// Set Year in school selection options..
-//		String years[] = {"Choose...","Senior","Junior","Sophomore","Freshman", "Transfer Student"};
-//
-//		// Selection of the spinner
-//		Spinner spinnerYear = (Spinner) findViewById(R.id.spYearInSchool);	
-//
-//		// Application of the Array to the Spinner
-//		ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, years);
-//		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-//		spinnerYear.setAdapter(spinnerArrayAdapter);
-//		
-//		// Set Country selection options..
-//		ArrayList<String> countries = new ArrayList<String>();
-//		countries.add("Choose...");
-//
-//		for (String countryCode : countryCodes) {
-//		    Locale obj = new Locale("", countryCode);
-//		    countries.add(obj.getDisplayCountry());
-//		}
-//		
-//		// Selection of the spinner
-//		Spinner spinnerCountry = (Spinner) findViewById(R.id.spCountry);
-//
-//		// Application of the Array to the Spinner
-//		ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, countries);
-//		spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-//		spinnerCountry.setAdapter(spinnerArrayAdapter2);
-//		
-//		// Set State selection properties.. 
-//		String[] states = {"Choose...", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
-//				"District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
-//				"Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
-//				"Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
-//				"New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island",
-//				"South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
-//				"West Virginia", "Wisconsin", "Wyoming" };
-//		
-//		// Selection of the spinner
-//		Spinner spinnerState = (Spinner) findViewById(R.id.spState);
-//						
-//		// Application of the Array to the Spinner
-//		ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, states);
-//		spinnerArrayAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-//		spinnerState.setAdapter(spinnerArrayAdapter3);
-//		
-//		// Selection of the spinner
-//		Spinner spinnerStateAddress = (Spinner) findViewById(R.id.spStateAddress);
-//		spinnerStateAddress.setAdapter(spinnerArrayAdapter3);
-//		
-//		// Set up submit button
+		TextView dob = (TextView) findViewById(R.id.birthDate);
+		dob.setText(student.dob);
+		
+		TextView spYearInSchool = (TextView) findViewById(R.id.spYearInSchool);
+		if (student.yearInSchool == 1)
+			spYearInSchool.setText("Senior");
+		else if (student.yearInSchool == 2)
+			spYearInSchool.setText("Junior");
+		else if (student.yearInSchool == 3)
+			spYearInSchool.setText("Sophomore");
+		else if (student.yearInSchool == 4)
+			spYearInSchool.setText("Freshman");
+		else if (student.yearInSchool == 5)
+			spYearInSchool.setText("Transfer Student");
+		else
+			spYearInSchool.setText("N/A");
+	
+		TextView gpa = (TextView) findViewById(R.id.gpa);
+		gpa.setText("" + student.GPA);
+		
+		TextView hsName = (TextView) findViewById(R.id.hsName);
+		hsName.setText(student.highSchoolName);
+		
+		TextView hsCity = (TextView) findViewById(R.id.hsCity);
+		hsCity.setText(student.highSchoolCity);
+		
+		TextView spState = (TextView) findViewById(R.id.spState);
+		spState.setText(student.highSchoolState);
+		
+		TextView email = (TextView) findViewById(R.id.email);
+		email.setText(student.email);
+		
+		TextView hPhone = (TextView) findViewById(R.id.hPhone);
+		hPhone.setText("" + student.homePhone);
+		
+		TextView cPhone = (TextView) findViewById(R.id.cPhone);
+		cPhone.setText("" + student.cellPhone);
+		
+		TextView aLine1 = (TextView) findViewById(R.id.aLine1);
+		aLine1.setText(student.address);
+		
+		TextView aLine2 = (TextView) findViewById(R.id.aLine2);
+		aLine2.setText(student.address2);
+		
+		TextView city = (TextView) findViewById(R.id.city);
+		city.setText(student.city);
+		
+		TextView spStateAddress = (TextView) findViewById(R.id.spStateAddress);
+		spStateAddress.setText(student.state);
+		
+		TextView zip = (TextView) findViewById(R.id.addressZip);
+		zip.setText("" + student.zip);
+		
+		TextView spCountry = (TextView) findViewById(R.id.spCountry);
+		spCountry.setText(student.country);
+		
+		TextView visitDate = (TextView) findViewById(R.id.visitDate);
+		visitDate.setText(request.visitDate);
+		
+		TextView numInParty = (TextView) findViewById(R.id.numInParty);
+		numInParty.setText("" + request.guests);
+		
+		TextView startTime = (TextView) findViewById(R.id.startTime);
+		startTime.setText(request.startTime);
+		
+		TextView endTime = (TextView) findViewById(R.id.endTime);
+		endTime.setText(request.endTime);
+		
+		TextView otherAppointments = (TextView) findViewById(R.id.otherAppointments);
+		otherAppointments.setText(request.otherAppointments);
+		
+		TextView genTourInfo = (TextView) findViewById(R.id.genTourInfo);
+		genTourInfo.setText(request.genTourInfo);
+		
+		RadioGroup gender = (RadioGroup) findViewById(R.id.radioGender);
+		RadioButton female = (RadioButton) gender.getChildAt(1);
+		RadioButton male = (RadioButton) gender.getChildAt(0);
+		male.setClickable(false);
+		female.setClickable(false);
+		
+		if (student.gender) {
+			male.toggle();
+		} else {
+			female.toggle();
+		}
+		
+		RadioGroup satAct = (RadioGroup) findViewById(R.id.radioSATACT);
+		RadioButton yes = (RadioButton) satAct.getChildAt(0);
+		RadioButton no = (RadioButton) satAct.getChildAt(1);
+		yes.setClickable(false);
+		no.setClickable(false);
+		
+		if (student.tookTest) {	
+			yes.toggle();
+		} else {
+			no.toggle();
+		}
+		
+		CheckBox aero = (CheckBox) findViewById(R.id.cbAerospace);
+		aero.setClickable(false);
+		CheckBox civil = (CheckBox) findViewById(R.id.cbCivil);
+		civil.setClickable(false);
+		CheckBox constr = (CheckBox) findViewById(R.id.cbConstruction);
+		constr.setClickable(false);
+		CheckBox comp = (CheckBox) findViewById(R.id.cbComputerEng);
+		comp.setClickable(false);
+		CheckBox metal = (CheckBox) findViewById(R.id.cbMetallurgical);
+		metal.setClickable(false);
+		CheckBox chem = (CheckBox) findViewById(R.id.cbChemical);
+		chem.setClickable(false);
+		CheckBox compsci = (CheckBox) findViewById(R.id.cbCompSci);
+		compsci.setClickable(false);
+		CheckBox electr = (CheckBox) findViewById(R.id.cbElectrical);
+		electr.setClickable(false);
+		CheckBox mech = (CheckBox) findViewById(R.id.cbMechanical);
+		mech.setClickable(false);
+		CheckBox notsure = (CheckBox) findViewById(R.id.cbNotSure);
+		notsure.setClickable(false);
+		
+		if (student.departments.contains(0)) {
+			aero.toggle();
+		} else if (student.departments.contains(1)) {
+			civil.toggle();
+		} else if (student.departments.contains(2)) {
+			constr.toggle();
+		} else if (student.departments.contains(3)) {
+			comp.toggle();
+		} else if (student.departments.contains(4)) {
+			metal.toggle();
+		} else if (student.departments.contains(5)) {
+			chem.toggle();
+		} else if (student.departments.contains(6)) {
+			compsci.toggle();
+		} else if (student.departments.contains(7)) {
+			electr.toggle();
+		} else if (student.departments.contains(8)) {
+			mech.toggle();
+		} else if (student.departments.contains(9)) {
+			notsure.toggle();
+		}
+		
+
+//		// Set up create meeting button
 		final Button createMeeting = (Button) findViewById(R.id.submitButton);
 		createMeeting.setOnClickListener(new View.OnClickListener() {
 			@Override

@@ -58,7 +58,7 @@
         android:layout_below="@+id/textView1"
         android:layout_marginRight="48dp"
         android:layout_marginTop="41dp"
-        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignLeft="@+id/notes"
         android:layout_toLeftOf="@+id/meetingDateTextView"
         android:text="Meeting Date:"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -90,23 +90,14 @@
         android:id="@+id/saveNotesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_below="@+id/editText1"
+        android:layout_alignRight="@+id/notes"
+        android:layout_below="@+id/notes"
         android:layout_marginTop="23dp"
         android:text="Save Notes"
         android:textColor="#999999" />
 
-    <Button
-        android:id="@+id/exitSurveyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/saveNotesButton"
-        android:layout_centerHorizontal="true"
-        android:text="Exit Survey"
-        android:textColor="#999999" />
-
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/notes"
         android:layout_width="475dp"
         android:layout_height="200dp"
         android:layout_below="@+id/textView5"
@@ -186,7 +177,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignLeft="@+id/notes"
         android:layout_centerVertical="true"
         android:text="Notes:"
         android:textAppearance="?android:attr/textAppearanceMedium"
