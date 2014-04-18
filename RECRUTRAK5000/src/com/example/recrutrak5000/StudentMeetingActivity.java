@@ -45,16 +45,6 @@ public class StudentMeetingActivity extends Activity {
 			}
 		});
 		
-		final Button exitSurveyBtn = (Button) findViewById(R.id.exitSurveyButton);
-		exitSurveyBtn.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(StudentMeetingActivity.this, StudentExitSurveyActivity.class);
-				startActivity(intent);
-			}
-		});
-		
 		final TextView emailField = (TextView) findViewById(R.id.emailField);
 		emailField.setOnClickListener(new View.OnClickListener() {
 			

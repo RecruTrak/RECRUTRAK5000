@@ -96,15 +96,6 @@
         android:text="Save Notes"
         android:textColor="#999999" />
 
-    <Button
-        android:id="@+id/exitSurveyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/saveNotesButton"
-        android:layout_centerHorizontal="true"
-        android:text="Exit Survey"
-        android:textColor="#999999" />
-
     <EditText
         android:id="@+id/notes"
         android:layout_width="475dp"

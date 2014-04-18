@@ -43,16 +43,6 @@ public class FacultyMeetingActivity extends Activity {
 			}
 		});
 		
-		final Button exitSurveyBtn = (Button) findViewById(R.id.exitSurveyButton);
-		exitSurveyBtn.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(FacultyMeetingActivity.this, FacultyExitSurveyActivity.class);
-				startActivity(intent);
-			}
-		});
-		
 		studentEmail.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
