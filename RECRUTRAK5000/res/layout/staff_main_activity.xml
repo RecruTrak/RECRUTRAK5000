@@ -37,4 +37,14 @@
         android:textColor="#999999"
         android:layout_alignParentBottom="true" />
 
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="10dp"
+        android:text="View Meeting"
+        android:textColor="#999999" />
+
 </RelativeLayout>

@@ -34,7 +34,8 @@ public class MapViewActivity extends Activity {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.map_view_activity);
 	    Map<String,LatLng> locs = new HashMap<String, LatLng>();
-		
+	    String[] parts = getIntent().getStringExtra("locName").split(" ");
+		String loc = parts[1];
 		locs.put("HMComer", hmComer);
 		locs.put("SEC", SEC);
 		locs.put("SERC", SERC);
@@ -45,12 +46,12 @@ public class MapViewActivity extends Activity {
 	    
 	    if (map!=null){
 	      //Marker comer = map.addMarker(new MarkerOptions().position(hmComer)
-	    	Marker marker = map.addMarker(new MarkerOptions().position(locs.get(SEC))
+	    	Marker marker = map.addMarker(new MarkerOptions().position(locs.get(loc))
 	          .title("Science and Engineering Complex")
 	          .snippet("Meeting in SEC 3447 at 3:20"));
 	      
 	      //map.moveCamera(CameraUpdateFactory.newLatLngZoom(hmComer, 17));
-	      map.moveCamera(CameraUpdateFactory.newLatLngZoom(SEC, 17));
+	      map.moveCamera(CameraUpdateFactory.newLatLngZoom(locs.get(loc), 17));
 	    }
 	  }   
 }

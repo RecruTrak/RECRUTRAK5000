@@ -1,6 +1,10 @@
 package com.example.recrutrak5000;
 
+import java.util.Calendar;
+
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -56,7 +60,20 @@ public class StudentMainActivity extends Activity {
 				finish();
 			}
 		});
+		
+		Intent myIntent = new Intent(StudentMainActivity.this , MyNotification.class);     
+	       AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+	       PendingIntent pendingIntent = PendingIntent.getService(StudentMainActivity.this, 0, myIntent, 0);
+
+	       Calendar calendar = Calendar.getInstance();
+	       //calendar.set(Calendar.HOUR_OF_DAY, 19);
+	       calendar.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE)+1);
+	       //calendar.set(Calendar.SECOND, 30);
+
+	      alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), /*24*60*60*1000*/10000 , pendingIntent);  //set repeating every 24 hours
 	}
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission> 
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -143,7 +144,7 @@
         <activity
             android:logo="@android:color/transparent"
             android:name="com.example.recrutrak5000.ViewMeetingsActivity"
-            android:label="@string/meeting_details"
+            android:label="@string/view_meetings"
             android:windowSoftInputMode="stateHidden"
             android:focusable="false" >
             <intent-filter android:label="@string/app_name">
@@ -179,10 +180,10 @@
         <activity
             android:logo="@android:color/transparent"
             android:name="com.example.recrutrak5000.FacultyMeetingActivity"
-            android:label="@string/view_requests"
+            android:label="@string/meeting_details"
             android:windowSoftInputMode="stateHidden"
             android:focusable="false" >
-            <intent-filter android:label="@string/meeting_details">
+            <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.ONCLICK" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -191,10 +192,10 @@
         <activity
             android:logo="@android:color/transparent"
             android:name="com.example.recrutrak5000.StaffMeetingActivity"
-            android:label="@string/view_requests"
+            android:label="@string/meeting_details"
             android:windowSoftInputMode="stateHidden"
             android:focusable="false" >
-            <intent-filter android:label="@string/meeting_details">
+            <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.ONCLICK" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -203,10 +204,34 @@
         <activity
             android:logo="@android:color/transparent"
             android:name="com.example.recrutrak5000.StudentMeetingActivity"
-            android:label="@string/view_requests"
+            android:label="@string/meeting_details"
             android:windowSoftInputMode="stateHidden"
             android:focusable="false" >
-            <intent-filter android:label="@string/meeting_details">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.ONCLICK" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:logo="@android:color/transparent"
+            android:name="com.example.recrutrak5000.StaffViewRequestActivity"
+            android:label="@string/request_details"
+            android:windowSoftInputMode="stateHidden"
+            android:focusable="false" >
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.ONCLICK" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:logo="@android:color/transparent"
+            android:name="com.example.recrutrak5000.StudentViewRequestActivity"
+            android:label="@string/request_details"
+            android:windowSoftInputMode="stateHidden"
+            android:focusable="false" >
+            <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.ONCLICK" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
