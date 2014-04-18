@@ -131,8 +131,4 @@ class Api extends REST_Controller {
 		}
 	}
 
-	public function id_get($f, $l, $i) {
-		$this->response((strlen($f) % 9 + 1) * 100000 + (strlen($l) % 9 + 1) * 10000 + $i);
-	}
-
 }
