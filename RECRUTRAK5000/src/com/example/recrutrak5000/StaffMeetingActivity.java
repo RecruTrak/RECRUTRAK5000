@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class StaffMeetingActivity extends Activity {
@@ -15,8 +16,27 @@ public class StaffMeetingActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.staff_meeting_activity);
-		final TextView viewLocationBtn = (TextView) findViewById(R.id.staffLocationTextView);
-		viewLocationBtn.setOnClickListener(new View.OnClickListener() {
+		
+		final Meeting meeting = (Meeting) getIntent().getExtras().get("meeting");
+		
+		TextView date = (TextView) findViewById(R.id.meetingDateTextView);
+		date.setText(meeting.date.toString());
+		TextView time = (TextView) findViewById(R.id.meetingTimeTextView);
+		time.setText(meeting.startTime.toString());
+		TextView faculty = (TextView) findViewById(R.id.facultyTextView);
+		faculty.setText(meeting.faculty.firstName + " " + meeting.faculty.lastName);
+		final TextView facEmail = (TextView) findViewById(R.id.facultyEmailField);
+		facEmail.setText("faculty doesn't have email parameter");
+		final TextView facPhone = (TextView) findViewById(R.id.facultyPhoneField);
+		facPhone.setText("faculty doesn't have phone parameter");
+		final TextView studentEmail = (TextView) findViewById(R.id.studentEmailField);
+		studentEmail.setText(meeting.student.email);
+		final TextView studentPhone = (TextView) findViewById(R.id.studentPhoneField);
+		studentPhone.setText("" + meeting.student.cellPhone);
+		final TextView location = (TextView) findViewById(R.id.facultyLocationTextView);
+		location.setText(meeting.location);
+		
+		location.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -25,8 +45,7 @@ public class StaffMeetingActivity extends Activity {
 			}
 		});
 		
-		final TextView studentEmailField = (TextView) findViewById(R.id.studentEmailField);
-		studentEmailField.setOnClickListener(new View.OnClickListener() {
+		studentEmail.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -39,8 +58,7 @@ public class StaffMeetingActivity extends Activity {
 			}
 		});
 		
-		final TextView studentPhoneField = (TextView) findViewById(R.id.studentPhoneField);
-		studentPhoneField.setOnClickListener(new View.OnClickListener() {
+		studentPhone.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -53,8 +71,7 @@ public class StaffMeetingActivity extends Activity {
 			}
 		});
 		
-		final TextView facultyEmailField = (TextView) findViewById(R.id.facultyEmailField);
-		facultyEmailField.setOnClickListener(new View.OnClickListener() {
+		facEmail.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -67,8 +84,7 @@ public class StaffMeetingActivity extends Activity {
 			}
 		});
 		
-		final TextView facultyPhoneField = (TextView) findViewById(R.id.facultyPhoneField);
-		facultyPhoneField.setOnClickListener(new View.OnClickListener() {
+		facPhone.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

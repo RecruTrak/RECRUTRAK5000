@@ -43,7 +43,7 @@ public class ViewMeetingsActivity extends Activity {
 			lview.setAdapter(ladapter);
 			lview.setOnItemClickListener(new OnItemClickListener() {
 					public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-						startActivity(new Intent(ViewMeetingsActivity.this, FacultyMeetingActivity.class));
+						startActivity(new Intent(ViewMeetingsActivity.this, FacultyMeetingActivity.class).putExtra("meeting", faculty.meetings[position]));
 				}
 			});
 		} else if (staff != null) {
@@ -59,7 +59,7 @@ public class ViewMeetingsActivity extends Activity {
 			lview.setAdapter(ladapter);
 			lview.setOnItemClickListener(new OnItemClickListener() {
 					public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-						startActivity(new Intent(ViewMeetingsActivity.this, StaffMeetingActivity.class));
+						startActivity(new Intent(ViewMeetingsActivity.this, StaffMeetingActivity.class).putExtra("meeting", staff.meetings[position]));
 				}
 			});
 		} else if (student != null) {

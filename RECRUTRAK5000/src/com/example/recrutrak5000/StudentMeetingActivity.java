@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class StudentMeetingActivity extends Activity {
@@ -15,6 +16,24 @@ public class StudentMeetingActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.student_meeting_activity);
+		
+		final Meeting meeting = (Meeting) getIntent().getExtras().get("meeting");
+		
+		TextView date = (TextView) findViewById(R.id.meetingDateTextView);
+		date.setText(meeting.date.toString());
+		TextView time = (TextView) findViewById(R.id.meetingTimeTextView);
+		time.setText(meeting.startTime.toString());
+		TextView faculty = (TextView) findViewById(R.id.facultyTextView);
+		faculty.setText(meeting.faculty.firstName + " " + meeting.faculty.lastName);
+		TextView facEmail = (TextView) findViewById(R.id.facultyEmailField);
+		facEmail.setText("faculty doesn't have email parameter");
+		TextView facPhone = (TextView) findViewById(R.id.facultyPhoneField);
+		facPhone.setText("faculty doesn't have phone parameter");
+		TextView location = (TextView) findViewById(R.id.facultyLocationTextView);
+		location.setText(meeting.location);
+		EditText notes = (EditText) findViewById(R.id.notes);
+		notes.setText(meeting.notes);
+		
 		final TextView viewLocationBtn = (TextView) findViewById(R.id.studentLocationTextView);
 		viewLocationBtn.setOnClickListener(new View.OnClickListener() {
 			
