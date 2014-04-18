@@ -7,8 +7,7 @@ import java.sql.Time;
 public class Meeting implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public int id;
-	public Date date;
-	public Time startTime, endTime;
+	public String date, startTime, endTime;
 	public Student student;
 	public Faculty faculty;
 	public String location, notes;

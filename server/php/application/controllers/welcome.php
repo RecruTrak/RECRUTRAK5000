@@ -17,9 +17,12 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function index()
 	{
-		phpinfo();
+		$r = $this->db->simple_query('SELECT * FROM coaches');
+		$f = mysqli_fetch_fields($r);
+		var_dump($f[0]->type);
 	}
 }
 

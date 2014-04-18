@@ -38,13 +38,6 @@ public class RestAPI {
 			@Body Request request,
 			Callback<Integer> cb
 		);
-		
-		@POST("/requests/{studentId}")
-		void postRequest(
-			@Body Request request,
-			@Path("studentId") int studentId,
-			Callback<Integer> cb
-		);
 	}
 
 	public static void studentLogin(int id, String lastName, Callback<Student> cb) {
@@ -59,13 +52,7 @@ public class RestAPI {
 		api.facultyLogin(username, password, cb);
 	}
 	
-	public static void postRequest(Request request, boolean newStudent, Callback<Integer> cb) {
-		if (newStudent) {
-			api.postRequest(request, cb);
-		} else {
-			int studentId = request.student.id;
-			request.student = null;
-			api.postRequest(request, studentId, cb);
-		}		
+	public static void postRequest(Request request, Callback<Integer> cb) {
+		api.postRequest(request, cb);
 	}
 }

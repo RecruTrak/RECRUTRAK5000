@@ -48,6 +48,7 @@ public class StudentMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StudentMainActivity.this, RequestVisitActivity.class);
+				intent.putExtra("student", student);
 				startActivity(intent);
 			}
 		});

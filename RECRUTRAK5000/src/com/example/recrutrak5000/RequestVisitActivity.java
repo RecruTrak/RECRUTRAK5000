@@ -2,7 +2,10 @@ package com.example.recrutrak5000;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,6 +30,7 @@ import android.widget.Toast;
 
 public class RequestVisitActivity extends Activity {
 	
+	Student student;
 	String[] countryCodes = Locale.getISOCountries();
 	String[] stateCodes = {"", "AL", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN",
 		"IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY",
@@ -35,10 +39,70 @@ public class RequestVisitActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.request_visit_activity);
 		
-		
+		student = (Student)getIntent().getSerializableExtra("student");
+		if (student == null) {
+			student = new Student();
+		} else {
+			SimpleDateFormat intDateFormat = new SimpleDateFormat("yyyy-MM-dd"),
+			                 extDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+			
+			((EditText)findViewById(R.id.name)).setText(student.firstName + " " + student.lastName);
+			try {
+				((EditText)findViewById(R.id.birthDate)).setText(extDateFormat.format(intDateFormat.parse(student.dob)));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			((EditText)findViewById(R.id.gpa)).setText("" + student.GPA);
+			((EditText)findViewById(R.id.hsName)).setText(student.highSchoolName);
+			((EditText)findViewById(R.id.hsCity)).setText(student.highSchoolCity);
+			((EditText)findViewById(R.id.email)).setText(student.email);
+			((EditText)findViewById(R.id.hPhone)).setText("" + student.homePhone);
+			((EditText)findViewById(R.id.cPhone)).setText("" + student.cellPhone);
+			((EditText)findViewById(R.id.aLine1)).setText(student.address);
+			((EditText)findViewById(R.id.aLine2)).setText(student.address2);
+			((EditText)findViewById(R.id.city)).setText(student.city);
+			((EditText)findViewById(R.id.zip)).setText("" + student.zip);
+			((RadioGroup)findViewById(R.id.radioGender)).check(student.gender ? R.id.rbMale : R.id.rbFemale);
+			((RadioGroup)findViewById(R.id.radioSATACT)).check(student.tookTest ? R.id.rbYes : R.id.rbNo);
+			for (Integer dept : student.departments) {
+				switch(dept.intValue()) {
+					case 1:
+						((CheckBox)findViewById(R.id.cbAerospace)).setChecked(true);
+						break;
+					case 2:
+						((CheckBox)findViewById(R.id.cbCivil)).setChecked(true);
+						break;
+					case 3:
+						((CheckBox)findViewById(R.id.cbConstruction)).setChecked(true);
+						break;
+					case 4:
+						((CheckBox)findViewById(R.id.cbComputerEng)).setChecked(true);
+						break;
+					case 5:
+						((CheckBox)findViewById(R.id.cbMetallurgical)).setChecked(true);
+						break;
+					case 6:
+						((CheckBox)findViewById(R.id.cbChemical)).setChecked(true);
+						break;
+					case 7:
+						((CheckBox)findViewById(R.id.cbCompSci)).setChecked(true);
+						break;
+					case 8:
+						((CheckBox)findViewById(R.id.cbElectrical)).setChecked(true);
+						break;
+					case 9:
+						((CheckBox)findViewById(R.id.cbMechanical)).setChecked(true);
+						break;
+				}
+			}
+			((Spinner)findViewById(R.id.spYearInSchool)).setSelection(student.yearInSchool);
+			((Spinner)findViewById(R.id.spState)).setSelection(Arrays.asList(stateCodes).indexOf(student.highSchoolState));
+			((Spinner)findViewById(R.id.spStateAddress)).setSelection(Arrays.asList(stateCodes).indexOf(student.state));
+			((Spinner)findViewById(R.id.spCountry)).setSelection(Arrays.asList(countryCodes).indexOf(student.country));
+		}
+			
 		// Set Year in school selection options..
 		String years[] = {"Choose...","Senior","Junior","Sophomore","Freshman", "Transfer Student"};
 
@@ -164,7 +228,6 @@ public class RequestVisitActivity extends Activity {
 		if (cbMechanical.isChecked()) interestedDisciplines.add(9);
 		
 		Request newRequest = new Request();
-		Student newStudent = new Student();
 		
 		Spinner spYearInSchool = (Spinner)findViewById(R.id.spYearInSchool);
 		int rqYearInSchool = spYearInSchool.getSelectedItemPosition();
@@ -181,29 +244,29 @@ public class RequestVisitActivity extends Activity {
 		int adCountryIdx = spAdCountry.getSelectedItemPosition();
 		String rqAdCountry = adCountryIdx > 0 ? countryCodes[adCountryIdx - 1] : "";
 		
-		newStudent.address = rqALine1;
-		newStudent.address2 = rqALine2;
-		newStudent.city = rqCity;
-		newStudent.email = rqEmail;
-		newStudent.departments = interestedDisciplines;
+		student.address = rqALine1;
+		student.address2 = rqALine2;
+		student.city = rqCity;
+		student.email = rqEmail;
+		student.departments = interestedDisciplines;
 		String[] names = rqName.split("\\s+");
-		newStudent.firstName = names[0];
-		newStudent.lastName = names[names.length - 1];
-		newStudent.gender = rqGender;
-		if (!rqGpa.equals("")) newStudent.GPA = Float.parseFloat(rqGpa);
-		newStudent.yearInSchool = rqYearInSchool;
-		newStudent.highSchoolName = rqHsName;
-		newStudent.highSchoolCity = rqHsCity;
-		newStudent.highSchoolState = rqHsState;
-		newStudent.country = rqAdCountry;
-		newStudent.state = rqAdState;
-		if (!rqZip.equals("")) newStudent.zip = Integer.parseInt(rqZip);
-		if (!rqHPhone.equals("")) newStudent.homePhone = Long.parseLong(rqHPhone);
-		if (!rqCPhone.equals("")) newStudent.cellPhone = Long.parseLong(rqCPhone);
-		newStudent.tookTest = rqTakenSatAct;
-		newStudent.dob = rqDob;
+		student.firstName = names[0];
+		student.lastName = names[names.length - 1];
+		student.gender = rqGender;
+		if (!rqGpa.equals("")) student.GPA = Float.parseFloat(rqGpa);
+		student.yearInSchool = rqYearInSchool;
+		student.highSchoolName = rqHsName;
+		student.highSchoolCity = rqHsCity;
+		student.highSchoolState = rqHsState;
+		student.country = rqAdCountry;
+		student.state = rqAdState;
+		if (!rqZip.equals("")) student.zip = Integer.parseInt(rqZip);
+		if (!rqHPhone.equals("")) student.homePhone = Long.parseLong(rqHPhone);
+		if (!rqCPhone.equals("")) student.cellPhone = Long.parseLong(rqCPhone);
+		student.tookTest = rqTakenSatAct;
+		student.dob = rqDob;
 		
-		newRequest.student = newStudent;
+		newRequest.student = student;
 		if (!rqNumInParty.equals("")) newRequest.guests = Integer.parseInt(rqNumInParty);
 		newRequest.startTime = rqStartTime;
 		newRequest.endTime = rqEndTime;
@@ -215,10 +278,11 @@ public class RequestVisitActivity extends Activity {
 		
 		// Send request to DB
 		
-		RestAPI.postRequest(newRequest, true, new Callback<Integer>() {
+		RestAPI.postRequest(newRequest, new Callback<Integer>() {
 		    @Override
 		    public void success(Integer studentId, Response response) {
 		    	if (studentId > 0) {
+		    		student.id = studentId;
 		    		Toast.makeText(RequestVisitActivity.this, "Student ID: " + studentId, Toast.LENGTH_LONG).show();
 			    	new AlertDialog.Builder(RequestVisitActivity.this).setTitle("Request submitted successfully!").setMessage("Your request was submitted successfully and will be reviewed. Check your e-mail for login instructions in order to view your scheduled meeting and/or status of your request.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,int id) {
