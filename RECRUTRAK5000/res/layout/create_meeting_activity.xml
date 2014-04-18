@@ -68,13 +68,35 @@
         android:text="Faculty Member:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+    
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/spFaculty"
+        android:layout_marginTop="18dp"
+        android:text="Exceptions:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+    
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spFaculty"
+        android:layout_below="@+id/spFaculty"
+        android:layout_marginTop="18dp"
+        android:text="Specific to faculty"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
 
     <TextView
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/spFaculty"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_below="@+id/textView5"
         android:layout_marginTop="21dp"
         android:text="Location:"
         android:textAppearance="?android:attr/textAppearanceMedium"

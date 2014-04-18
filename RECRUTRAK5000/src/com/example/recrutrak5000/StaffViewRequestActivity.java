@@ -36,6 +36,7 @@ public class StaffViewRequestActivity extends Activity {
 		setContentView(R.layout.staff_view_request_activity);
 		final Request request = (Request) getIntent().getExtras().get("request");
 		final Student student = (Student) getIntent().getExtras().get("student");
+		final Staff staff = (Staff) getIntent().getExtras().get("staff");
 		
 		TextView name = (TextView) findViewById(R.id.name);
 		name.setText(student.firstName + " " + student.lastName);
@@ -187,6 +188,7 @@ public class StaffViewRequestActivity extends Activity {
 		createMeeting.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				startActivity(new Intent(StaffViewRequestActivity.this, Activity.class).putExtra("request", request).putExtra("student", student).putExtra("staff", staff));
 				
 			}
 		});
