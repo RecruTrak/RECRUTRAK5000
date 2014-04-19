@@ -75,7 +75,7 @@ public class ViewMeetingsActivity extends Activity {
 			lview.setAdapter(ladapter);
 			lview.setOnItemClickListener(new OnItemClickListener() {
 					public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-						startActivity(new Intent(ViewMeetingsActivity.this, StudentMeetingActivity.class));
+						startActivity(new Intent(ViewMeetingsActivity.this, StudentMeetingActivity.class).putExtra("meeting", student.meetings[position]));
 				}
 			});
 		}

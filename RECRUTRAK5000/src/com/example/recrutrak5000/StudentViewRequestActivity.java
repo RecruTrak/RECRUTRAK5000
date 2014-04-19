@@ -145,26 +145,28 @@ public class StudentViewRequestActivity extends Activity {
 		CheckBox notsure = (CheckBox) findViewById(R.id.cbNotSure);
 		notsure.setClickable(false);
 		
-		if (student.departments.contains(0)) {
-			aero.toggle();
-		} else if (student.departments.contains(1)) {
-			civil.toggle();
-		} else if (student.departments.contains(2)) {
-			constr.toggle();
-		} else if (student.departments.contains(3)) {
-			comp.toggle();
-		} else if (student.departments.contains(4)) {
-			metal.toggle();
-		} else if (student.departments.contains(5)) {
-			chem.toggle();
-		} else if (student.departments.contains(6)) {
-			compsci.toggle();
-		} else if (student.departments.contains(7)) {
-			electr.toggle();
-		} else if (student.departments.contains(8)) {
-			mech.toggle();
-		} else if (student.departments.contains(9)) {
-			notsure.toggle();
+		if (student.departments != null) {
+			if (student.departments.contains(0)) {
+				aero.toggle();
+			} else if (student.departments.contains(1)) {
+				civil.toggle();
+			} else if (student.departments.contains(2)) {
+				constr.toggle();
+			} else if (student.departments.contains(3)) {
+				comp.toggle();
+			} else if (student.departments.contains(4)) {
+				metal.toggle();
+			} else if (student.departments.contains(5)) {
+				chem.toggle();
+			} else if (student.departments.contains(6)) {
+				compsci.toggle();
+			} else if (student.departments.contains(7)) {
+				electr.toggle();
+			} else if (student.departments.contains(8)) {
+				mech.toggle();
+			} else if (student.departments.contains(9)) {
+				notsure.toggle();
+			}
 		}
 	}
 
