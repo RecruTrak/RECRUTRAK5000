@@ -223,7 +223,8 @@ class Api extends REST_Controller {
 			$meeting['endTime'] = date('H:i:s', $temp);
 		}
 		$meeting['studentId'] = $studentId;
-		$meeting['studentId'] = $facultyId;
+		$meeting['facultyId'] = $facultyId;
+		$meeting['staffId'] = $staffId;
 		$this->db->trans_start();
 		$this->db->delete('requests', array('id' => $requestId));
 		$this->db->insert('meetings', $meeting);
