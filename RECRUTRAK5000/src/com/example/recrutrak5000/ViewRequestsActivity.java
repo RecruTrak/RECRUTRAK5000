@@ -70,7 +70,7 @@ public class ViewRequestsActivity extends Activity {
 			
 			lview.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-					startActivity(new Intent(ViewRequestsActivity.this, StaffViewRequestActivity.class).putExtra("request", requests[position]).putExtra("student", student).putExtra("staff", staff));
+					startActivity(new Intent(ViewRequestsActivity.this, StaffViewRequestActivity.class).putExtra("request", requests[position]).putExtra("staff", staff));
 				}
 			});
 		} else if (student != null) {

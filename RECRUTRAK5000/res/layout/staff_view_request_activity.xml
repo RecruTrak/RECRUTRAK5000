@@ -395,7 +395,7 @@
         android:textStyle="bold"
         android:textColor="#000000"
         android:singleLine="true"
-        android:nextFocusDown="@+id/zip" />
+        android:nextFocusDown="@+id/addressZip" />
 	    
 	    <TextView
         android:id="@+id/textView21"
@@ -424,12 +424,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/spStateAddress"
-        android:text="Postal / Zip Code * "
+        android:text="Postal / addressZip Code * "
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 	    
 	    <TextView
-        android:id="@+id/zip"
+        android:id="@+id/addressZip"
         android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView22"
@@ -445,7 +445,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/zip"
+        android:layout_below="@+id/addressZip"
         android:text="Country *"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
