@@ -192,7 +192,7 @@ public class StaffViewRequestActivity extends Activity {
 		createMeeting.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(StaffViewRequestActivity.this, Activity.class).putExtra("request", request).putExtra("student", student).putExtra("staff", staff));
+				startActivity(new Intent(StaffViewRequestActivity.this, CreateMeetingActivity.class).putExtra("request", request).putExtra("student", student).putExtra("staff", staff));
 				
 			}
 		});
