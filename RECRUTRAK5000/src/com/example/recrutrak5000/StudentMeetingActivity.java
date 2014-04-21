@@ -25,16 +25,16 @@ public class StudentMeetingActivity extends Activity {
 		time.setText(meeting.startTime.toString());
 		TextView faculty = (TextView) findViewById(R.id.facultyTextView);
 		faculty.setText(meeting.faculty.firstName + " " + meeting.faculty.lastName);
-		TextView facEmail = (TextView) findViewById(R.id.facultyEmailField);
+		TextView facEmail = (TextView) findViewById(R.id.emailField);
 		facEmail.setText("faculty doesn't have email parameter");
-		TextView facPhone = (TextView) findViewById(R.id.facultyPhoneField);
+		TextView facPhone = (TextView) findViewById(R.id.phoneField);
 		facPhone.setText("faculty doesn't have phone parameter");
-		TextView location = (TextView) findViewById(R.id.facultyLocationTextView);
+		TextView location = (TextView) findViewById(R.id.locationTextView);
 		location.setText(meeting.location);
 		EditText notes = (EditText) findViewById(R.id.notes);
 		notes.setText(meeting.notes);
 		
-		final TextView viewLocationBtn = (TextView) findViewById(R.id.studentLocationTextView);
+		final TextView viewLocationBtn = (TextView) findViewById(R.id.locationTextView);
 		viewLocationBtn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

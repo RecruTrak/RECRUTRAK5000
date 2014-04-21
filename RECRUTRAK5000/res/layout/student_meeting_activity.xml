@@ -52,19 +52,6 @@
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_marginRight="48dp"
-        android:layout_marginTop="41dp"
-        android:layout_alignLeft="@+id/notes"
-        android:layout_toLeftOf="@+id/meetingDateTextView"
-        android:text="Meeting Date:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#999999" />
-
-    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,68 +83,13 @@
         android:text="Save Notes"
         android:textColor="#999999" />
 
-    <EditText
-        android:id="@+id/notes"
-        android:layout_width="475dp"
-        android:layout_height="200dp"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:background="#999999"
-        android:ems="10"
-        android:gravity="top"
-        android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/facultyPhoneField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView02"
-        android:layout_below="@+id/TextView02"
-        android:layout_marginTop="20dp"
-        android:text="Faculty Phone Number:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#999999" />
-
-    <TextView
-        android:id="@+id/facultyEmailField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/textView4"
-        android:layout_marginTop="21dp"
-        android:text="Faculty E-mail"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#999999" />
-
-    <TextView
-        android:id="@+id/facultyLocationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView03"
-        android:layout_below="@+id/TextView03"
-        android:layout_marginTop="19dp"
-        android:text="Location:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#999999" />
-
-    <TextView
-        android:id="@+id/studentLocationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/TextView01"
-        android:layout_alignBottom="@+id/TextView01"
-        android:layout_alignLeft="@+id/facultyTextView"
-        android:text="3447 SEC"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#999999" />
-
     <TextView
         android:id="@+id/emailField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/TextView03"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_alignLeft="@+id/phoneField"
+        android:layout_below="@+id/phoneField"
+        android:layout_marginTop="24dp"
         android:text="email@email.com"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
@@ -166,21 +98,88 @@
         android:id="@+id/phoneField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/TextView03"
-        android:layout_alignBottom="@+id/TextView03"
-        android:layout_alignLeft="@+id/emailField"
+        android:layout_alignLeft="@+id/facultyTextView"
+        android:layout_below="@+id/facultyTextView"
+        android:layout_marginTop="25dp"
         android:text="(123) 456-7890"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/notes"
+        android:id="@+id/facultyPhoneField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/phoneField"
+        android:layout_alignBottom="@+id/phoneField"
+        android:layout_alignLeft="@+id/textView4"
+        android:text="Faculty Phone Number:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/facultyLocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/facultyEmailField"
+        android:layout_below="@+id/emailField"
+        android:layout_marginTop="27dp"
+        android:text="Location:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/facultyLocationTextView"
+        android:layout_alignBottom="@+id/facultyLocationTextView"
+        android:layout_alignLeft="@+id/emailField"
+        android:text="3447 SEC"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/notes"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="30dp"
+        android:text="Meeting Date:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/facultyEmailField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/facultyLocationTextView"
+        android:layout_alignRight="@+id/textView3"
+        android:text="Faculty E-mail"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#999999" />
+
+    <TextView
+        android:id="@+id/notesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/facultyLocationTextView"
+        android:layout_below="@+id/facultyLocationTextView"
+        android:layout_marginTop="48dp"
         android:text="Notes:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+
+    <EditText
+        android:id="@+id/notes"
+        android:layout_width="475dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/notesText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#999999"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine" />
 
 </RelativeLayout>
