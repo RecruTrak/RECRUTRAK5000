@@ -35,7 +35,7 @@ public class StaffViewRequestActivity extends Activity {
 		
 		setContentView(R.layout.staff_view_request_activity);
 		final Request request = (Request) getIntent().getExtras().get("request");
-		final Student student = (Student) getIntent().getExtras().get("student");
+		final Student student = request.student;
 		final Staff staff = (Staff) getIntent().getExtras().get("staff");
 		
 		TextView name = (TextView) findViewById(R.id.name);
