@@ -35,6 +35,7 @@ public class StaffViewRequestActivity extends Activity {
 		
 		setContentView(R.layout.staff_view_request_activity);
 		final Request request = (Request) getIntent().getExtras().get("request");
+
 		final Student student = request.student;
 		final Staff staff = (Staff) getIntent().getExtras().get("staff");
 		
@@ -92,7 +93,8 @@ public class StaffViewRequestActivity extends Activity {
 		spStateAddress.setText(student.state);
 		
 		TextView zip = (TextView) findViewById(R.id.addressZip);
-		zip.setText("" + student.zip);
+		//zip.setText("" + student.zip);
+		zip.setText("testZip");
 		
 		TextView spCountry = (TextView) findViewById(R.id.spCountry);
 		spCountry.setText(student.country);
