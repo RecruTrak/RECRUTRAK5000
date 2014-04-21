@@ -26,6 +26,8 @@
  */
 class CI_DB_mysqli_result extends CI_DB_result {
 
+	var $fields;
+
 	/**
 	 * Number of rows in the result set
 	 *
@@ -103,7 +105,7 @@ class CI_DB_mysqli_result extends CI_DB_result {
 
 		return $retval;
 	}
-	
+
 	// --------------------------------------------------------------------
 
 	/**
@@ -149,7 +151,28 @@ class CI_DB_mysqli_result extends CI_DB_result {
 	 */
 	function _fetch_assoc()
 	{
-		return mysqli_fetch_assoc($this->result_id);
+		$row = mysqli_fetch_assoc($this->result_id);
+		if ($row != null) {
+			if (empty($fields)) {
+				$fields = mysqli_fetch_fields($this->result_id);
+			}
+			foreach ($fields as $field) {
+				switch($field->type) {
+					case 1:
+						$row[$field->name] = !!$row[$field->name];
+						break;
+					case 2:
+					case 3:
+					case 4:
+					case 5:
+					case 8:
+					case 9:
+						$row[$field->name] *= 1;
+						break;
+				}
+			}
+		}
+		return $row;
 	}
 
 	// --------------------------------------------------------------------

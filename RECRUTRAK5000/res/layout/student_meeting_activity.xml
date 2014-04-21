@@ -109,7 +109,7 @@
         android:inputType="textMultiLine" />
 
     <TextView
-        android:id="@+id/TextView03"
+        android:id="@+id/facultyPhoneField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView02"
@@ -120,7 +120,7 @@
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/TextView02"
+        android:id="@+id/facultyEmailField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView4"
@@ -131,7 +131,7 @@
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/TextView01"
+        android:id="@+id/facultyLocationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView03"
@@ -174,7 +174,7 @@
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/notes"

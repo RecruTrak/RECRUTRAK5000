@@ -41,6 +41,55 @@ public class RequestVisitActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.request_visit_activity);
 		
+		// Set Year in school selection options..
+		String years[] = {"Choose...","Senior","Junior","Sophomore","Freshman", "Transfer Student"};
+
+		// Selection of the spinner
+		Spinner spinnerYear = (Spinner) findViewById(R.id.spYearInSchool);	
+
+		// Application of the Array to the Spinner
+		ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, years);
+		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+		spinnerYear.setAdapter(spinnerArrayAdapter);
+		
+		// Set Country selection options..
+		ArrayList<String> countries = new ArrayList<String>();
+		countries.add("Choose...");
+
+		for (String countryCode : countryCodes) {
+		    Locale obj = new Locale("", countryCode);
+		    countries.add(obj.getDisplayCountry());
+		}
+		
+		// Selection of the spinner
+		Spinner spinnerCountry = (Spinner) findViewById(R.id.spCountry);
+
+		// Application of the Array to the Spinner
+		ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, countries);
+		spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+		spinnerCountry.setAdapter(spinnerArrayAdapter2);
+		
+		// Set State selection properties.. 
+		String[] states = {"Choose...", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+				"District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
+				"Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+				"Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+				"New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island",
+				"South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
+				"West Virginia", "Wisconsin", "Wyoming" };
+		
+		// Selection of the spinner
+		Spinner spinnerState = (Spinner) findViewById(R.id.spState);
+						
+		// Application of the Array to the Spinner
+		ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, states);
+		spinnerArrayAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+		spinnerState.setAdapter(spinnerArrayAdapter3);
+		
+		// Selection of the spinner
+		Spinner spinnerStateAddress = (Spinner) findViewById(R.id.spStateAddress);
+		spinnerStateAddress.setAdapter(spinnerArrayAdapter3);
+		
 		student = (Student)getIntent().getSerializableExtra("student");
 		if (student == null) {
 			student = new Student();
@@ -98,60 +147,11 @@ public class RequestVisitActivity extends Activity {
 				}
 			}
 			((Spinner)findViewById(R.id.spYearInSchool)).setSelection(student.yearInSchool);
-			((Spinner)findViewById(R.id.spState)).setSelection(Arrays.asList(stateCodes).indexOf(student.highSchoolState));
-			((Spinner)findViewById(R.id.spStateAddress)).setSelection(Arrays.asList(stateCodes).indexOf(student.state));
-			((Spinner)findViewById(R.id.spCountry)).setSelection(Arrays.asList(countryCodes).indexOf(student.country));
+			((Spinner)findViewById(R.id.spState)).setSelection(Arrays.asList(stateCodes).indexOf(student.highSchoolState) + 1);
+			((Spinner)findViewById(R.id.spStateAddress)).setSelection(Arrays.asList(stateCodes).indexOf(student.state) + 1);
+			((Spinner)findViewById(R.id.spCountry)).setSelection(Arrays.asList(countryCodes).indexOf(student.country) + 1);
 		}
 			
-		// Set Year in school selection options..
-		String years[] = {"Choose...","Senior","Junior","Sophomore","Freshman", "Transfer Student"};
-
-		// Selection of the spinner
-		Spinner spinnerYear = (Spinner) findViewById(R.id.spYearInSchool);	
-
-		// Application of the Array to the Spinner
-		ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, years);
-		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-		spinnerYear.setAdapter(spinnerArrayAdapter);
-		
-		// Set Country selection options..
-		ArrayList<String> countries = new ArrayList<String>();
-		countries.add("Choose...");
-
-		for (String countryCode : countryCodes) {
-		    Locale obj = new Locale("", countryCode);
-		    countries.add(obj.getDisplayCountry());
-		}
-		
-		// Selection of the spinner
-		Spinner spinnerCountry = (Spinner) findViewById(R.id.spCountry);
-
-		// Application of the Array to the Spinner
-		ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, countries);
-		spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-		spinnerCountry.setAdapter(spinnerArrayAdapter2);
-		
-		// Set State selection properties.. 
-		String[] states = {"Choose...", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
-				"District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
-				"Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
-				"Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
-				"New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island",
-				"South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
-				"West Virginia", "Wisconsin", "Wyoming" };
-		
-		// Selection of the spinner
-		Spinner spinnerState = (Spinner) findViewById(R.id.spState);
-						
-		// Application of the Array to the Spinner
-		ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, states);
-		spinnerArrayAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-		spinnerState.setAdapter(spinnerArrayAdapter3);
-		
-		// Selection of the spinner
-		Spinner spinnerStateAddress = (Spinner) findViewById(R.id.spStateAddress);
-		spinnerStateAddress.setAdapter(spinnerArrayAdapter3);
-		
 		// Set up submit button
 		final Button submitRequest = (Button) findViewById(R.id.submitButton);
 		submitRequest.setOnClickListener(new View.OnClickListener() {

@@ -8,6 +8,23 @@ class Api extends REST_Controller {
 		$student = $this->db->get_where('students',  array('id' => $id, 'lastName' => $lastName))->row_array();
 		if (!empty($student)) {
 			$student['requests'] = $this->db->get_where('requests', array('studentId' => $id))->result_array();
+			$student['meetings'] = array_map(function($row) {
+				return array(
+					'id' => $row['id'],
+					'date' => $row['date'],
+					'startTime' => $row['startTime'],
+					'endTime' => $row['endTime'],
+					'location' => $row['location'],
+					'notes' => $row['notes'],
+					'faculty' => array(
+						'id' => $row['facultyId'],
+						'firstName' => $row['firstName'],
+						'lastName' => $row['lastName'],
+						'availability' => $row['availability'],
+						'exemptions' => $row['exemptions']
+					)
+				);
+			}, $this->db->select('faculty.*, meetings.*')->join('faculty', 'faculty.id = meetings.facultyId')->get_where('meetings', array('studentId' => $id))->result_array());
 			$student['departments'] = array_map(function($row) {
 				return $row['departmentId'];
 			}, $this->db->get_where('studentsDepartments', array('studentId' => $id))->result_array());
@@ -26,41 +43,41 @@ class Api extends REST_Controller {
 				$staff['department']['faculty'] = $this->db->get_where('faculty', array('departmentId' => $staff['departmentId']))->result_array();
 				$staff['requests'] = $this->db->select('students.*, requests.*')->join('students', 'students.id = studentsDepartments.studentId')->join('requests', 'requests.studentId = students.id')->get_where('studentsDepartments', array('departmentId' => $staff['departmentId']))->result_array();
 			}
-			foreach ($staff['requests'] as &$request) {
-				$request = array(
-					'id' => $request['id'],
-					'studentId' => $request['studentId'],
-					'visitDate' => $request['visitDate'],
-					'guests' => $request['guests'],
-					'otherAppointments' => $request['otherAppointments'],
-					'genTourInfo' => $request['genTourInfo'],
-					'startTime' => $request['startTime'],
-					'endTime' => $request['endTime'],
+			$staff['requests'] = array_map(function($row) {
+				return array(
+					'id' => $row['id'],
+					'studentId' => $row['studentId'],
+					'visitDate' => $row['visitDate'],
+					'guests' => $row['guests'],
+					'otherAppointments' => $row['otherAppointments'],
+					'genTourInfo' => $row['genTourInfo'],
+					'startTime' => $row['startTime'],
+					'endTime' => $row['endTime'],
 					'student' => array(
-						'id' => $request['studentId'],
-						'firstName' => $request['firstName'],
-						'lastName' => $request['lastName'],
-						'gender' => $request['gender'],
-						'homePhone' => $request['homePhone'],
-						'cellPhone' => $request['cellPhone'],
-						'address' => $request['address'],
-						'address2' => $request['address2'],
-						'city' => $request['city'],
-						'state' => $request['state'],
-						'country' => $request['country'],
-						'zip' => $request['zip'],
-						'email' => $request['email'],
-						'highSchoolName' => $request['highSchoolName'],
-						'highSchoolCity' => $request['highSchoolCity'],
-						'highSchoolState' => $request['highSchoolState'],
-						'dob' => $request['dob'],
-						'yearInSchool' => $request['yearInSchool'],
-						'GPA' => $request['GPA'],
-						'tookTest' => $request['tookTest'],
-						'state' => $request['state']
+						'id' => $row['studentId'],
+						'firstName' => $row['firstName'],
+						'lastName' => $row['lastName'],
+						'gender' => $row['gender'],
+						'homePhone' => $row['homePhone'],
+						'cellPhone' => $row['cellPhone'],
+						'address' => $row['address'],
+						'address2' => $row['address2'],
+						'city' => $row['city'],
+						'state' => $row['state'],
+						'country' => $row['country'],
+						'zip' => $row['zip'],
+						'email' => $row['email'],
+						'highSchoolName' => $row['highSchoolName'],
+						'highSchoolCity' => $row['highSchoolCity'],
+						'highSchoolState' => $row['highSchoolState'],
+						'dob' => $row['dob'],
+						'yearInSchool' => $row['yearInSchool'],
+						'GPA' => $row['GPA'],
+						'tookTest' => $row['tookTest'],
+						'state' => $row['state']
 					)
 				);
-			}
+			}, $staff['requests']);
 			$staff['meetings'] = $this->db->get_where('meetings', array('staffId' => $staff['id']))->result_array();
 		}
 		$this->response($staff);
@@ -107,6 +124,8 @@ class Api extends REST_Controller {
 		unset($student['departments']);
 		$this->db->trans_start();
 		if ($student['id']) {
+			unset($student['requests']);
+			unset($student['meetings']);
 			$id = $student['id'];
 			$this->db->update('students', $student, array('id' => $id));
 			$this->db->delete('studentsDepartments', array('studentId' => $id));
@@ -123,7 +142,7 @@ class Api extends REST_Controller {
 			$this->db->insert('studentsDepartments', array('studentId' => $id, 'departmentId' => $department));
 		}
 		if ($this->db->trans_complete()) {
-			if (isset($student['id'])) {
+			if (!isset($student['id'])) {
 				$this->load->library('email');
 				$this->email->from('recrutrak5000@gmail.com');
 				$this->email->to($student['email']);

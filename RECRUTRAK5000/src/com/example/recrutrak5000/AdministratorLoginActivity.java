@@ -44,6 +44,7 @@ public class AdministratorLoginActivity extends Activity {
 	        			RestAPI.staffLogin(username, password, new Callback<Staff>() {
 	        				@Override
 	        				public void success(Staff staff, Response response) {
+	        					System.out.println(staff.meetings.length);
 	        					Intent intent = new Intent(AdministratorLoginActivity.this, StaffMainActivity.class);
 	    	    		    	intent.putExtra("staff", staff);
 	    	    				startActivity(intent);

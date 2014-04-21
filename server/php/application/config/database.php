@@ -48,14 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-//$db['default']['hostname'] = '127.13.1.130';
-//$db['default']['username'] = 'admin8xefH8S';
-//$db['default']['password'] = 'RBIgYcu7q-HA';
-//$db['default']['database'] = 'recrutrak5000';
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'cs457';
+$db['default']['hostname'] = '127.13.1.130';
+$db['default']['username'] = 'admin8xefH8S';
+$db['default']['password'] = 'RBIgYcu7q-HA';
+$db['default']['database'] = 'recrutrak5000';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

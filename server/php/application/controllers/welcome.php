@@ -20,11 +20,9 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$r = $this->db->simple_query('SELECT * FROM coaches');
-		$f = mysqli_fetch_fields($r);
-		var_dump($f[0]->type);
+		$a = array('a' => 1);
+		var_dump(isset($a['a']));
+		unset($a['a']);
+		var_dump(isset($a['a']));
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
