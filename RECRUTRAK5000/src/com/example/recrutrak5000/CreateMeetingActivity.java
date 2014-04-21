@@ -50,15 +50,15 @@ public class CreateMeetingActivity extends Activity {
 		List<Faculty> fac = new ArrayList<Faculty>();
 		
 		for(Faculty f:staff.department.faculty) {
-			String available = Integer.toBinaryString(f.availability);
-			if (available.charAt(offset) == '1')
+			//String available = Integer.toBinaryString(f.availability);
+			//if (available.charAt(offset) == '1')
 				fac.add(f);
 		}
 		
 		
 		
 		final Spinner spinnerFaculty = (Spinner) findViewById(R.id.spFaculty);	
-		String[] facDisp = {};// = (String[]) fac.toArray();
+		String[] facDisp = new String[fac.size()];// = (String[]) fac.toArray();
 		for(int i =0;i < fac.size();i++) {
 			facDisp[i] = fac.get(i).firstName + " " + fac.get(i).lastName;
 		}
@@ -72,8 +72,8 @@ public class CreateMeetingActivity extends Activity {
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				TextView exemptions = (TextView) findViewById(R.id.textView6);
-				Faculty f = (Faculty) spinnerFaculty.getSelectedItem();
-				exemptions.setText(f.exemptions);
+				//Faculty f = (Faculty) spinnerFaculty.getSelectedItem();
+				//exemptions.setText(f.exemptions);
 			}
 
 			@Override
