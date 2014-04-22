@@ -69,7 +69,7 @@ public class CreateMeetingActivity extends Activity {
 		
 		final List<Faculty> fac = new ArrayList<Faculty>();
 		
-		for(Faculty f:staff.department) {
+		for(Faculty f:staff.department.faculty) {
 			String available = Integer.toBinaryString(f.availability);
 			while(available.length() < 10) {
 				available = "0"+available;
