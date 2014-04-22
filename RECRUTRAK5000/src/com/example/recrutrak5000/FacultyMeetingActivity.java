@@ -23,7 +23,7 @@ public class FacultyMeetingActivity extends Activity {
 		date.setText(meeting.date.toString());
 		TextView time = (TextView) findViewById(R.id.meetingTimeTextView);
 		time.setText(meeting.startTime.toString());
-		TextView student = (TextView) findViewById(R.id.student);
+		TextView student = (TextView) findViewById(R.id.studentTextView);
 		student.setText(meeting.student.firstName + " " + meeting.student.lastName);
 		final TextView studentEmail = (TextView) findViewById(R.id.emailField);
 		studentEmail.setText(meeting.student.email);
@@ -31,7 +31,7 @@ public class FacultyMeetingActivity extends Activity {
 		studentPhone.setText("" + meeting.student.cellPhone);
 		final TextView location = (TextView) findViewById(R.id.facultyLocationTextView);
 		location.setText(meeting.location);
-		TextView notes = (TextView) findViewById(R.id.notes);
+		TextView notes = (TextView) findViewById(R.id.editText1);
 		notes.setText(meeting.notes);
 		
 		location.setOnClickListener(new View.OnClickListener() {

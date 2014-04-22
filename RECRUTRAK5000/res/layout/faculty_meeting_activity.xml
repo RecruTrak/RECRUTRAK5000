@@ -30,7 +30,7 @@
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/facultyTextView"
+        android:id="@+id/studentTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/student"
@@ -147,7 +147,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/TextView01"
         android:layout_alignBottom="@+id/TextView01"
-        android:layout_alignLeft="@+id/facultyTextView"
+        android:layout_alignLeft="@+id/studentTextView"
         android:text="@string/test_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
@@ -174,7 +174,7 @@
         android:textColor="#999999" />
 
     <TextView
-        android:id="@+id/notes"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editText1"
