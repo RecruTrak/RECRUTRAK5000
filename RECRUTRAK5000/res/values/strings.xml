@@ -62,5 +62,7 @@
     <string name="meetings">Meetings</string>
     <string name="requests">Requests</string>
     <string name="staff_main">Staff Main</string>
-
+	<string name="prospective_info">Prospective Student Information</string>
+	<string name="name_star">Name *</string>
+	<string name="dob">Date of Birth (MM/DD/YYYY)</string>
 </resources>

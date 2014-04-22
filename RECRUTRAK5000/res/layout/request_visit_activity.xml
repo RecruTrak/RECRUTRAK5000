@@ -15,23 +15,23 @@
 	    android:background="#8c2121" >
 	
 	    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Prospective Student Information"
-        android:textStyle="bold"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#999999" />
+	        android:id="@+id/textView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/prospective_info"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:textColor="#999999"
+	        android:textStyle="bold" />
 	    
 	    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="10dp"
-        android:text="Name *"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#999999" />
+	        android:id="@+id/textView2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textView1"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/name_star"
+	        android:textAppearance="?android:attr/textAppearanceMedium"
+	        android:textColor="#999999" />
 	    
 	    <EditText
         android:id="@+id/name"
