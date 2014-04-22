@@ -24,13 +24,9 @@
     <string name="meeting_details">Meeting Details</string>
     <string name="meeting_location_map">Meeting Location Map</string>
     <string name="survey">Survey</string>
-    <string name="view_meetings">View Meetings</string>
     <string name="request_details">Request Details</string>
-<<<<<<< HEAD
     <string name="returning_student">Returning Student?</string>
     <string name="new_student">New Student?</string>
-    <string name="student_login">Student Login</string>
-    <string name="request_visit">Request A Visit</string>
     <string name="admin_login">Administrator Login</string>
     <string name="login_as">Login as:</string>
     <string name="staff">Staff</string>
@@ -65,9 +61,6 @@
     <string name="new_request">New Request</string>
     <string name="meetings">Meetings</string>
     <string name="requests">Requests</string>
-=======
     <string name="staff_main">Staff Main</string>
-    <string name="create_meeting">Create Meeting</string>
->>>>>>> FETCH_HEAD
 
 </resources>
