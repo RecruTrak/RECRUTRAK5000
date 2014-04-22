@@ -228,6 +228,11 @@ class Api extends REST_Controller {
 		$this->db->trans_start();
 		$this->db->delete('requests', array('id' => $requestId));
 		$this->db->insert('meetings', $meeting);
+		if ($this->db->trans_complete()) {
+			$this->response($this->db->insert_id());
+		} else {
+			$this->reponse(0);
+		}
 	}
 
 }

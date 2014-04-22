@@ -40,7 +40,7 @@ public class RestAPI {
 		);
 		
 		@POST("/meetings/{requestId}/{studentId}/{facultyId}/{staffId}")
-		void postRequest(
+		void postMeeting(
 			@Body Meeting meeting,
 			@Path("requestId") int requestId,
 			@Path("studentId") int studentId,
