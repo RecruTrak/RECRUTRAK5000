@@ -57,7 +57,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="10dp"
-	        android:text="Staff"
+	        android:text="@string/staff"
 	        android:textColor="#999999" />
 	
 	    <RadioButton
@@ -65,7 +65,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="10dp"
-	        android:text="Faculty"
+	        android:text="@string/faculty"
 	        android:textColor="#999999" />
 
     </RadioGroup>
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
-        android:text="Login as:"
+        android:text="@string/login_as"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
