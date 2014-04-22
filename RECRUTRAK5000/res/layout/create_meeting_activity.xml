@@ -37,6 +37,7 @@
         android:layout_alignLeft="@+id/spFaculty"
         android:layout_alignTop="@+id/TextView01"
         android:text="3447 SEC"
+        android:background="@android:drawable/btn_dropdown"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -47,6 +48,7 @@
         android:layout_alignLeft="@+id/spMeetingTime"
         android:layout_alignTop="@+id/textView4"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="@android:drawable/btn_dropdown"
         android:textColor="#999999" />
 
     <Spinner
@@ -55,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/meetingDateTextView"
         android:layout_alignTop="@+id/textView3"
+        android:background="@android:drawable/btn_dropdown"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
