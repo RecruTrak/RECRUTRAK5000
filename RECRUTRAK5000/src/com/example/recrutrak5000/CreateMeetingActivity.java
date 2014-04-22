@@ -49,18 +49,22 @@ public class CreateMeetingActivity extends Activity {
 		String date[] = request.visitDate.split("-");
 		
 		final TextView viewLocationBtn = (TextView) findViewById(R.id.createMeetingButton);
+		TextView meetDate = (TextView) findViewById(R.id.meetingDateTextView);
+		meetDate.setText(request.visitDate);
 		
-		String times[] = {"Choose...", "8:30", "3:30"};
-		String locations[] = {"Choose...", "1130 SEC", "2200 SERC", "114 HM Comer"};
+		String times[] = {"Choose...", "8:30 AM", "3:30 PM"};
+		String locations[] = {"Choose...", "142 Hardaway", "230 Hardaway", "114 HMComer", "224 HMComer", "123 Houser", "222 Houser", "1130 SEC", "2200 SERC"};
 		//TODO verify locations
 		// Selection of the spinner
-		Spinner spinnerTime = (Spinner) findViewById(R.id.spMeetingTime);	
+		Spinner spinnerTime = (Spinner) findViewById(R.id.spMeetingTime);
+		Spinner spinnerLocation = (Spinner) findViewById(R.id.spLocation);
 
 		// Application of the Array to the Spinner
 		ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, times);
 		spinnerArrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
 		spinnerTime.setAdapter(spinnerArrayAdapter1);
 		int timeIdx = spinnerTime.getSelectedItemPosition();
+		startTime = times[spinnerTime.getSelectedItemPosition()];
 		
 		Calendar cal = Calendar.getInstance();
 		cal.set(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
@@ -97,9 +101,11 @@ public class CreateMeetingActivity extends Activity {
 				TextView exemptions = (TextView) findViewById(R.id.textView6);
 				String fname = facDisp[spinnerFaculty.getSelectedItemPosition()].split(" ")[0];
 				String lname = facDisp[spinnerFaculty.getSelectedItemPosition()].split(" ")[1];
+				
 				for(Faculty f: fac) {
 					if(f.firstName.equals(fname) && f.lastName.equals(lname)) {
 						faculty = f;
+						exemptions.setText(f.exemptions);
 						break;
 					}
 						
@@ -116,7 +122,10 @@ public class CreateMeetingActivity extends Activity {
 			}
 		};
 		spinnerFaculty.setOnItemSelectedListener(listener);
-		
+		ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, locations);
+		spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+		spinnerLocation.setAdapter(spinnerArrayAdapter3);
+		location = locations[spinnerLocation.getSelectedItemPosition()];
 		
 		
 		
@@ -174,18 +183,21 @@ public class CreateMeetingActivity extends Activity {
 
 		    @Override
 		    public void failure(RetrofitError error) {
-		    	TypedInput err = error.getResponse().getBody();
-		    	char errText[] = new char[(int)err.length()];
-		    	try {
-		    		InputStream errStream = err.in();
-			    	int i = 0, d;
-			    	while ((d = errStream.read()) != -1) {
-			    		errText[i++] = (char)d;
+		    	error.printStackTrace();
+		    	if (error.getResponse() != null) {
+			    	TypedInput err = error.getResponse().getBody();
+			    	char errText[] = new char[(int)err.length()];
+			    	try {
+			    		InputStream errStream = err.in();
+				    	int i = 0, d;
+				    	while ((d = errStream.read()) != -1) {
+				    		errText[i++] = (char)d;
+				    	}
+			    	} catch (IOException e) {
+			    		System.out.println("This is really bad.");
 			    	}
-		    	} catch (IOException e) {
-		    		System.out.println("This is really bad.");
+			    	System.out.println(errText);
 		    	}
-		    	System.out.println(errText);
 		    	new AlertDialog.Builder(CreateMeetingActivity.this).setTitle("Submission failed!").setMessage("Please try again.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
 		    		public void onClick(DialogInterface dialog,int id) {
 						dialog.cancel();

@@ -237,6 +237,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:process=":remote" android:name="myNotification"></receiver>
         <activity
             android:logo="@android:color/transparent"
             android:name="com.example.recrutrak5000.StudentViewRequestActivity"
