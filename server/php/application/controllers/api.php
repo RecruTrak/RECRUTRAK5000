@@ -20,6 +20,8 @@ class Api extends REST_Controller {
 						'id' => $row['facultyId'],
 						'firstName' => $row['firstName'],
 						'lastName' => $row['lastName'],
+						'phone' => $row['phone'],
+						'email' => $row['email'],
 						'availability' => $row['availability'],
 						'exemptions' => $row['exemptions']
 					)
@@ -74,11 +76,55 @@ class Api extends REST_Controller {
 						'yearInSchool' => $row['yearInSchool'],
 						'GPA' => $row['GPA'],
 						'tookTest' => $row['tookTest'],
-						'state' => $row['state']
+						'state' => $row['state'],
+						'departments' => array_map(function($row) {
+							return $row['departmentId'];
+						}, $this->db->get_where('studentsDepartments', array('studentId' => $row['studentId']))->result_array())
 					)
 				);
 			}, $staff['requests']);
-			$staff['meetings'] = $this->db->get_where('meetings', array('staffId' => $staff['id']))->result_array();
+			$staff['meetings'] = array_map(function($row) {
+				return array(
+					'id' => $row['id'],
+					'date' => $row['date'],
+					'startTime' => $row['startTime'],
+					'endTime' => $row['endTime'],
+					'location' => $row['location'],
+					'notes' => $row['notes'],
+					'student' => array(
+						'id' => $row['studentId'],
+						'firstName' => $row['firstName'],
+						'lastName' => $row['lastName'],
+						'gender' => $row['gender'],
+						'homePhone' => $row['homePhone'],
+						'cellPhone' => $row['cellPhone'],
+						'address' => $row['address'],
+						'address2' => $row['address2'],
+						'city' => $row['city'],
+						'state' => $row['state'],
+						'country' => $row['country'],
+						'zip' => $row['zip'],
+						'email' => $row['email'],
+						'highSchoolName' => $row['highSchoolName'],
+						'highSchoolCity' => $row['highSchoolCity'],
+						'highSchoolState' => $row['highSchoolState'],
+						'dob' => $row['dob'],
+						'yearInSchool' => $row['yearInSchool'],
+						'GPA' => $row['GPA'],
+						'tookTest' => $row['tookTest'],
+						'state' => $row['state']
+					),
+					'faculty' => array(
+						'id' => $row['facultyId'],
+						'firstName' => $row['facultyFirstName'],
+						'lastName' => $row['facultyLastName'],
+						'phone' => $row['phone'],
+						'email' => $row['facultyEmail'],
+						'availability' => $row['availability'],
+						'exemptions' => $row['exemptions']
+					)
+				);
+			}, $this->db->select('faculty.*, faculty.firstName AS facultyFirstName, faculty.lastName AS facultyLastName, faculty.email AS facultyEmail, students.*, meetings.*')->join('faculty', 'faculty.id = meetings.facultyId')->join('students', 'students.id = meetings.studentId')->get_where('meetings', array('staffId' => $staff['id']))->result_array());
 		}
 		$this->response($staff);
 	}
@@ -92,7 +138,7 @@ class Api extends REST_Controller {
 		$this->response($faculty);
 	}
 
-	public function requests_post($studentId = null) {
+	public function requests_post() {
 		$request = $this->post();
 		$temp = strToTime($request['visitDate']);
 		if ($temp === false) {
@@ -153,6 +199,39 @@ class Api extends REST_Controller {
 			$this->response($id);
 		} else {
 			$this->response(0);
+		}
+	}
+
+	public function meetings_post($requestId, $studentId, $facultyId, $staffId) {
+		$meeting = $this->post();
+		$temp = strToTime($meeting['date']);
+		if ($temp === false) {
+			unset($meeting['date']);
+		} else {
+			$meeting['date'] = date('Y-m-d', $temp);
+		}
+		$temp = strToTime($meeting['startTime']);
+		if ($temp === false) {
+			unset($meeting['startTime']);
+		} else {
+			$meeting['startTime'] = date('H:i:s', $temp);
+		}
+		$temp = strToTime($meeting['endTime']);
+		if ($temp === false) {
+			unset($meeting['endTime']);
+		} else {
+			$meeting['endTime'] = date('H:i:s', $temp);
+		}
+		$meeting['studentId'] = $studentId;
+		$meeting['facultyId'] = $facultyId;
+		$meeting['staffId'] = $staffId;
+		$this->db->trans_start();
+		$this->db->delete('requests', array('id' => $requestId));
+		$this->db->insert('meetings', $meeting);
+		if ($this->db->trans_complete()) {
+			$this->response($this->db->insert_id());
+		} else {
+			$this->reponse(0);
 		}
 	}
 

@@ -38,6 +38,16 @@ public class RestAPI {
 			@Body Request request,
 			Callback<Integer> cb
 		);
+		
+		@POST("/meetings/{requestId}/{studentId}/{facultyId}/{staffId}")
+		void postMeeting(
+			@Body Meeting meeting,
+			@Path("requestId") int requestId,
+			@Path("studentId") int studentId,
+			@Path("facultyId") int facultyId,
+			@Path("staffId") int staffId,
+			Callback<Integer> cb
+		);
 	}
 
 	public static void studentLogin(int id, String lastName, Callback<Student> cb) {
@@ -54,5 +64,9 @@ public class RestAPI {
 	
 	public static void postRequest(Request request, Callback<Integer> cb) {
 		api.postRequest(request, cb);
+	}
+	
+	public static void postMeeting(Meeting meeting, int requestId, int studentId, int facultyId, int staffId, Callback<Integer> cb) {
+		api.postMeeting(meeting, requestId, studentId, facultyId, staffId, cb);
 	}
 }

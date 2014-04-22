@@ -120,7 +120,7 @@
         <activity
             android:logo="@android:color/transparent"
             android:name="com.example.recrutrak5000.StaffMainActivity"
-            android:label="@string/faculty_main"
+            android:label="@string/staff_main"
             android:windowSoftInputMode="stateHidden"
             android:focusable="false" >
             <intent-filter android:label="@string/app_name">
@@ -193,6 +193,18 @@
             android:logo="@android:color/transparent"
             android:name="com.example.recrutrak5000.StaffMeetingActivity"
             android:label="@string/meeting_details"
+            android:windowSoftInputMode="stateHidden"
+            android:focusable="false" >
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.ONCLICK" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:logo="@android:color/transparent"
+            android:name="com.example.recrutrak5000.CreateMeetingActivity"
+            android:label="@string/create_meeting"
             android:windowSoftInputMode="stateHidden"
             android:focusable="false" >
             <intent-filter android:label="@string/app_name">

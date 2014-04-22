@@ -162,29 +162,45 @@ public class StaffViewRequestActivity extends Activity {
 		CheckBox notsure = (CheckBox) findViewById(R.id.cbNotSure);
 		notsure.setClickable(false);
 		
+//		if (student.departments != null) {
+//			if (student.departments.contains(0)) {
+//				aero.toggle();
+//			} else if (student.departments.contains(1)) {
+//				civil.toggle();
+//			} else if (student.departments.contains(2)) {
+//				constr.toggle();
+//			} else if (student.departments.contains(3)) {
+//				comp.toggle();
+//			} else if (student.departments.contains(4)) {
+//				metal.toggle();
+//			} else if (student.departments.contains(5)) {
+//				chem.toggle();
+//			} else if (student.departments.contains(6)) {
+//				compsci.toggle();
+//			} else if (student.departments.contains(7)) {
+//				electr.toggle();
+//			} else if (student.departments.contains(8)) {
+//				mech.toggle();
+//			} else if (student.departments.contains(9)) {
+//				notsure.toggle();
+//			}
+//		}
 		if (student.departments != null) {
-			if (student.departments.contains(0)) {
-				aero.toggle();
-			} else if (student.departments.contains(1)) {
-				civil.toggle();
-			} else if (student.departments.contains(2)) {
-				constr.toggle();
-			} else if (student.departments.contains(3)) {
-				comp.toggle();
-			} else if (student.departments.contains(4)) {
-				metal.toggle();
-			} else if (student.departments.contains(5)) {
-				chem.toggle();
-			} else if (student.departments.contains(6)) {
-				compsci.toggle();
-			} else if (student.departments.contains(7)) {
-				electr.toggle();
-			} else if (student.departments.contains(8)) {
-				mech.toggle();
-			} else if (student.departments.contains(9)) {
+			if (student.departments.size() == 0) {
 				notsure.toggle();
+			} else {
+				if (student.departments.contains(1)) aero.toggle();
+				if (student.departments.contains(2)) civil.toggle();
+				if (student.departments.contains(3)) constr.toggle();
+				if (student.departments.contains(4)) comp.toggle();
+				if (student.departments.contains(5)) metal.toggle();
+				if (student.departments.contains(6)) chem.toggle();
+				if (student.departments.contains(7)) compsci.toggle();
+				if (student.departments.contains(8)) electr.toggle();
+				if (student.departments.contains(9)) mech.toggle();
 			}
 		}
+		
 		
 
 //		// Set up create meeting button
@@ -192,7 +208,7 @@ public class StaffViewRequestActivity extends Activity {
 		createMeeting.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(StaffViewRequestActivity.this, Activity.class).putExtra("request", request).putExtra("student", student).putExtra("staff", staff));
+				startActivity(new Intent(StaffViewRequestActivity.this, CreateMeetingActivity.class).putExtra("request", request).putExtra("student", student).putExtra("staff", staff));
 				
 			}
 		});
