@@ -14,10 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Meeting"
-        android:textStyle="bold"
+        android:text="@string/meeting"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#999999" />
+        android:textColor="#999999"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/meetingTimeTextView"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/meetingDateTextView"
-        android:text="03:20 pm"
+        android:text="@string/test_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -36,7 +36,7 @@
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
         android:layout_alignLeft="@+id/meetingTimeTextView"
-        android:text="Dr. Jeff Gray"
+        android:text="@string/test_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -47,7 +47,7 @@
         android:layout_above="@+id/textView3"
         android:layout_alignParentRight="true"
         android:layout_marginRight="197dp"
-        android:text="08/04/2014"
+        android:text="@string/test_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -58,7 +58,7 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="26dp"
-        android:text="Faculty Member:"
+        android:text="@string/faculty_member_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -69,7 +69,7 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="27dp"
-        android:text="Meeting Time:"
+        android:text="@string/meeting_time_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -80,7 +80,7 @@
         android:layout_alignRight="@+id/notes"
         android:layout_below="@+id/notes"
         android:layout_marginTop="23dp"
-        android:text="Save Notes"
+        android:text="@string/save_notes"
         android:textColor="#999999" />
 
     <TextView
@@ -90,7 +90,7 @@
         android:layout_alignLeft="@+id/phoneField"
         android:layout_below="@+id/phoneField"
         android:layout_marginTop="24dp"
-        android:text="email@email.com"
+        android:text="@string/test_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -101,7 +101,7 @@
         android:layout_alignLeft="@+id/facultyTextView"
         android:layout_below="@+id/facultyTextView"
         android:layout_marginTop="25dp"
-        android:text="(123) 456-7890"
+        android:text="@string/test_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -112,7 +112,7 @@
         android:layout_alignBaseline="@+id/phoneField"
         android:layout_alignBottom="@+id/phoneField"
         android:layout_alignLeft="@+id/textView4"
-        android:text="Faculty Phone Number:"
+        android:text="@string/faculty_phone_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -123,7 +123,7 @@
         android:layout_alignLeft="@+id/facultyEmailField"
         android:layout_below="@+id/emailField"
         android:layout_marginTop="27dp"
-        android:text="Location:"
+        android:text="@string/location_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -134,7 +134,7 @@
         android:layout_alignBaseline="@+id/facultyLocationTextView"
         android:layout_alignBottom="@+id/facultyLocationTextView"
         android:layout_alignLeft="@+id/emailField"
-        android:text="3447 SEC"
+        android:text="@string/test_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -145,7 +145,7 @@
         android:layout_alignLeft="@+id/notes"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="30dp"
-        android:text="Meeting Date:"
+        android:text="@string/meeting_date_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -155,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/facultyLocationTextView"
         android:layout_alignRight="@+id/textView3"
-        android:text="Faculty E-mail"
+        android:text="@string/faculty_email_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -166,7 +166,7 @@
         android:layout_alignLeft="@+id/facultyLocationTextView"
         android:layout_below="@+id/facultyLocationTextView"
         android:layout_marginTop="48dp"
-        android:text="Notes:"
+        android:text="@string/notes_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 

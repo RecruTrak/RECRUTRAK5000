@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Meeting"
+        android:text="@string/meeting"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#999999"
         android:textStyle="bold" />
@@ -26,7 +26,7 @@
         android:layout_above="@+id/textView3"
         android:layout_alignParentRight="true"
         android:layout_marginRight="197dp"
-        android:text="08/04/2014"
+        android:text="@string/test_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/spFaculty"
         android:layout_alignTop="@+id/TextView01"
-        android:text="3447 SEC"
+        android:background="@android:drawable/btn_dropdown"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -47,6 +47,7 @@
         android:layout_alignLeft="@+id/spMeetingTime"
         android:layout_alignTop="@+id/textView4"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="@android:drawable/btn_dropdown"
         android:textColor="#999999" />
 
     <Spinner
@@ -55,6 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/meetingDateTextView"
         android:layout_alignTop="@+id/textView3"
+        android:background="@android:drawable/btn_dropdown"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -65,7 +67,7 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/spMeetingTime"
         android:layout_marginTop="18dp"
-        android:text="Faculty Member:"
+        android:text="@string/faculty_member_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
     
@@ -76,7 +78,7 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/spFaculty"
         android:layout_marginTop="18dp"
-        android:text="Exceptions:"
+        android:text="@string/exception_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
     
@@ -87,7 +89,7 @@
         android:layout_alignLeft="@+id/spFaculty"
         android:layout_below="@+id/spFaculty"
         android:layout_marginTop="18dp"
-        android:text="Specific to faculty"
+        android:text="@string/test_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -98,7 +100,7 @@
         android:layout_alignLeft="@+id/textView5"
         android:layout_below="@+id/textView5"
         android:layout_marginTop="21dp"
-        android:text="Location:"
+        android:text="@string/location_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -109,8 +111,7 @@
         android:layout_below="@+id/textView1"
         android:layout_marginRight="63dp"
         android:layout_marginTop="42dp"
-        android:layout_toLeftOf="@+id/exitSurveyButton"
-        android:text="Meeting Date:"
+        android:text="@string/meeting_date_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -121,7 +122,7 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="57dp"
-        android:text="Meeting Time:"
+        android:text="@string/meeting_title_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -132,7 +133,7 @@
         android:layout_below="@+id/spLocation"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="49dp"
-        android:text="Create Meeting"
+        android:text="@string/create_meeting"
         android:textColor="#999999" />
 
 </RelativeLayout>

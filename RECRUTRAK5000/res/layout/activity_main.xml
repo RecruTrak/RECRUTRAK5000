@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Returning Student?"
+        android:text="@string/returning_student"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -27,7 +27,7 @@
         android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:text="New Student?"
+        android:text="@string/new_student"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -38,7 +38,7 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="10dp"
-        android:text="Request A Visit"
+        android:text="@string/request_visit"
         android:textColor="#999999" />
 
     <Button
@@ -48,8 +48,8 @@
         android:layout_alignLeft="@+id/button2"
         android:layout_below="@+id/button2"
         android:layout_marginTop="100dp"
-        android:text="Administrator Login" 
-        android:textColor="#999999"/>
+        android:text="@string/admin_login"
+        android:textColor="#999999" />
 
     <Button
         android:id="@+id/button1"
@@ -57,11 +57,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:onClick="StudentLogin"
         android:layout_marginTop="10dp"
-        android:text="Student Login"
+        android:onClick="StudentLogin"
+        android:text="@string/student_login"
         android:textColor="#999999" />
-
 
     <!-- <Button
         android:id="@+id/button4"
