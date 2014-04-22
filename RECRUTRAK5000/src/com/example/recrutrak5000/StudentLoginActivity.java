@@ -31,7 +31,7 @@ public class StudentLoginActivity extends Activity {
 	        	System.out.println("login in");
 	        	
 	        	EditText idBox = (EditText)findViewById(R.id.fName);
-	        	EditText lastNameBox = (EditText)findViewById(R.id.emailAddress);
+	        	EditText lastNameBox = (EditText)findViewById(R.id.lastNameLogin);
 	        	int ID = Integer.parseInt(idBox.getText().toString());
 	        	String lastName = lastNameBox.getText().toString();
 	        	

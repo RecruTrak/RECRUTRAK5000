@@ -14,11 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Select your available times for meetings with students:"
+        android:text="@string/select_availability"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
-    
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -26,7 +25,7 @@
         android:layout_below="@+id/textView1"
         android:layout_marginTop="12dp"
         android:layout_toLeftOf="@+id/checkBox1"
-        android:text="Monday:   "
+        android:text="@string/monday"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -36,16 +35,16 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:text="Morning"
+        android:text="@string/morning"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
-    <CheckBox
+    <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView2"
         android:layout_toRightOf="@+id/checkBox1"
-        android:text="Afternoon"
+        android:text="@string/afternoon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
     
@@ -53,10 +52,10 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/checkBox1"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="12dp"
-        android:text="Tuesday:  "
+        android:layout_toLeftOf="@+id/checkBox1"
+        android:text="@string/tuesday"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -66,16 +65,17 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView3"
         android:layout_centerHorizontal="true"
-        android:text="Morning"
+        android:text="@string/morning"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+
     <CheckBox
         android:id="@+id/checkBox4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView3"
         android:layout_toRightOf="@+id/checkBox3"
-        android:text="Afternoon"
+        android:text="@string/afternoon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
     
@@ -83,10 +83,10 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/checkBox1"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="12dp"
-        android:text="Wednesday:"
+        android:layout_toLeftOf="@+id/checkBox1"
+        android:text="@string/wednesday"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -96,26 +96,28 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView4"
         android:layout_centerHorizontal="true"
-        android:text="Morning"
+        android:text="@string/morning"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+
     <CheckBox
         android:id="@+id/checkBox6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView4"
         android:layout_toRightOf="@+id/checkBox5"
-        android:text="Afternoon"
+        android:text="@string/afternoon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/checkBox1"
         android:layout_below="@+id/textView4"
         android:layout_marginTop="12dp"
-        android:text="Thursday:"
+        android:layout_toLeftOf="@+id/checkBox1"
+        android:text="@string/thursday"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -125,26 +127,28 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView5"
         android:layout_centerHorizontal="true"
-        android:text="Morning"
+        android:text="@string/morning"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+
     <CheckBox
         android:id="@+id/checkBox8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView5"
         android:layout_toRightOf="@+id/checkBox7"
-        android:text="Afternoon"
+        android:text="@string/afternoon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/checkBox1"
         android:layout_below="@+id/textView5"
         android:layout_marginTop="12dp"
-        android:text="Friday:"
+        android:layout_toLeftOf="@+id/checkBox1"
+        android:text="@string/friday"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -154,16 +158,16 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView6"
         android:layout_centerHorizontal="true"
-        android:text="Morning"
+        android:text="@string/morning"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
-    <CheckBox
+    <CheckBox
         android:id="@+id/checkBox10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView6"
         android:layout_toRightOf="@+id/checkBox9"
-        android:text="Afternoon"
+        android:text="@string/afternoon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#999999" />
 
@@ -171,10 +175,10 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/checkBox10"
-            android:layout_marginTop = "40dp"
-            android:text="Exceptions to normal availability:"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/exceptions_text"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#999999" />
 
@@ -198,7 +202,7 @@
             android:layout_below="@+id/editText1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Submit"
+            android:text="@string/submit"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#999999" />
 
