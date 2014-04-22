@@ -131,9 +131,41 @@ class Api extends REST_Controller {
 
 	public function facultyLogin_get($username, $password) {
 		$faculty = $this->db->get_where('faculty',  array('username' => $username, 'password' => $password))->row_array();
-		if (!empty($staff)) {
+		if (!empty($faculty)) {
 			$faculty['deparment'] = $this->db->get_where('departments', array('id' => $faculty['departmentId']))->row_array();
-			$faculty['meetings'] = $this->db->get_where('meetings', array('facultyId' => $faculty['id']))->result_array();
+			$faculty['meetings'] = array_map(function($row) {
+				return array(
+					'id' => $row['id'],
+					'date' => $row['date'],
+					'startTime' => $row['startTime'],
+					'endTime' => $row['endTime'],
+					'location' => $row['location'],
+					'notes' => $row['notes'],
+					'student' => array(
+						'id' => $row['studentId'],
+						'firstName' => $row['firstName'],
+						'lastName' => $row['lastName'],
+						'gender' => $row['gender'],
+						'homePhone' => $row['homePhone'],
+						'cellPhone' => $row['cellPhone'],
+						'address' => $row['address'],
+						'address2' => $row['address2'],
+						'city' => $row['city'],
+						'state' => $row['state'],
+						'country' => $row['country'],
+						'zip' => $row['zip'],
+						'email' => $row['email'],
+						'highSchoolName' => $row['highSchoolName'],
+						'highSchoolCity' => $row['highSchoolCity'],
+						'highSchoolState' => $row['highSchoolState'],
+						'dob' => $row['dob'],
+						'yearInSchool' => $row['yearInSchool'],
+						'GPA' => $row['GPA'],
+						'tookTest' => $row['tookTest'],
+						'state' => $row['state']
+					)
+				);
+			}, $this->db->select('students.*, meetings.*')->join('students', 'students.id = meetings.studentId')->get_where('meetings', array('facultyId' => $faculty['id']))->result_array());
 		}
 		$this->response($faculty);
 	}
@@ -233,6 +265,12 @@ class Api extends REST_Controller {
 		} else {
 			$this->reponse(0);
 		}
+	}
+
+	public function faculty_put() {
+		$faculty = $this->put();
+		unset($faculty['department']);
+		$this->response($this->db->update('faculty', $faculty, array('id' => $faculty['id'])));
 	}
 
 }

@@ -31,7 +31,7 @@ public class FacultyMeetingActivity extends Activity {
 		studentPhone.setText("" + meeting.student.cellPhone);
 		final TextView location = (TextView) findViewById(R.id.facultyLocationTextView);
 		location.setText(meeting.location);
-		EditText notes = (EditText) findViewById(R.id.notes);
+		TextView notes = (TextView) findViewById(R.id.notes);
 		notes.setText(meeting.notes);
 		
 		location.setOnClickListener(new View.OnClickListener() {

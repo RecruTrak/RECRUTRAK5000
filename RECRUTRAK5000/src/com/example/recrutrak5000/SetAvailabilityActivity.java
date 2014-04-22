@@ -1,5 +1,12 @@
 package com.example.recrutrak5000;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+import retrofit.mime.TypedInput;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SetAvailabilityActivity extends Activity {
 
@@ -16,42 +24,63 @@ public class SetAvailabilityActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.set_availability_activity);
 		final Faculty faculty = (Faculty) getIntent().getExtras().get("faculty");
-		/*final Button setAvailability = (Button) findViewById(R.id.button1);
+		final Button setAvailability = (Button) findViewById(R.id.button1);
+		final CheckBox[] checkBox = {
+			(CheckBox) findViewById(R.id.checkBox1),
+			(CheckBox) findViewById(R.id.checkBox2),
+			(CheckBox) findViewById(R.id.checkBox3),
+			(CheckBox) findViewById(R.id.checkBox4),
+			(CheckBox) findViewById(R.id.checkBox5),
+			(CheckBox) findViewById(R.id.checkBox6),
+			(CheckBox) findViewById(R.id.checkBox7),
+			(CheckBox) findViewById(R.id.checkBox8),
+			(CheckBox) findViewById(R.id.checkBox9),
+			(CheckBox) findViewById(R.id.checkBox10)
+		};
+		final EditText exemptions = (EditText) findViewById(R.id.editText1);
+		
+		for (int i = 0; i < 10; i++) {
+			if ((faculty.availability & (1 << i)) > 0) checkBox[i].toggle();
+		}
+
 		setAvailability.setOnClickListener(new View.OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(SetAvailabilityActivity.this, SetAvailabilityActivity.class);
-				startActivity(intent);
+				int availability = 0;
+				for (int i = 0; i < 10; i++) {
+					if (checkBox[i].isChecked()) availability += 1 << i;
+				}
+				
+				faculty.availability = availability;
+				faculty.exemptions = exemptions.getText().toString();
+				
+				RestAPI.putFaculty(faculty, new Callback<Boolean>() {
+					@Override
+					public void success(Boolean result, Response response) {
+						Toast.makeText(SetAvailabilityActivity.this, "Availability saved", Toast.LENGTH_SHORT).show();
+					}
+					
+					@Override
+					public void failure(RetrofitError error) {
+						error.printStackTrace();
+						if (error.getResponse() != null) {
+							TypedInput err = error.getResponse().getBody();
+					    	char errText[] = new char[(int)err.length()];
+					    	try {
+					    		InputStream errStream = err.in();
+						    	int i = 0, d;
+						    	while ((d = errStream.read()) != -1) {
+						    		errText[i++] = (char)d;
+						    	}
+					    	} catch (IOException e) {
+					    		System.out.println("This is really bad.");
+					    	}
+					    	System.out.println(errText);
+						}
+					}
+				});
 			}
-		});*/
-		int availability = 0;
-		CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
-		if (checkBox1.isChecked()) availability += (int) Math.pow(2.0, 0.0);
-		CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
-		if (checkBox2.isChecked()) availability += (int) Math.pow(2.0, 1.0);
-		CheckBox checkBox3 = (CheckBox) findViewById(R.id.checkBox3);
-		if (checkBox3.isChecked()) availability += (int) Math.pow(2.0, 2.0);
-		CheckBox checkBox4 = (CheckBox) findViewById(R.id.checkBox4);
-		if (checkBox4.isChecked()) availability += (int) Math.pow(2.0, 3.0);
-		CheckBox checkBox5 = (CheckBox) findViewById(R.id.checkBox5);
-		if (checkBox5.isChecked()) availability += (int) Math.pow(2.0, 4.0);
-		CheckBox checkBox6 = (CheckBox) findViewById(R.id.checkBox6);
-		if (checkBox6.isChecked()) availability += (int) Math.pow(2.0, 5.0);
-		CheckBox checkBox7 = (CheckBox) findViewById(R.id.checkBox7);
-		if (checkBox7.isChecked()) availability += (int) Math.pow(2.0, 6.0);
-		CheckBox checkBox8 = (CheckBox) findViewById(R.id.checkBox8);
-		if (checkBox8.isChecked()) availability += (int) Math.pow(2.0, 7.0);
-		CheckBox checkBox9 = (CheckBox) findViewById(R.id.checkBox9);
-		if (checkBox9.isChecked()) availability += (int) Math.pow(2.0, 8.0);
-		CheckBox checkBox10 = (CheckBox) findViewById(R.id.checkBox10);
-		if (checkBox10.isChecked()) availability += (int) Math.pow(2.0, 9.0);
-		
-		EditText exemptions = (EditText) findViewById(R.id.editText1);
-		
-		faculty.availability = availability;
-		faculty.exemptions = exemptions.getText().toString();
-		
+		});
 		
 	}
 

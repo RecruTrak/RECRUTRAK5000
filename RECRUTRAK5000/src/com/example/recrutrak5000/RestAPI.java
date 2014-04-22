@@ -5,6 +5,7 @@ import retrofit.RestAdapter;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.PUT;
 import retrofit.http.Path;
 
 public class RestAPI {
@@ -48,6 +49,12 @@ public class RestAPI {
 			@Path("staffId") int staffId,
 			Callback<Integer> cb
 		);
+		
+		@PUT("/faculty")
+		void putFaculty(
+			@Body Faculty faculty,
+			Callback<Boolean> cb
+		);
 	}
 
 	public static void studentLogin(int id, String lastName, Callback<Student> cb) {
@@ -68,5 +75,9 @@ public class RestAPI {
 	
 	public static void postMeeting(Meeting meeting, int requestId, int studentId, int facultyId, int staffId, Callback<Integer> cb) {
 		api.postMeeting(meeting, requestId, studentId, facultyId, staffId, cb);
+	}
+	
+	public static void putFaculty(Faculty faculty, Callback<Boolean> cb) {
+		api.putFaculty(faculty, cb);
 	}
 }
