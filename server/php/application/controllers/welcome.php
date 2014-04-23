@@ -20,9 +20,6 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$a = array('a' => 1);
-		var_dump(isset($a['a']));
-		unset($a['a']);
-		var_dump(isset($a['a']));
+		echo date('g:i A', strToTime('15:30:00'));
 	}
 }

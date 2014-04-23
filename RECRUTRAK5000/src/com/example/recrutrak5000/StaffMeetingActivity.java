@@ -33,7 +33,7 @@ public class StaffMeetingActivity extends Activity {
 		studentEmail.setText(meeting.student.email);
 		final TextView studentPhone = (TextView) findViewById(R.id.studentPhoneField);
 		studentPhone.setText("" + meeting.student.cellPhone);
-		final TextView location = (TextView) findViewById(R.id.facultyLocationTextView);
+		final TextView location = (TextView) findViewById(R.id.staffLocationTextView);
 		location.setText(meeting.location);
 		
 		location.setOnClickListener(new View.OnClickListener() {

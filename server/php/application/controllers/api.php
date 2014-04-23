@@ -4,10 +4,10 @@ ini_set('session.use_cookies', '0');
 
 class Api extends REST_Controller {
 
-	public function studentLogin_get($id, $lastName) {
-		$student = $this->db->get_where('students',  array('id' => $id, 'lastName' => $lastName))->row_array();
+	public function studentLogin_get($loginId, $lastName) {
+		$student = $this->db->get_where('students',  array('loginId' => $loginId, 'lastName' => $lastName))->row_array();
 		if (!empty($student)) {
-			$student['requests'] = $this->db->get_where('requests', array('studentId' => $id))->result_array();
+			$student['requests'] = $this->db->get_where('requests', array('studentId' => $student['id']))->result_array();
 			$student['meetings'] = array_map(function($row) {
 				return array(
 					'id' => $row['id'],
@@ -26,10 +26,10 @@ class Api extends REST_Controller {
 						'exemptions' => $row['exemptions']
 					)
 				);
-			}, $this->db->select('faculty.*, meetings.*')->join('faculty', 'faculty.id = meetings.facultyId')->get_where('meetings', array('studentId' => $id))->result_array());
+			}, $this->db->select('faculty.*, meetings.*')->join('faculty', 'faculty.id = meetings.facultyId')->get_where('meetings', array('studentId' => $student['id']))->result_array());
 			$student['departments'] = array_map(function($row) {
 				return $row['departmentId'];
-			}, $this->db->get_where('studentsDepartments', array('studentId' => $id))->result_array());
+			}, $this->db->get_where('studentsDepartments', array('studentId' => $student['id']))->result_array());
 		}
 		$this->response($student);
 	}
@@ -210,9 +210,9 @@ class Api extends REST_Controller {
 		} else {
 			unset($student['id']);
 			$this->db->insert('students', $student);
-			$insertId = $this->db->insert_id();
-			$id = (strlen($student['firstName']) % 9 + 1) * 100000 + (strlen($student['lastName']) % 9 + 1) * 10000 + $insertId;
-			$this->db->update('students', array('id' => $id), array('id' => $insertId));
+			$id = $this->db->insert_id();
+			$loginId = (strlen($student['firstName']) % 9 + 1) * 100000 + (strlen($student['lastName']) % 9 + 1) * 10000 + $id;
+			$this->db->update('students', array('loginId' => $loginId), array('id' => $id));
 		}
 		$request['studentId'] = $id;
 		$this->db->insert('requests', $request);
@@ -225,7 +225,7 @@ class Api extends REST_Controller {
 				$this->email->from('recrutrak5000@gmail.com');
 				$this->email->to($student['email']);
 				$this->email->subject('Your RECRUTRAK5000 ID');
-				$this->email->message('Welcome to RECRUTRAK5000!' . "\n\n" . 'Your login information:' . "\n\n" . 'ID: ' . $id . "\n" . 'Last Name: ' . $student['lastName'] . "\n\n" . 'Thank you for using RECRUTRAK5000.');
+				$this->email->message('Welcome to RECRUTRAK5000!' . "\n\n" . 'Your login information:' . "\n\n" . 'ID: ' . $loginId . "\n" . 'Last Name: ' . $student['lastName'] . "\n\n" . 'Thank you for using RECRUTRAK5000.');
 				$this->email->send();
 			}
 			$this->response($id);
@@ -257,11 +257,24 @@ class Api extends REST_Controller {
 		$meeting['studentId'] = $studentId;
 		$meeting['facultyId'] = $facultyId;
 		$meeting['staffId'] = $staffId;
+		unset($meeting['id']);
+		unset($meeting['student']);
+		unset($meeting['faculty']);
+		unset($meeting['staff']);
 		$this->db->trans_start();
 		$this->db->delete('requests', array('id' => $requestId));
 		$this->db->insert('meetings', $meeting);
+		$id = $this->db->insert_id();
+		$student = $this->db->get_where('students', array('id' => $studentId))->row_array();
+		$faculty = $this->db->select('faculty.*, departments.name')->join('departments', 'departments.id = faculty.departmentId')->get_where('faculty', array('faculty.id' => $facultyId))->row_array();
 		if ($this->db->trans_complete()) {
-			$this->response($this->db->insert_id());
+			$this->load->library('email');
+			$this->email->from('recrutrak5000@gmail.com');
+			$this->email->to($student['email']);
+			$this->email->subject('Meeting Scheduled');
+			$this->email->message('You have been scheduled for a meeting with ' . $faculty['firstName'] . ' ' . $faculty['lastName'] . ' from the ' . $faculty['name'] . ' department.' . "\n\n" . 'Location: ' . $meeting['location'] . "\n" . 'Date: ' . date('D M j, Y', strToTime($meeting['date'])) . "\n" . 'Time: ' . date('g:i A', strToTime($meeting['startTime'])) . "\n\n" . $faculty['firstName'] . ' '. $faculty['lastName'] . "\n" . 'Email Address: ' . $faculty['email'] . "\n" . 'Phone Number: (' . substr($faculty['phone'], 0, 3) . ') ' . substr($faculty['phone'], 3, 3) . '-' . substr($faculty['phone'], 6) . "\n\n" . 'Thank you for using RECRUTRAK5000.');
+			$this->email->send();
+			$this->response($id);
 		} else {
 			$this->reponse(0);
 		}

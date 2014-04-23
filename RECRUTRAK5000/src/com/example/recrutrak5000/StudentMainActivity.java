@@ -1,14 +1,7 @@
 package com.example.recrutrak5000;
 
-import java.util.Calendar;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,9 +16,6 @@ public class StudentMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.student_main_activity);
-		
-		Alarm a = new Alarm(getApplicationContext());
-		a.setAlarm();
 		
 		final Student student = (Student) getIntent().getExtras().get("student");
 
