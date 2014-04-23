@@ -35,6 +35,7 @@ public class CreateMeetingActivity extends Activity {
 	Staff staff;
 	Faculty faculty;
 	String startTime, endTime, location;
+	int timeIdx;
 
 	Meeting newMeeting = new Meeting();
 	@Override
@@ -52,19 +53,36 @@ public class CreateMeetingActivity extends Activity {
 		TextView meetDate = (TextView) findViewById(R.id.meetingDateTextView);
 		meetDate.setText(request.visitDate);
 		
-		String times[] = {"Choose...", "8:30 AM", "3:30 PM"};
-		String locations[] = {"Choose...", "142 Hardaway", "230 Hardaway", "114 HMComer", "224 HMComer", "123 Houser", "222 Houser", "1130 SEC", "2200 SERC"};
+		final String times[] = {"Choose...", "8:30 AM", "3:30 PM"};
+		final String locations[] = {"Choose...", "142 Hardaway", "230 Hardaway", "114 HMComer", "224 HMComer", "123 Houser", "222 Houser", "1130 SEC", "2200 SERC"};
 		//TODO verify locations
 		// Selection of the spinner
-		Spinner spinnerTime = (Spinner) findViewById(R.id.spMeetingTime);
+		final Spinner spinnerTime = (Spinner) findViewById(R.id.spMeetingTime);
 		Spinner spinnerLocation = (Spinner) findViewById(R.id.spLocation);
 
 		// Application of the Array to the Spinner
 		ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, times);
 		spinnerArrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
 		spinnerTime.setAdapter(spinnerArrayAdapter1);
-		int timeIdx = spinnerTime.getSelectedItemPosition();
-		startTime = times[spinnerTime.getSelectedItemPosition()];
+		AdapterView.OnItemSelectedListener list = new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+					
+						timeIdx = spinnerTime.getSelectedItemPosition();
+						startTime = times[spinnerTime.getSelectedItemPosition()];
+						System.err.print("times being populated:" + startTime + "\n");
+					}
+						
+					
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		spinnerTime.setOnItemSelectedListener(list);
 		
 		Calendar cal = Calendar.getInstance();
 		cal.set(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
@@ -149,13 +167,15 @@ public class CreateMeetingActivity extends Activity {
 		newMeeting.faculty = faculty;
 		//newMeeting.id = ;	set by server
 		newMeeting.location = location;
+		System.err.print("times set in meeting:" + startTime + "\n");
 		newMeeting.startTime = startTime;
+		//newMeeting.endTime = endTime;
 		newMeeting.student = student;
 		
 		
 		
 		
-		System.out.println(newMeeting);
+		System.err.println(newMeeting);
 		
 		// Send request to DB
 		
