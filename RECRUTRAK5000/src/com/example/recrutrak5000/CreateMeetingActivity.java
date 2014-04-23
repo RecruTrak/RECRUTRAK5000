@@ -58,7 +58,7 @@ public class CreateMeetingActivity extends Activity {
 		//TODO verify locations
 		// Selection of the spinner
 		final Spinner spinnerTime = (Spinner) findViewById(R.id.spMeetingTime);
-		Spinner spinnerLocation = (Spinner) findViewById(R.id.spLocation);
+		final Spinner spinnerLocation = (Spinner) findViewById(R.id.spLocation);
 
 		// Application of the Array to the Spinner
 		ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, times);
@@ -143,7 +143,21 @@ public class CreateMeetingActivity extends Activity {
 		ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, locations);
 		spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
 		spinnerLocation.setAdapter(spinnerArrayAdapter3);
-		location = locations[spinnerLocation.getSelectedItemPosition()];
+		AdapterView.OnItemSelectedListener fList = new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				location = locations[spinnerLocation.getSelectedItemPosition()];
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		spinnerLocation.setOnItemSelectedListener(fList);
+		
 		
 		
 		
@@ -188,8 +202,9 @@ public class CreateMeetingActivity extends Activity {
 		    		Toast.makeText(CreateMeetingActivity.this, "Meeting ID: " + meetingId, Toast.LENGTH_LONG).show();
 			    	new AlertDialog.Builder(CreateMeetingActivity.this).setTitle("Meeting submitted successfully!").setMessage("Meeting Created. Emails will be sent to all participants with the relevant information.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,int id) {
-							Intent intent = new Intent(CreateMeetingActivity.this, MainActivity.class);
-							startActivity(intent);
+							//Intent intent = new Intent(CreateMeetingActivity.this, StaffMainActivity.class);
+							//startActivity(intent);
+							finish();
 						}
 					}).create().show();
 		    	} else {
