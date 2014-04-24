@@ -1,4 +1,4 @@
-<?php require_once(APPPATH . 'libraries/REST_Controller.php');
+<?php require_once(APPPATH . 'libraries/REST_Controller.php'); include(APPPATH . 'iCal/iCalWriter.php');
 
 ini_set('session.use_cookies', '0');
 
@@ -268,11 +268,27 @@ class Api extends REST_Controller {
 		$student = $this->db->get_where('students', array('id' => $studentId))->row_array();
 		$faculty = $this->db->select('faculty.*, departments.name')->join('departments', 'departments.id = faculty.departmentId')->get_where('faculty', array('faculty.id' => $facultyId))->row_array();
 		if ($this->db->trans_complete()) {
+			if (class_exists('iCalWriter')) {
+				$start = getdate(strToTime($meeting['date'] . ' ' . $meeting['startTime']));
+				$end = getdate(strToTime($meeting['date'] . ' ' . $meeting['endTime']));
+				$event = new iCalEvent();
+				$event->setStart($start['year'], sprintf('%02d', $start['mon']), sprintf('%02d', $start['mday']), false, true, 'America/Chicago', true, sprintf('%02d', $start['hours']), sprintf('%02d', $start['minutes']), sprintf('%02d', $start['seconds']));
+				$event->setEnd($end['year'], sprintf('%02d', $end['mon']), sprintf('%02d', $end['mday']), false, true, 'America/Chicago', true, sprintf('%02d', $end['hours']), sprintf('%02d', $end['minutes']), sprintf('%02d', $end['seconds']));
+				$event->setShortDescription('Meeting with Dr. ' . $faculty['lastName']);
+				$event->setLongDescription('Location: ' . $meeting['location'] . "\n"  . 'Faculty: Dr. ' . $faculty['firstName'] . ' ' . $faculty['lastName'] . "\n" . 'Email Address: ' . $faculty['email'] . "\n" . 'Phone Number: ' . $faculty['phone']);
+				$ics = new iCalWriter();
+				$ics->setFileOutput();
+				$ics->setFileName(APPPATH . 'cache/Meeting-' . $id . '-Student.ics');
+				$ics->start();
+				$ics->add($event);
+				$ics->end();
+			}
 			$this->load->library('email');
 			$this->email->from('recrutrak5000@gmail.com');
 			$this->email->to($student['email']);
 			$this->email->subject('Meeting Scheduled');
 			$this->email->message('You have been scheduled for a meeting with ' . $faculty['firstName'] . ' ' . $faculty['lastName'] . ' from the ' . $faculty['name'] . ' department.' . "\n\n" . 'Location: ' . $meeting['location'] . "\n" . 'Date: ' . date('D M j, Y', strToTime($meeting['date'])) . "\n" . 'Time: ' . date('g:i A', strToTime($meeting['startTime'])) . "\n\n" . $faculty['firstName'] . ' '. $faculty['lastName'] . "\n" . 'Email Address: ' . $faculty['email'] . "\n" . 'Phone Number: (' . substr($faculty['phone'], 0, 3) . ') ' . substr($faculty['phone'], 3, 3) . '-' . substr($faculty['phone'], 6) . "\n\n" . 'Thank you for using RECRUTRAK5000.');
+			$this->email->attach($ics->fileName);
 			$this->email->send();
 			$this->response($id);
 		} else {
