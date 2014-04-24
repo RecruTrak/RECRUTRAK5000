@@ -163,13 +163,11 @@ public class CreateMeetingActivity extends Activity {
 			
 		
 		newMeeting.date = request.visitDate;
-		newMeeting.endTime = "";
 		newMeeting.faculty = faculty;
-		//newMeeting.id = ;	set by server
 		newMeeting.location = location;
 		System.err.print("times set in meeting:" + startTime + "\n");
 		newMeeting.startTime = startTime;
-		//newMeeting.endTime = endTime;
+		newMeeting.endTime = request.visitDate + " +1 hour";
 		newMeeting.student = student;
 		
 		
