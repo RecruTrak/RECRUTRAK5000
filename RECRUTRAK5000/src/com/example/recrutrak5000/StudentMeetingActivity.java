@@ -26,21 +26,20 @@ public class StudentMeetingActivity extends Activity {
 		TextView faculty = (TextView) findViewById(R.id.facultyTextView);
 		faculty.setText(meeting.faculty.firstName + " " + meeting.faculty.lastName);
 		TextView facEmail = (TextView) findViewById(R.id.emailField);
-		facEmail.setText("faculty doesn't have email parameter");
+		facEmail.setText(meeting.faculty.email);
 		TextView facPhone = (TextView) findViewById(R.id.phoneField);
-		facPhone.setText("faculty doesn't have phone parameter");
+		facPhone.setText(""+meeting.faculty.phone);
 		TextView location = (TextView) findViewById(R.id.locationTextView);
 		location.setText(meeting.location);
 		EditText notes = (EditText) findViewById(R.id.notes);
 		notes.setText(meeting.notes);
 		
-		final TextView viewLocationBtn = (TextView) findViewById(R.id.locationTextView);
-		viewLocationBtn.setOnClickListener(new View.OnClickListener() {
+		location.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StudentMeetingActivity.this, MapViewActivity.class);
-				intent.putExtra("locName", "1234 SERC");
+				intent.putExtra("meeting", meeting);
 				startActivity(intent);
 			}
 		});

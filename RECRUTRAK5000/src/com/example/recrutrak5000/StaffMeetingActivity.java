@@ -26,9 +26,9 @@ public class StaffMeetingActivity extends Activity {
 		TextView faculty = (TextView) findViewById(R.id.facultyTextView);
 		faculty.setText(meeting.faculty.firstName + " " + meeting.faculty.lastName);
 		final TextView facEmail = (TextView) findViewById(R.id.facultyEmailField);
-		facEmail.setText("faculty doesn't have email parameter");
+		facEmail.setText(meeting.faculty.email);
 		final TextView facPhone = (TextView) findViewById(R.id.facultyPhoneField);
-		facPhone.setText("faculty doesn't have phone parameter");
+		facPhone.setText(""+meeting.faculty.phone);
 		final TextView studentEmail = (TextView) findViewById(R.id.studentEmailField);
 		studentEmail.setText(meeting.student.email);
 		final TextView studentPhone = (TextView) findViewById(R.id.studentPhoneField);
@@ -41,6 +41,7 @@ public class StaffMeetingActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StaffMeetingActivity.this, MapViewActivity.class);
+				intent.putExtra("meeting", meeting);
 				startActivity(intent);
 			}
 		});

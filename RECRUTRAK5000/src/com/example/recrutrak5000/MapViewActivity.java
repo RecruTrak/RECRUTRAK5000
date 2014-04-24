@@ -24,7 +24,7 @@ public class MapViewActivity extends Activity {
 	static final LatLng SERC = new LatLng(33.214321, -87.543813);
 	static final LatLng houser = new LatLng(33.214383, -87.544532);
 	static final LatLng hardaway = new LatLng(33.213234, -87.544741);
-	
+	Meeting meeting;
 	
 
 	private GoogleMap map;
@@ -34,7 +34,8 @@ public class MapViewActivity extends Activity {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.map_view_activity);
 	    Map<String,LatLng> locs = new HashMap<String, LatLng>();
-	    String[] parts = getIntent().getStringExtra("locName").split(" ");
+	    meeting = (Meeting) getIntent().getExtras().get("meeting");
+	    String[] parts = meeting.location.split(" ");
 		String loc = parts[1];
 		locs.put("HMComer", hmComer);
 		locs.put("SEC", SEC);
@@ -47,8 +48,8 @@ public class MapViewActivity extends Activity {
 	    if (map!=null){
 	      //Marker comer = map.addMarker(new MarkerOptions().position(hmComer)
 	    	Marker marker = map.addMarker(new MarkerOptions().position(locs.get(loc))
-	          .title("Science and Engineering Complex")
-	          .snippet("Meeting in SEC 3447 at 3:20"));
+	          .title(meeting.location)
+	          .snippet("At " + meeting.startTime));
 	      
 	      //map.moveCamera(CameraUpdateFactory.newLatLngZoom(hmComer, 17));
 	      map.moveCamera(CameraUpdateFactory.newLatLngZoom(locs.get(loc), 17));

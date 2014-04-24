@@ -65,4 +65,5 @@
 	<string name="prospective_info">Prospective Student Information</string>
 	<string name="name_star">Name *</string>
 	<string name="dob">Date of Birth (MM/DD/YYYY)</string>
+	<string name="no_exception">No exception</string>
 </resources>
