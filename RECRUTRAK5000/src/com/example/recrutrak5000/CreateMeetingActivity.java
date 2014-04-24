@@ -14,6 +14,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -99,7 +100,7 @@ public class CreateMeetingActivity extends Activity {
 						
 						int offset;
 						if (timeIdx > 0) {
-							offset = (dayOffset*2) + (timeIdx - 1);
+							offset = dayOffset + (timeIdx - 1);
 						
 							System.err.println("offset " + offset + " " + dayOffset + " " + timeIdx + " " + Calendar.THURSDAY);
 							
@@ -232,9 +233,8 @@ public class CreateMeetingActivity extends Activity {
 		    		Toast.makeText(CreateMeetingActivity.this, "Meeting ID: " + meetingId, Toast.LENGTH_LONG).show();
 			    	new AlertDialog.Builder(CreateMeetingActivity.this).setTitle("Meeting submitted successfully!").setMessage("Meeting Created. Emails will be sent to all participants with the relevant information.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,int id) {
-							//Intent intent = new Intent(CreateMeetingActivity.this, StaffMainActivity.class);
-							//startActivity(intent);
-							finish();
+							Intent intent = new Intent(CreateMeetingActivity.this, MainActivity.class);
+							startActivity(intent);
 						}
 					}).create().show();
 		    	} else {
