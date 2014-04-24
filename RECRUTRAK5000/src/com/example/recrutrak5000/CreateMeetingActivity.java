@@ -10,21 +10,15 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedInput;
-
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,7 +41,7 @@ public class CreateMeetingActivity extends Activity {
 		staff = (Staff) getIntent().getExtras().get("staff");
 
 		
-		String date[] = request.visitDate.split("-");
+		final String date[] = request.visitDate.split("-");
 		
 		final TextView viewLocationBtn = (TextView) findViewById(R.id.createMeetingButton);
 		TextView meetDate = (TextView) findViewById(R.id.meetingDateTextView);
@@ -59,7 +53,13 @@ public class CreateMeetingActivity extends Activity {
 		// Selection of the spinner
 		final Spinner spinnerTime = (Spinner) findViewById(R.id.spMeetingTime);
 		final Spinner spinnerLocation = (Spinner) findViewById(R.id.spLocation);
+		
+		final List<Faculty> fac = new ArrayList<Faculty>();
 
+		final Spinner spinnerFaculty = (Spinner) findViewById(R.id.spFaculty);	
+		
+		final Context c = this; 
+		
 		// Application of the Array to the Spinner
 		ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, times);
 		spinnerArrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
@@ -72,6 +72,94 @@ public class CreateMeetingActivity extends Activity {
 						timeIdx = spinnerTime.getSelectedItemPosition();
 						startTime = times[spinnerTime.getSelectedItemPosition()];
 						System.err.print("times being populated:" + startTime + "\n");
+						
+						Calendar cal = Calendar.getInstance();
+						cal.set(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
+						int dayOffset = cal.get(Calendar.DAY_OF_WEEK);
+						
+						System.err.println("dayOffset = " + dayOffset);
+						
+						switch (dayOffset) {
+							case 4:
+								dayOffset = 0;
+								break;
+							case 5:
+								dayOffset = 2;
+								break;
+							case 6:
+								dayOffset = 4;
+								break;
+							case 7:
+								dayOffset = 6;
+								break;
+							case 1:
+								dayOffset = 8;
+								break;
+						}
+						
+						int offset;
+						if (timeIdx > 0) {
+							offset = (dayOffset*2) + (timeIdx - 1);
+						
+							System.err.println("offset " + offset + " " + dayOffset + " " + timeIdx + " " + Calendar.THURSDAY);
+							
+							fac.clear();
+							
+							for(Faculty f:staff.department.faculty) {
+								String available = Integer.toBinaryString(f.availability);
+								while(available.length() < 10) {
+									available = "0"+available;
+								}
+								if (available.length() - 1 >= offset && available.charAt(offset) == '1') {
+									fac.add(f);
+									System.err.println(f.firstName + " added");
+								}
+	//							if (available.length() >= offset)
+	//								System.err.println(f.firstName + " looked at. " + available + " " + offset + " " + available.charAt(offset));
+							}
+							
+							final String[] facDisp = new String[fac.size()];// = (String[]) fac.toArray();
+							
+							if(fac.size() > 0) {
+								for(int i =0;i < fac.size();i++) {
+									facDisp[i] = fac.get(i).firstName + " " + fac.get(i).lastName;
+								}
+							}
+							
+							// Application of the Array to the Spinner
+							final ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(c, android.R.layout.simple_spinner_item, facDisp);
+							spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+							spinnerFaculty.setAdapter(spinnerArrayAdapter2);
+							
+							AdapterView.OnItemSelectedListener listener = new AdapterView.OnItemSelectedListener() {
+								@Override
+								public void onItemSelected(AdapterView<?> arg0, View arg1,
+										int arg2, long arg3) {
+									TextView exemptions = (TextView) findViewById(R.id.textView6);
+									String fname = facDisp[spinnerFaculty.getSelectedItemPosition()].split(" ")[0];
+									String lname = facDisp[spinnerFaculty.getSelectedItemPosition()].split(" ")[1];
+									
+									for(Faculty f: fac) {
+										if(f.firstName.equals(fname) && f.lastName.equals(lname)) {
+											faculty = f;
+											exemptions.setText(f.exemptions);
+											break;
+										}
+											
+										
+									}
+									//Faculty f = (Faculty) spinnerFaculty.getSelectedItem();
+									//exemptions.setText(faculty.exemptions);
+								}
+
+								@Override
+								public void onNothingSelected(AdapterView<?> arg0) {
+									// TODO Auto-generated method stub
+									
+								}
+							};
+							spinnerFaculty.setOnItemSelectedListener(listener);
+						}
 					}
 						
 					
@@ -84,64 +172,8 @@ public class CreateMeetingActivity extends Activity {
 		};
 		spinnerTime.setOnItemSelectedListener(list);
 		
-		Calendar cal = Calendar.getInstance();
-		cal.set(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
-		int dayOffset = cal.get(Calendar.DAY_OF_WEEK)-1;
-		int offset = (dayOffset*2) + (timeIdx-1);
-		
-		final List<Faculty> fac = new ArrayList<Faculty>();
-		
-		for(Faculty f:staff.department.faculty) {
-			String available = Integer.toBinaryString(f.availability);
-			while(available.length() < 10) {
-				available = "0"+available;
-			}
-			if (available.length() >= offset && available.charAt(offset) == '1')
-				fac.add(f);
-		}
-		
-		
-		
-		final Spinner spinnerFaculty = (Spinner) findViewById(R.id.spFaculty);	
-		final String[] facDisp = new String[fac.size()];// = (String[]) fac.toArray();
-		for(int i =0;i < fac.size();i++) {
-			facDisp[i] = fac.get(i).firstName + " " + fac.get(i).lastName;
-		}
-		// Application of the Array to the Spinner
-		ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, facDisp);
-		spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-		spinnerFaculty.setAdapter(spinnerArrayAdapter2);
-		
-		AdapterView.OnItemSelectedListener listener = new AdapterView.OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				TextView exemptions = (TextView) findViewById(R.id.textView6);
-				String fname = facDisp[spinnerFaculty.getSelectedItemPosition()].split(" ")[0];
-				String lname = facDisp[spinnerFaculty.getSelectedItemPosition()].split(" ")[1];
-				
-				for(Faculty f: fac) {
-					if(f.firstName.equals(fname) && f.lastName.equals(lname)) {
-						faculty = f;
-						exemptions.setText(f.exemptions);
-						break;
-					}
-						
-					
-				}
-				//Faculty f = (Faculty) spinnerFaculty.getSelectedItem();
-				//exemptions.setText(faculty.exemptions);
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		};
-		spinnerFaculty.setOnItemSelectedListener(listener);
 		ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, locations);
-		spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+		spinnerArrayAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
 		spinnerLocation.setAdapter(spinnerArrayAdapter3);
 		AdapterView.OnItemSelectedListener fList = new AdapterView.OnItemSelectedListener() {
 			@Override
